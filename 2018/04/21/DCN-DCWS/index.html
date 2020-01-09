@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>无线交换机 | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="路由交换技术,Cisco,WirelessSwitch">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://ctf.yuanlichenai.cn/">
+                <i class="icon icon-lg icon-flag"></i>
+                CTF
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>无线交换机</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">无线交换机</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-21T10:34:29.000Z" itemprop="datePublished" class="page-time">
+  2018-04-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Network/">Network</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-DCN-DCWS" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">无线交换机</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-21 18:34:29" datetime="2018-04-21T10:34:29.000Z" itemprop="datePublished">2018-04-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Network/">Network</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/2018/04/21/DCN-DCWS/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2018/04/21/DCN-DCWS/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>信息安全管理大赛AC+AP部分，</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="部分拓扑说明"><a href="#部分拓扑说明" class="headerlink" title="部分拓扑说明"></a>部分拓扑说明</h1><figure class="image-box">
+                <a rel="无线交换机" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/DCN-DCWS/1.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/DCN-DCWS/1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>基于dhcp option 43发现AP，所以需要先配置dhcp服务，<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">service dhcp <span class="comment">#开启服务</span></span><br><span class="line">ip dhcp excluded-address 192.168.2.1 192.168.2.2 <span class="comment">#排除地址</span></span><br><span class="line">ip dhcp pool vlan2</span><br><span class="line">network-address 192.168.2.0 255.255.255.0</span><br><span class="line">default-router 192.168.2.1</span><br><span class="line">dns-server 114.114.114.114</span><br><span class="line"></span><br><span class="line"><span class="comment">#与AP相连的接口必须划分到对应vlan，这里是vlan 2</span></span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<h1 id="发现AP并注册"><a href="#发现AP并注册" class="headerlink" title="发现AP并注册"></a>发现AP并注册</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#IP十进制转16进制</span></span><br><span class="line">192.168.2.2</span><br><span class="line">1100 0000.1010 1000.0000 0010.0000 0010</span><br><span class="line">C0A80202</span><br><span class="line"></span><br><span class="line"><span class="comment">#开启option43服务</span></span><br><span class="line">ip dhcp pool ap</span><br><span class="line">option 43 hex 0104C0A80202 <span class="comment">#0104固定值，后面是16进制IP</span></span><br><span class="line">option 60 ascii udhcp 1.18.2 <span class="comment">#固定值，1.18.2是AP版本，详见配置手册</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置无线部分</span></span><br><span class="line">wireless</span><br><span class="line">no auto-ip-assign <span class="comment">#关闭IP自动查找</span></span><br><span class="line"><span class="built_in">enable</span> <span class="comment">#开启</span></span><br><span class="line">no discovery vlan-list 1 <span class="comment">#不查找vlan1，默认配置查找vlan1</span></span><br><span class="line">discovery vlan-list 2 <span class="comment">#查找vlan2</span></span><br><span class="line">static-ip  192.168.2.2 <span class="comment">#静态AC管理IP</span></span><br><span class="line">show wireless</span><br><span class="line"></span><br><span class="line">DCWS(config)<span class="comment">#show wireless ap failure status</span></span><br><span class="line"></span><br><span class="line">    MAC Address</span><br><span class="line"> (*) Peer Managed   IP Address                              Last Failure Type           Age</span><br><span class="line">------------------ --------------------------------------- ------------------------ ----------------</span><br><span class="line"> 00-03-0f-78-e2-40 192.168.2.3                             No Database Entry        0d:00:00:15</span><br><span class="line"></span><br><span class="line"><span class="comment">#将AP注册到数据库</span></span><br><span class="line">wireless</span><br><span class="line">DCWS(config-wireless)<span class="comment">#ap database 00-03-0f-78-e2-40</span></span><br><span class="line">DCWS(config-ap)<span class="comment">#exit</span></span><br><span class="line">DCWS(config-wireless)<span class="comment">#ap authentication none</span></span><br><span class="line">DCWS(config-wireless)<span class="comment">#show wireless ap status</span></span><br><span class="line"></span><br><span class="line">    MAC Address                                                            Configuration</span><br><span class="line"> (*) Peer Managed  IP Address                              Profile Status     Status           Age</span><br><span class="line">------------------ --------------------------------------- ------- ------- ------------- --------------</span><br><span class="line"> 00-03-0f-78-e2-40 192.168.2.3                                     Failed  Not Config    0d:00:00:58</span><br><span class="line"></span><br><span class="line">Total Access Points............................ 1</span><br><span class="line">DCWS(config-wireless)<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="无线网络配置"><a href="#无线网络配置" class="headerlink" title="无线网络配置"></a>无线网络配置</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#network配置</span></span><br><span class="line">DCWS(config-wireless)<span class="comment">#network 2</span></span><br><span class="line">DCWS(config-network)<span class="comment">#security mode wpa-personal //认证模式wpa</span></span><br><span class="line">DCWS(config-network)<span class="comment">#ssid DCN</span></span><br><span class="line">DCWS(config-network)<span class="comment">#vlan 2</span></span><br><span class="line">DCWS(config-network)<span class="comment">#wpa key chinaskill //认证密码</span></span><br><span class="line">DCWS(config-wireless)<span class="comment">#network 3</span></span><br><span class="line">DCWS(config-network)<span class="comment">#security mode none //不认证</span></span><br><span class="line">DCWS(config-network)<span class="comment">#ssid guest</span></span><br><span class="line">DCWS(config-network)<span class="comment">#vlan 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置AP的配置文件</span></span><br><span class="line">DCWS(config-wireless)<span class="comment">#ap profile 2 //配置AP 1配置</span></span><br><span class="line">DCWS(config-ap-profile)<span class="comment">#radio 2 //选择工作频率，1位2.4，位5</span></span><br><span class="line">DCWS(config-ap-profile-radio)<span class="comment">#enable //打开</span></span><br><span class="line">DCWS(config-ap-profile-radio)<span class="comment">#vap 1 //一个vap对应一个network</span></span><br><span class="line">DCWS(config-ap-profile-vap)<span class="comment">#enable</span></span><br><span class="line">DCWS(config-ap-profile-vap)<span class="comment">#network 2</span></span><br><span class="line">DCWS(config-ap-profile-radio)<span class="comment">#vap 2</span></span><br><span class="line">DCWS(config-ap-profile-vap)<span class="comment">#enable</span></span><br><span class="line">DCWS(config-ap-profile-vap)<span class="comment">#network 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#下发配置</span></span><br><span class="line">DCWS<span class="comment">#wireless ap profile apply 1</span></span><br><span class="line">All configurations will be send to the aps associated to this profile and associated clients on these aps will be disconnected.</span><br><span class="line">Are you sure you want to apply the profile configuration? [Y/N] y</span><br><span class="line">AP Profile apply is <span class="keyword">in</span> progress.</span><br><span class="line">DCWS<span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#注意：network1、profile1、vap0都有默认配置，尽量从第二个开始</span></span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-21T10:34:29.000Z" itemprop="dateUpdated">2018-04-21 18:34:29</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/04/21/DCN-DCWS/" target="_blank" rel="external">https://yuanlichenai.cn/2018/04/21/DCN-DCWS/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cisco/">Cisco</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WirelessSwitch/">WirelessSwitch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/路由交换技术/">路由交换技术</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/04/21/DCN-DCWS/&title=《无线交换机》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/04/21/DCN-DCWS/&title=《无线交换机》 — YuanLiChenAi&source=信息安全管理大赛AC+AP部分，
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/05/21/Pycharm/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Pycharm使用遇到的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/04/21/DCN-DCRS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">交换机安全加固</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部分拓扑说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">部分拓扑说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#发现AP并注册"><span class="post-toc-number">2.</span> <span class="post-toc-text">发现AP并注册</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#无线网络配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">无线网络配置</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/04/21/DCN-DCWS/&title=《无线交换机》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/04/21/DCN-DCWS/&title=《无线交换机》 — YuanLiChenAi&source=信息安全管理大赛AC+AP部分，
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aS3LCQAwFQO5/aVKVLcE8SYYKcs8qZRwz7YXQZ263eN1/1+OV4/X4v8f3PF4/eWFgYHwto7qVHHZ8/7NPj3lPqRgYGBdg5I/OA+4xJg/EyQ8ABgYGRjXtmySCGBgYGOcG3MkVDAwMjCojKWInq5puvrEWx8DA+EJGdTDwyb/fON/AwMD4EsZnQmc+KmjuBwMDYzXjuJicn22oNu+SNDHaEAYGxiJGNeTlY8hqOy8P0388AQMD4wKM/IuTsJtvNEFGrwADA2M1I0/desF3cowsOcaBgYFxBUYyMuyVu9VAWX0FUb2LgYGxgtErLHspXVLu5qnniydgYGAsZUxK0Ml48qxiGAMDYzej94g8yPZSvXItjoGBsZQxT9cmHb7q8Y6nrwADA+MyjGrzq9rpqr6aZCcn9PAwMDD+PaOaik1ab0nJOj/8gYGBsY8xSeDmx0+TlDQaP2BgYKxm9ArL+QAywTcBGBgYSxn5UbA8NZwE0KRIbo4wMTAw1jF6jbbeMYv8zhfpIAYGxmpGsvXewYjeFquDUgwMjN2MXoFaHSfMv6vcbsPAwFjBuBfXJJmrPr+QqmJgYKxmVAPcPCjnxXA1bcXAwNjNmLT+q0G5N4qIBgwYGBgXYFQD31mpWzVwl4+CYWBgXJiRB+JJ2E2GBBgYGBi9dK3HHg0MMDAwLsAYHclqtep6T8PAwLgm49zBQLWVlpe+J/+2YGBgfAfjB35uS6lAA3kgAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.4.4"></script>
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

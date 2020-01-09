@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>博客搭建笔记 | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="hexo,开发">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+        <link rel="stylesheet" href="/css/third-party/gitment.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="https://ctf.yuanlichenai.cn/">
+                <i class="icon icon-lg icon-flag"></i>
+                CTF
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>博客搭建笔记</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">博客搭建笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-20T02:24:20.000Z" itemprop="datePublished" class="page-time">
+  2018-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-blog" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">博客搭建笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-20 10:24:20" datetime="2018-03-20T02:24:20.000Z" itemprop="datePublished">2018-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Web/">Web</a></li></ul>
+
+
+
+            
+
+            
+
+
+<span class="post-comments-counter" id="/2018/03/20/blog/">
+    <span class="post-meta-item-icon">
+        <i class="icon icon-comment-o"></i>
+    </span>
+    
+    <a href="/2018/03/20/blog/#gitment-display-button" onclick="ShowGitment()">
+        <span class="post-comments-count gitment-comments-count" itemprop="commentsCount"></span>
+    </a>
+</span>
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>梳理下blog搭建所涉及的知识，框架：Node.js+Git+Hexo+Makrdown</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我的博客是基于node.js+git+Hexo+Markdown搭建的，代码托管在Github，域名从阿里云买的，映射到Github的IP。</p>
+<h1 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h1><h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>在 Windows 环境下安装 Node.js 非常简单，仅须到<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网下载</a>安装文件并执行即可完成安装。安装无脑下一步即可。</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>Git教程：<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">传送门</a><br>下载链接：<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a><br>安装完成后鼠标右键菜单多了两个选项<br><figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/git.png" title="右键菜单栏" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/git.png" alt="右键菜单栏" title="" class=""></a>
+                <p>右键菜单栏</p>
+            </figure></p>
+<h3 id="Git基本操作"><a href="#Git基本操作" class="headerlink" title="Git基本操作"></a>Git基本操作</h3><p>用于blog备份，现在已经不需要了<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建一个仓库</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment"># 配置仓库</span></span><br><span class="line">git config</span><br><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">git config --global user.email <span class="string">"email@example.com"</span></span><br><span class="line"><span class="comment"># 将远程仓库复制到本地</span></span><br><span class="line">git <span class="built_in">clone</span> 项目地址</span><br><span class="line"><span class="comment"># 抓取远程仓库所有分支更新并合并到本地</span></span><br><span class="line">git pull</span><br><span class="line"><span class="comment"># 将文件放到暂存区</span></span><br><span class="line">git add 文件名/文件夹名</span><br><span class="line">git add . 或者 git add --all <span class="comment"># 全部内容</span></span><br><span class="line"><span class="comment"># 提交你的修改</span></span><br><span class="line">git commit -m <span class="string">"注释"</span></span><br><span class="line"><span class="comment"># 远程仓库操作：增加/删除</span></span><br><span class="line">git remote add 仓库名称 仓库地址</span><br><span class="line">git remote rm 仓库名称</span><br><span class="line"><span class="comment"># 推送本地仓库更新到远程仓库</span></span><br><span class="line">git push -u 远程名 本地分支</span><br><span class="line"><span class="comment"># 合并分支</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure></p>
+<h4 id="Git提交远程库流程"><a href="#Git提交远程库流程" class="headerlink" title="Git提交远程库流程"></a>Git提交远程库流程</h4><p>将文件放入暂存区-&gt;提交修改-&gt;将本地更新推送到远程仓库</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>常用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g <span class="comment"># 全局安装hexo全家桶</span></span><br><span class="line">npm install <span class="comment"># 安装基础依赖</span></span><br><span class="line">hexo init blog <span class="comment"># 初始化配置</span></span><br><span class="line">hexo generate <span class="comment"># 生成本地静态文件,作用不大，本地查看不需要生成public文件夹；部署时直接hexo d默认先生成public(public文件夹不存在时)</span></span><br><span class="line">hexo server <span class="comment"># 查看本地效果,开启服务，地址：localhost:4000</span></span><br><span class="line">hexo deploy <span class="comment"># 远程部署,推送内容</span></span><br><span class="line">hexo new 文章名 <span class="comment"># 创建新文章</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="安装部署插件"><a href="#安装部署插件" class="headerlink" title="安装部署插件"></a>安装部署插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h4 id="旧的部署配置"><a href="#旧的部署配置" class="headerlink" title="旧的部署配置"></a>旧的部署配置</h4><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="keyword">type</span>: git</span><br><span class="line">    repo: git@git.coding.net:YuanLiChenAi/仓库名.git </span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure>
+<p>这是我参考的完整教程的博客 <a href="https://my.oschina.net/ryaneLee/blog/638440" target="_blank" rel="noopener">https://my.oschina.net/ryaneLee/blog/638440</a></p>
+<h4 id="新的部署配置"><a href="#新的部署配置" class="headerlink" title="新的部署配置"></a>新的部署配置</h4><p>配置代码比原方式多一个分支，可以将源文件备份在分支中。<br>以如下代码为例，需要提前在仓库创建分支，并把src分支设置为默认分支，不然<code>git clone</code>的内容是master的内容，也就是<code>hexo g</code>生成的public。<br><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="keyword">type</span>: git</span><br><span class="line">    repo: git@git.coding.net:YuanLiChenAi/仓库名.git </span><br><span class="line">    branch: master</span><br><span class="line">  - <span class="keyword">type</span>: git</span><br><span class="line">    repo: git@git.coding.net:YuanLiChenAi/仓库名.git </span><br><span class="line">    branch: src</span><br><span class="line">    extend_dirs: /</span><br><span class="line">    ignore_hidden: <span class="built_in">false</span></span><br><span class="line">    ignore_pattern:</span><br><span class="line">        public: .</span><br><span class="line">        .git: .</span><br></pre></td></tr></table></figure></p>
+<p>具体的部署流程：<a href="/2018/07/06/Web/blog-coding/">记一次部署迁移</a><br>完整的配置流程：<a href="http://blog.lujingtao.com/2017/11/07/hexo-new/" target="_blank" rel="noopener">玩转hexo - 1 - 蠢萌的序</a>、<a href="http://blog.lujingtao.com/2017/11/07/hexo-init/" target="_blank" rel="noopener">玩转hexo - 2 - 起步</a>、<a href="http://blog.lujingtao.com/2017/11/19/hexo-deploy/" target="_blank" rel="noopener">玩转hexo - 3 - 部署</a>、<a href="http://blog.lujingtao.com/2017/11/20/hexo-theme/" target="_blank" rel="noopener">玩转hexo - 4 - 主题</a>.</p>
+<blockquote><ul>
+<li><code>git clone</code>后需要将<code>.git</code>文件夹删除， </li>
+<li>安装hexo插件<code>npm install hexo --save</code></li>
+<li>第一次部署时会生成<code>.deploy_git</code>文件夹，在下次部署时需要删除该文件夹，不然会部署失败</li>
+</ul>
+<footer><strong>注意事项</strong></footer></blockquote>
+<h1 id="Makrdown编写"><a href="#Makrdown编写" class="headerlink" title="Makrdown编写"></a>Makrdown编写</h1><p>Markdown语法：<a href="http://xianbai.me/learn-md/article/about/readme.html" target="_blank" rel="noopener">http://xianbai.me/learn-md/article/about/readme.html</a></p>
+<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a><del>Atom</del></h2><p>问题太多，已经不用了，看下面的<a href="/2018/03/20/blog/#VScode">VScode</a></p>
+<h3 id="安装Atom"><a href="#安装Atom" class="headerlink" title="安装Atom"></a><del>安装Atom</del></h3><p>下载安装Atom：<a href="https://atom.io/" target="_blank" rel="noopener">https://atom.io/</a></p>
+<h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a><del>插件安装</del></h3><blockquote><p>markdown-preview-plus #增强预览，需要关闭自带的markdown-preview，与markdown-preview-enhanced冲突，已停用<br>atom-simplified-chinese-menu #中文包<br>language-markdown #代码高亮<br>markdown-preview-enhanced #可视化+同时滚动<br>markdown-table-editor #表格<br>markdown-image-paste #贴图，记得把_config.yml中的post_asset_folder设置为true，new文章会自动创建一个文件夹<br>markdown-themeable-pdf #pdf导出<br>pdf-view #pdf 查看</p>
+</blockquote>
+<h2 id="VScode"><a href="#VScode" class="headerlink" title="VScode"></a>VScode</h2><h3 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h3><p>下载地址：<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a></p>
+<h3 id="插件安装-1"><a href="#插件安装-1" class="headerlink" title="插件安装"></a>插件安装</h3><blockquote><p>Markdown Preview Enhanced #增强预览<br>Paste Image #贴图，Ctrl+Alt+V</p>
+</blockquote>
+<figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/2018-07-03-14-29-40.png" title="预览按钮" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/2018-07-03-14-29-40.png" alt="预览按钮" title="" class=""></a>
+                <p>预览按钮</p>
+            </figure>
+<h1 id="blog主题"><a href="#blog主题" class="headerlink" title="blog主题"></a>blog主题</h1><p>我使用的主题是mellow<br>github地址：<a href="https://github.com/codefine/hexo-theme-mellow.git" target="_blank" rel="noopener">https://github.com/codefine/hexo-theme-mellow.git</a><br>预览地址：<a href="https://blog.lujingtao.com/" target="_blank" rel="noopener">https://blog.lujingtao.com/</a></p>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>所需依赖：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo-generator-search #local search搜索</span><br><span class="line">hexo-generator-topindex #文章置顶</span><br><span class="line">hexo-helper-qrcode #二维码分享</span><br><span class="line">hexo-renderer-less #less解析器</span><br></pre></td></tr></table></figure></p>
+<p>安装命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-generator-search hexo-generator-topindex hexo-helper-qrcode hexo-renderer-less</span><br></pre></td></tr></table></figure></p>
+<h2 id="新建分类页"><a href="#新建分类页" class="headerlink" title="新建分类页"></a>新建分类页</h2><p>开启分类、标签页等，不仅需要在主题配置文件的menu中开启，还需要用命令行进行创建，具体方法：<br>先用hexo new page categories创建分类页源文件，然后在source/categories/index.md中修改layout: categories。</p>
+<h2 id="样式修改"><a href="#样式修改" class="headerlink" title="样式修改"></a>样式修改</h2><h3 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h3><p>路径：themes\mellow\source\css_custom\custom.less</p>
+<h3 id="修改的-partial-less文件"><a href="#修改的-partial-less文件" class="headerlink" title="修改的_partial/less文件"></a>修改的_partial/less文件</h3><p>路径：themes\mellow\source\css_partial\<br>文章css：variable.less<br>代码css：highlight.less</p>
+<h2 id="增加more按钮"><a href="#增加more按钮" class="headerlink" title="增加more按钮"></a>增加more按钮</h2><p>最新版本已加入该功能<br>路径：themes\mellow\layout_partial\index-item.ejs<br><figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/more1.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/more1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&lt;%- url_for(post.path) %&gt;"</span> <span class="attr">class</span>=<span class="string">"post-more waves-effect waves-button"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%-</span> <span class="attr">theme.excerpt_link</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>主题的config中增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excerpt_link: more      #更多按钮</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/more2.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/more2.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p><br></p>
+<h2 id="链接为域名"><a href="#链接为域名" class="headerlink" title="链接为域名"></a>链接为域名</h2><figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/link1.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/link1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>在博客config文件里修改<br><figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/link2.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/link2.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><br></p>
+<h2 id="搜索按钮"><a href="#搜索按钮" class="headerlink" title="搜索按钮"></a>搜索按钮</h2><figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/menu1.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/menu1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span></span></span><br><span class="line"><span class="tag">    <span class="attr">var</span> <span class="attr">menuItem</span>, <span class="attr">isActive</span> = <span class="string">function(item)</span> &#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">var</span> <span class="attr">pageUrl</span> = <span class="string">url_for(page.path)</span></span></span><br><span class="line"><span class="tag">        <span class="attr">return</span> <span class="attr">item.url</span> === <span class="string">'/'</span> ? <span class="attr">pageUrl</span> === <span class="string">url_for(item.url</span> + '<span class="attr">index.html</span>') <span class="attr">:</span> <span class="attr">_.startsWith</span>(<span class="attr">pageUrl</span>, <span class="attr">url_for</span>(<span class="attr">item.url</span>))</span></span><br><span class="line"><span class="tag">    &#125;;</span></span><br><span class="line"><span class="tag">    <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">theme.menu</span>) &#123;</span></span><br><span class="line"><span class="tag">      <span class="attr">menuItem</span> = <span class="string">theme.menu[i];</span></span></span><br><span class="line"><span class="tag">      <span class="attr">if</span> (<span class="attr">menuItem.url</span>) &#123;</span></span><br><span class="line"><span class="tag">    %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"&lt;% if(isActive(menuItem))&#123; %&gt; active&lt;% &#125; %&gt;"</span>&gt;</span></span><br><span class="line">        &lt;a href="&lt;%- url_for(menuItem.url) %&gt;" &lt;% if(menuItem.target)&#123; %&gt;target="_blank"&lt;% &#125; %&gt; &gt;</span><br><span class="line">          <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-lg icon-&lt;%= menuItem.icon %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">%=(menuItem.text</span> || <span class="attr">_.startCase</span>(<span class="attr">i</span>)) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span> &#125; <span class="attr">else</span> &#123; %&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">onclick</span>=<span class="string">"$('#site_search_btn').click();"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon icon-lg icon-&lt;%= menuItem.icon %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">%=(menuItem.text</span> || <span class="attr">_.startCase</span>(<span class="attr">i</span>)) %&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span> &#125; &#125; %&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel="博客搭建笔记" href="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/menu2.png" title="" data-fancybox="images"><img src="https://dev.tencent.com/u/YuanLiChenAi/p/BP/git/raw/master/blog/blog/menu2.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>注意这个search和其他的不一样，不能有url这个属性</p>
+<h1 id="领养一个小姐姐"><a href="#领养一个小姐姐" class="headerlink" title="领养一个小姐姐"></a>领养一个小姐姐</h1><p>github地址：<a href="https://github.com/EYHN/hexo-helper-live2d" target="_blank" rel="noopener">https://github.com/EYHN/hexo-helper-live2d</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装模块：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在站点根目录的 _config.yml文件中添加配置.<br>示例:<br><figure class="highlight m"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: <span class="built_in">true</span></span><br><span class="line">  scriptFrom: <span class="meta">local</span></span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: <span class="built_in">false</span></span><br><span class="line">  debug: <span class="built_in">false</span></span><br><span class="line">  model:</span><br><span class="line">    use: ./source/live2d_models/live2d-widget-model-koharu #模型位置及名称</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: <span class="number">120</span></span><br><span class="line">    height: <span class="number">240</span></span><br><span class="line">  mobile:</span><br><span class="line">    show: <span class="built_in">true</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>1.使用<code>npm install 模型的包名</code>来安装，下载的包在node_modules里面<br>2.将下载的包扔进配置中的位置<code>./source/live2d_models/</code><br>模型预览：<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">https://huaji8.top/post/live2d-plugin-2.0/</a><br>以下为所有模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line">live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-nietzsche</span><br><span class="line">live2d-widget-model-nipsilon</span><br><span class="line">live2d-widget-model-nito</span><br><span class="line">live2d-widget-model-shizuku</span><br><span class="line">live2d-widget-model-tororo</span><br><span class="line">live2d-widget-model-tsumiki</span><br><span class="line">live2d-widget-model-unitychan</span><br><span class="line">live2d-widget-model-wanko</span><br><span class="line">live2d-widget-model-z16</span><br></pre></td></tr></table></figure></p>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-04T14:24:20.000Z" itemprop="dateUpdated">2019-03-04 22:24:20</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/03/20/blog/" target="_blank" rel="external">https://yuanlichenai.cn/2018/03/20/blog/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发/">开发</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/03/20/blog/&title=《博客搭建笔记》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/03/20/blog/&title=《博客搭建笔记》 — YuanLiChenAi&source=梳理下blog搭建所涉及的知识，框架：Node.js+Git+Hexo+Makrdown
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+      
+    <div onclick="ShowGitment()" id="gitment-display-button" style="display: block;">
+        <span>显示 Gitment 评论</span>
+    </div>
+    <div id="gitment" class="hide"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/03/22/GoogleHacking/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Google Hacking</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#环境安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">环境安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Node-js"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装Node.js</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装Git"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">安装Git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Git基本操作"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Git基本操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Git提交远程库流程"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Git提交远程库流程</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装部署插件"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">安装部署插件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#旧的部署配置"><span class="post-toc-number">2.3.1.1.</span> <span class="post-toc-text">旧的部署配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新的部署配置"><span class="post-toc-number">2.3.1.2.</span> <span class="post-toc-text">新的部署配置</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Makrdown编写"><span class="post-toc-number">3.</span> <span class="post-toc-text">Makrdown编写</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Atom"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Atom</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Atom"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">安装Atom</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">插件安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VScode"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">VScode</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装VScode"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">安装VScode</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插件安装-1"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">插件安装</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#blog主题"><span class="post-toc-number">4.</span> <span class="post-toc-text">blog主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装依赖"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">安装依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建分类页"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">新建分类页</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#样式修改"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">样式修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义样式"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">自定义样式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改的-partial-less文件"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">修改的_partial/less文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增加more按钮"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">增加more按钮</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链接为域名"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">链接为域名</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#搜索按钮"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">搜索按钮</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#领养一个小姐姐"><span class="post-toc-number">5.</span> <span class="post-toc-text">领养一个小姐姐</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模型"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">模型</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/03/20/blog/&title=《博客搭建笔记》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/03/20/blog/&title=《博客搭建笔记》 — YuanLiChenAi&source=梳理下blog搭建所涉及的知识，框架：Node.js+Git+Hexo+Makrdown
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABx0lEQVR42u3ay46DMAwF0P7/T3e2lWYarm0SMdLJqgIKBxZW/Hi94vX+WJ9H1mfz4zcvXFzcMfe9XL9x8xdYX3/xSri4uAe53yLG+nfysOqrXthwcXEfzM0pvU+Ai4v7X7hrYsJN6Li4uM/hJsnPZGtSvf8NuRouLu6Am1cp9/3eUt/FxcVtcd/FlTdakrPlp+Pi4h7h9lop+RantwG6uB4XF3czt9r2SMJZL5AlL4OLi3uGO0mBesd74xe4uLgnudWEpFo6yQuj0R1wcXGPcPNWRzVIfdvE9Aa8CsVTXFzcMfc9WL2NyyRZwsXFPcPNWyPV0kYSyHoSXFzcM9z5EFVeAE0KKBfX4+LiHuFWb50kTpPZqkLcxcXF3cytNjl2Jz+Frg4uLu5BbnWzMkl1boi4uLi4t3LX0DzJaX6nalMHFxf3ILfaUu2VSHpBrVzyxcXFHXAnjdVJQSRPjf6YI8PFxd3M7TU7q8XNavtksj3CxcW9i5sEr3XJYz6cUSjR4uLiHuRWS6gbo+b6/ri4uI/k5s2S+RhWNEeGi4v7SG5vLKNZQsXFxT3I7SU/1f/mpdiLQIaLi7uZO0pFxoGpV4TFxcXdxv0B740LCXbJgLQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "YuanLiChenAi | blog"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+        <script type="text/javascript" src="/js/plugins/gitmint.browser.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/gitment.js?v=1.4.4"></script>
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>
