@@ -1,0 +1,286 @@
+# hexo-theme-mellow
+# https://github.com/yscoder/hexo-theme-indigo
+# 为了避免未知解析错误，配置中的缩紧为2个半角空格，冒号后跟1个半角空格
+# 不需要的配置可以注释掉，也可以修改对应键布尔值(enable和disable)
+
+
+#####################
+####   全局配置    ###
+#####################
+
+# 是否启用less压缩
+## 建议压缩，并且不要修改默认paths
+less:
+  compress: true #是否压缩
+  paths:
+    - source/css/style.less #压缩后的文件路径
+
+# 站点ico图标
+favicon: /img/favicon.ico
+
+# 头部背景
+# 如/img/banner.jpg 或 https://i.loli.net/2017/12/12/5a2fd18a74471.jpg
+headerBg: /img/banner.jpg
+
+# 动态定义title
+title_change:
+  normal: 嗨~👋     #页面获得焦点时显示(短暂存在)
+  leave: 看这里~看这里~          #页面失去焦点后显示
+
+# 规范网址
+## 让搜索引擎重定向你的不同域名、不同子域、同域不同目录的站点到你期望的路径
+## https://support.google.com/webmasters/answer/139066
+## 假设配置为 canonical: http://www.lujingtao.com，那么从搜索引擎中 www.lujingtao.com 进入会重定向到 lujingtao.com
+canonical: false
+
+# DaoVoice 聊天室
+daovoice:
+  app_id: 
+
+# 主页文章排序方式
+## true 按照文章更新时间排序
+## false 按照文章创建时间排序
+articleSort: false
+
+# 站浏览数统计
+visit_counter: 
+  site_uv: true # 访客数量
+  site_pv: true # 浏览次数
+
+##############################################################################################################################
+
+#####################
+####   菜单配置    ###
+#####################
+
+# 头像
+avatar: /img/avatar.jpg
+
+# 头像点击后的链接地址
+avatar_link: / #默认为主页
+
+# 头像区域背景图
+brand: /img/brand.jpg
+
+# 电子邮件
+email: 心中有光，忽明忽暗。
+
+# 电子邮件下方的链接图标
+## 新连接规则[name]: url | icon
+## 使用fontawesome图标，只需要写图标名。github -> icon-github | fa-github
+## http://http://fontawesome.dashgame.com/
+menu_link: 
+  QQ: http://shang.qq.com/email/stop/email_stop.html?qq=1518801557 | qq
+  github: https://github.com/YuanLiChenAi | github
+  weibo: https://weibo.com/5653458750/ | weibo
+  music: http://music.163.com/#/user/home?id=583505936 | music
+
+# 添加新菜单项遵循以下规则
+## menu:
+##  link:               [必要][不渲染] 用于区分类别
+##    icon: _blank      [必要][渲染] 菜单图标。使用内置fontawesome图标，省略前缀
+##    text: About       [必要][渲染] 菜单文字信息
+##    url: /about       [必要][渲染] 菜单链接，绝对或相对路径。
+##    target: _blank    [必要][不渲染] 是否跳出，省略则在当前页面打开
+menu:
+  home:
+    text: 主页
+    url: /
+    icon: home
+  flag:
+    text: CTF
+    url: https://ctf.yuanlichenai.cn/
+    icon: flag
+  th-list:
+    text: 分类
+    url: /categories
+    icon: th-list
+  tags:
+    text: 标签
+    url: /tags
+    icon: tags
+  archives:
+    text: 归档
+    url: /archives
+    icon: archives
+  test:
+    text: 测试
+    url: /test
+    icon: bug
+  study:
+    text: 导航
+    url: /study
+    icon: plane
+  link:
+    text: 友链
+    url: /links
+    icon: link
+  about:
+    text: 关于
+    url: /about
+    icon: user
+
+# 进入文章时自动隐藏
+auto_hide: false
+
+##############################################################################################################################
+
+#####################
+####   首页配置    ###
+#####################
+
+# 首页是否开启置顶标志
+top_icon: true
+
+# 首页中文章缩略图是否使用相对路径
+## 只有disable为true的时候，下面的路径url才会生效，路径地址位于: 全局/source/uploads
+## uploads可以是任意存在文件夹名(不存在可以自己闯将)，用于放置各种需要引入到页面的静态文件，如img等。
+## 参考https://hexo.io/zh-cn/docs/asset-folders.html#文章资源文件夹
+
+
+##############################################################################################################################
+
+#####################
+####   文章配置    ###
+#####################
+
+# 页面标题
+## 标签页 / 分类页 / 归档页的标题只能在这里设置
+## 其他自定义页面标题在页面markdown文件的title中设置
+tags_title: 标签              #标签页
+categories_title: 分类  #分类页
+archives_title: 归档      #归档页
+
+# 主页文章摘要缩略图
+defaultthumb: false
+
+# 自动生成文章摘要
+## 显示在主页中
+## excerpt_length只在excerpt_render为true时生效。
+## excerpt_render为false时可进行手动截断。方法为在文章的markdown文件中加入<!--more-->，其之前的内容视为摘要部分。
+excerpt_render: false   #自动截断
+excerpt_length: 200     #截断长度
+excerpt_link: more      #更多按钮内容
+
+# 是否显示文章最后更新时间
+## 位于文章底部的copyright
+show_last_updated: true
+
+# 版权信息copyright
+## 位于文章底部
+## hexo中所有变量及辅助函数等均可调用，具体请查阅 hexo.io
+postMessage: 转载注明出处，原文地址：<a href="<%- url_for(page.path).replace(/index\.html$/, "") %>" target="_blank" rel="external"><%- page.permalink.replace(/index\.html$/, "") %></a>
+
+# 打赏
+## 可以在文章markdown中设置reward: false来取消本篇文章的打赏功能
+## 全局取消直接注释下方配置
+reward:
+  title: 我们一起来让这个世界有趣一点
+  wechat: /img/reward-wechat.jpg     #微信
+  alipay: /img/reward-alipay.jpg     #支付宝
+
+# 分享
+## 内置6种分享途径，不需要的设置对应的为false
+## 可以在文章markdown中设置share: false来取消本篇文章的打赏功能
+## 全局取消直接注释下方配置
+share_items:
+  weibo: true
+  wechat: true
+  qq: true
+  facebook: false
+  twitter: false
+  google: false
+
+# 目录
+## 捕捉文章markdown的#一级标题 / ##二级标题 / ###三级标题等
+## 位于文章右侧，移动端或者小屏幕自动隐藏
+toc:
+  enable: true
+  list_number: true  # 是否显示数字排序
+
+##############################################################################################################################
+
+#####################
+####   页脚配置    ###
+#####################
+
+# 固定页脚
+footer_fixation: false
+
+# 友情链接
+blogroll:
+  # item1:
+  #   name: HOME
+  #   url: https://www.lujingtao.com
+  #item2:
+    #name: gitee
+    #url: https://www.gitee.com
+  #item3:
+    #name: coding
+    #url: https://www.coding.net
+
+# 版权起始年份
+since_year: 2017
+
+# icp备案号
+## 例如ICP_license: 京ICP备123456号
+ICP_license: false
+
+# 驱动引擎/主题等信息
+power: true
+
+# 搭载服务器信息
+## 如果使用github或者gitee等pages功能，可以设置为false
+## 如果使用coding.net的pages作为host，该选项将帮助您清楚默认广告页面
+## 详情见https://coding.net/help/doc/pages/guide-page.html
+hosted: false
+
+##############################################################################################################################
+
+#####################
+####   第三方配置   ###
+#####################
+
+# 搜索
+local_search: true
+
+# 百度统计
+baidu_tongji: #appid
+
+# gitment评论系统
+## https://github.com/imsun/gitment
+gitment:
+  enable: true
+  lazy: true #是否开启初始化隐藏评论
+  owner: YuanLiChenAi #github账号
+  repo: blog #留言仓库
+  oauth: 
+    client_id: 59f005779b1a5d300083 #client_id
+    client_secret: 78d6b45816143073b16a95e1ffb4b0449bd47650  #client_id
+  perPage: 10 #分页
+
+# valine评论系统
+## https://valine.js.org/
+valine:
+  enable: false
+  appid: #appid
+  appkey: #appkey
+  notify: true  #是否开启邮箱提醒
+  verify: true  #是否开启验证码
+  placeholder: give me some sugers plz... #留言板中的预留信息
+  avatar: 'wavatar'  #用户头像
+
+# 文章浏览统计
+leancloud_visitors:
+  enable: false
+  app_id: #appid
+  app_key: #appkey
+  icon: true #true只显示图标，false只显示文字
+
+# 数学公式
+mathjax:
+  enable: true
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+
+# 是否使用按钮waves插件
+waves: true

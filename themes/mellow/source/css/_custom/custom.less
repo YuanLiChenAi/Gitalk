@@ -1,0 +1,66 @@
+//custom style
+// 文章图片
+.container img{
+    // margin:0;// 文章图片居左
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);//图片阴影
+}
+
+// 链接样式
+.post-content p a, .post-content li a {
+	border-bottom: 1px #e55454;
+}
+
+
+//代码块左右距离
+.post-content>.highlight{
+    margin-left: 0px;
+    margin-right: 0px;
+		padding: 15px 25px;
+}
+
+//代码行号无法选中
+.gutter {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none; 
+    user-select: none;
+}
+
+//按钮样式修改
+.post-more {
+		width: 100px;//长度
+}
+
+//标签插件（Tag Plugins）
+.post-content blockquote footer {
+    font-size: 100%;   
+}
+
+//修改的themes\mellow\source\css\_partial\文件夹中
+    //variable.less，文章css修改
+        // font
+            // @font-bluehost: "Microsoft Yahei";//字体风格
+            // @font: Bluehost, "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;//字体家族
+            // @font-code: Consolas, Monaco, courier, monospace;//代码字体风格
+        // layout
+            // @contentWidth: 960px;
+            // @menuWidth: 200px;//左侧菜单栏宽度
+            // @menuPadding: 20px;//左侧菜单栏内填充
+            // @topBarH: 56px;//顶部导航栏高度
+            // @headerH: 400px;//顶部页头高度
+            // @homeW: 1200px;//首页卡片宽度
+            // @postW: 75%;//文章宽度
+            // @asideW: 200px;//文章目录以及Github仓库宽度
+            // @postOffsetY: -250px;//文章顶部偏移量
+            // @navH: 44px;
+            // @mNavH: 36px;
+            // @searchWidth: 80vw; //搜索框宽度
+            // @searchHeight: 80vh; //搜索框高度
+            // @boxShadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        
+    //highlight.less，代码css修改
+        // .line-numbers() {
+        //     color: #17202A;//@primaryColor_2; // 行号色
+        //     font-size: 0.85em;
+        // }
