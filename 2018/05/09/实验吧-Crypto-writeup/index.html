@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>实验吧-Crypto-writeup | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="实验吧,Crypto">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>实验吧-Crypto-writeup</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">实验吧-Crypto-writeup</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-09T01:27:02.000Z" itemprop="datePublished" class="page-time">
+  2018-05-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-实验吧-Crypto-writeup" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">实验吧-Crypto-writeup</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-09 09:27:02" datetime="2018-05-09T01:27:02.000Z" itemprop="datePublished">2018-05-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>实验吧密码类题目,</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="变异凯撒"><a href="#变异凯撒" class="headerlink" title="变异凯撒"></a>变异凯撒</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密密文：afZ_r9VYfScOeO_UL^RWUc</span></span><br><span class="line"><span class="comment"># 规律：'afz_'+'5678'='flag'</span></span><br><span class="line">Crypto = <span class="string">'afZ_r9VYfScOeO_UL^RWUc'</span></span><br><span class="line">Crypto = list(Crypto)</span><br><span class="line">list1 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> Crypto:</span><br><span class="line">    list1.append(ord(i))</span><br><span class="line"></span><br><span class="line">num = <span class="number">5</span></span><br><span class="line">list2 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">    i += num</span><br><span class="line">    list2.append(i)</span><br><span class="line">    num +=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list2:</span><br><span class="line">    flag += chr(i)</span><br><span class="line"></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<!--flag{Caesar_variation}-->
+<h1 id="传统知识-古典密码"><a href="#传统知识-古典密码" class="headerlink" title="传统知识+古典密码"></a>传统知识+古典密码</h1><p>小明某一天收到一封密信，信中写了几个不同的年份<br>          辛卯，癸巳，丙戌，辛未，庚辰，癸酉，己卯，癸巳。<br>          信的背面还写有“+甲子”，请解出这段密文。<br>key值：CTF{XXX}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">辛卯，顺序为第28个 + 甲子(60) --&gt; 88 --&gt;  X</span><br><span class="line">癸巳，顺序为第30个 + 甲子(60) --&gt; 90 --&gt;  Z</span><br><span class="line">丙戌，顺序为第23个 + 甲子(60) --&gt; 93 --&gt;  S</span><br><span class="line">辛未，顺序为第8个 + 甲子(60) --&gt; 68 --&gt;  D</span><br><span class="line">庚辰，顺序为第17个 + 甲子(60) --&gt; 77 --&gt;  M</span><br><span class="line">癸酉，顺序为第10个 + 甲子(60) --&gt; 70 --&gt;  F</span><br><span class="line">己卯，顺序为第16个 + 甲子(60) --&gt; 76 --&gt;  L</span><br><span class="line">癸巳，顺序为第30个 + 甲子(60) --&gt; 90 --&gt;  Z</span><br></pre></td></tr></table></figure></p>
+<p>加上一个甲子即60：88    90    93    68    77    70    76    90<br>转换成ASCII字母：XZSDMFLZ<br>栅栏密码（两栏）：XMZFSLDZ<br>凯撒：SHUANGYU<br>最后按格式提交CTF{xxxxxxxx}即可<br><!--CTF{SHUANGYU}--></p>
+<h1 id="what’s-wrong-with-this"><a href="#what’s-wrong-with-this" class="headerlink" title="what’s wrong with this"></a>what’s wrong with this</h1><p>传送门：<a href="http://hebin.me/wp-content/uploads/2017/09/2017090715264378.pdf" target="_blank" rel="noopener">whats-wrong-with-this</a><br><!--modified_in7erpreters_are_3vil!!!--></p>
+<h1 id="try-them-all"><a href="#try-them-all" class="headerlink" title="try them all"></a>try them all</h1><p>md5爆破：<a href="https://www.somd5.com/" target="_blank" rel="noopener">somd5</a>,去掉数字就是flag<br><!--sniper--></p>
+<h1 id="rsarsa"><a href="#rsarsa" class="headerlink" title="rsarsa"></a>rsarsa</h1><p>别人的Python2脚本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python2</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">p =  <span class="number">9648423029010515676590551740010426534945737639235739800643989352039852507298491399561035009163427050370107570733633350911691280297777160200625281665378483</span></span><br><span class="line">q =  <span class="number">11874843837980297032092405848653656852760910154543380907650040190704283358909208578251063047732443992230647903887510065547947313543299303261986053486569407</span></span><br><span class="line">e =  <span class="number">65537</span></span><br><span class="line">c =  <span class="number">83208298995174604174773590298203639360540024871256126892889661345742403314929861939100492666605647316646576486526217457006376842280869728581726746401583705899941768214138742259689334840735633553053887641847651173776251820293087212885670180367406807406765923638973161375817392737747832762751690104423869019034</span></span><br><span class="line">t = (p<span class="number">-1</span>)*(q<span class="number">-1</span>)</span><br><span class="line">n = p*q</span><br><span class="line"></span><br><span class="line"><span class="comment"># returns d such that e * d == 1 modulo t, or 0 if no such y exists.</span></span><br><span class="line">d = gmpy2.invert(e,t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Decryption</span></span><br><span class="line">m = pow(c,d,n)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Solved ! m = %d"</span> % m</span><br></pre></td></tr></table></figure></p>
+<!--5577446633554466577768879988-->
+<h1 id="robomunication"><a href="#robomunication" class="headerlink" title="robomunication"></a>robomunication</h1><p>用音频软件打开看不出来，得用听得<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.... . .-.. .-.. --- .-- .... .- - .. ... - .... . -.- . -.-- .. - .. ... -... --- --- .--. -... . . .--.</span><br></pre></td></tr></table></figure></p>
+<!--BOOPBEEP-->
+<h1 id="The-Flash-14"><a href="#The-Flash-14" class="headerlink" title="The Flash-14"></a>The Flash-14</h1><p>闪电侠第二季14集的密码表<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/2018-09-04-21-52-59.png" title="5*5密码表" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/2018-09-04-21-52-59.png" alt="5*5密码表" title="" class=""></a>
+                <p>5*5密码表</p>
+            </figure><br>凯撒解密得到flag<br><!--ctf{flashisfastman}--></p>
+<h1 id="奇怪的短信"><a href="#奇怪的短信" class="headerlink" title="奇怪的短信"></a>奇怪的短信</h1><p>收到一条奇怪的短信:<br>          335321414374744361715332<br>          你能帮我解出隐藏的内容嘛？！<br>格式：CTF{xxx}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开手机9宫格输入法，两个一组，例如21=a，22=b</span><br><span class="line">33 53 21 41 43 74 74 43 61 71 53 32</span><br><span class="line">f  l  a  g  i  s  s  i  m  p  l  e</span><br></pre></td></tr></table></figure></p>
+<!--CTF{flagissimple}-->
+<h1 id="RSAROLL"><a href="#RSAROLL" class="headerlink" title="RSAROLL"></a>RSAROLL</h1><h2 id="逆推解法"><a href="#逆推解法" class="headerlink" title="逆推解法"></a>逆推解法</h2><p>先分解n<code>920139713</code>得到<code>18443</code>,<code>49891</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">p,q,N,e = <span class="number">18443</span>,<span class="number">49891</span>,<span class="number">920139713</span>,<span class="number">19</span></span><br><span class="line">d = gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line">flag = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"RSAROll.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.readline()</span><br><span class="line">    f.readline()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">        flag.append(chr(pow(int(i),d,N)))</span><br><span class="line">print(<span class="string">""</span>.join(flag))</span><br></pre></td></tr></table></figure></p>
+<h2 id="爆破解法"><a href="#爆破解法" class="headerlink" title="爆破解法"></a>爆破解法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n,e,dic,flag = <span class="number">920139713</span>,<span class="number">19</span>,&#123;&#125;,<span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">33</span>,<span class="number">128</span>):</span><br><span class="line">    dic[str(i**e%n)] = chr(i)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"RSAROLL.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.readline()</span><br><span class="line">    f.readline()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">        flag += dic[i.replace(<span class="string">'\n'</span>,<span class="string">''</span>)]</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<!--flag{13212je2ue28fy71w8u87y31r78eu1e2}-->
+<p>参考：<a href="http://hebin.me/2017/09/07/%E8%A5%BF%E6%99%AEctf-rsaroll/" target="_blank" rel="noopener">西普CTF-RSAROLL</a></p>
+<h1 id="围在栅栏中的爱"><a href="#围在栅栏中的爱" class="headerlink" title="围在栅栏中的爱"></a>围在栅栏中的爱</h1><p> 最近一直在好奇一个问题，QWE到底等不等于ABC？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-.- .. --.- .-.. .-- - ..-. -.-. --.- --. -. ... --- ---</span><br></pre></td></tr></table></figure></p>
+<p>flag格式：CTF{xxx}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">摩斯电码解密：kiqlwtfcqgnsoo</span><br><span class="line">看下你的键盘qwe=abc，所以：</span><br><span class="line">qwertyuiopasdfghjklzxcvbnm</span><br><span class="line">abcdefghijklmnopqrstuvwxyz</span><br><span class="line"></span><br><span class="line">rhasbenvaoylii</span><br><span class="line">栅栏解密，爱呢？</span><br><span class="line">rh as be nv ao yl ii</span><br><span class="line">rabnayihsevoli</span><br><span class="line">反过来看？嗯，爱在这里</span><br><span class="line">iloveshiyanbar</span><br></pre></td></tr></table></figure></p>
+<!--CTF{iloveshiyanbar}-->
+<h1 id="神秘字母"><a href="#神秘字母" class="headerlink" title="神秘字母"></a>神秘字母</h1><p>不会，走你：<a href="http://hebin.me/2017/09/07/%E8%A5%BF%E6%99%AEctf-%E7%A5%9E%E7%A7%98%E5%AD%97%E6%AF%8D/" target="_blank" rel="noopener">http://hebin.me/2017/09/07/西普ctf-神秘字母/</a><br><!--simCTF{hillissoeasy}--></p>
+<h1 id="疑惑的汉字"><a href="#疑惑的汉字" class="headerlink" title="疑惑的汉字"></a>疑惑的汉字</h1><p>现有一段经过加密的密文，内容如下：王夫 井工 夫口 由中人 井中 夫夫 由中大。请找出这段密文隐藏的消息明文。<br>格式：CTF{ }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当铺密码</span><br><span class="line">就是一种将中文和数字进行转化的密码，算法相当简单:当前汉字有多少笔画出头，就是转化成数字几。</span><br><span class="line">王夫 井工 夫口 由中人 井中 夫夫 由中大</span><br><span class="line">67   84   70    123    82   77   125</span><br><span class="line">ascii转换得到flag</span><br></pre></td></tr></table></figure></p>
+<!--CTF{RM}-->
+<h1 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h1><p>密文内容如下{79 67 85 123 67 70 84 69 76 88 79 85 89 68 69 67 84 78 71 65 72 79 72 82 78 70 73 69 78 77 125 73 79 84 65}<br>请对其进行解密<br>提示：1.加解密方法就在谜面中，2.利用key值的固定结构</p>
+<p>解题思路<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">79 67 85 123 67 70 84 69 76 88 79 85 89 68 69 67 84 78 71 65 72 79 72 82 78 70 73 69 78 77 125 73 79 84 65</span><br><span class="line">ASCII得到：O C U &#123; C F T E L X O U Y D E C T N G A H O H R N F I E N M &#125; I O T A</span><br><span class="line">根据第二点，注意格式CTF&#123; &#125;</span><br><span class="line">OCU&#123;CFTELXOUYDECTNGAHOHRNFIENM&#125;IOTA</span><br><span class="line">CTF&#123;                              &#125;</span><br><span class="line"></span><br><span class="line">O C U &#123; C F T</span><br><span class="line">E L X O U Y D</span><br><span class="line">E C T N G A H</span><br><span class="line">O H R N F I E</span><br><span class="line">N M &#125; I O T A</span><br><span class="line"></span><br><span class="line">OCU&#123;CFT ELXOUYD ECTNGAH OHRNFIE NM&#125;IOTA</span><br><span class="line">1234567 1234567 1234567 1234567 1234567</span><br><span class="line">CTF&#123;COU LDY0UEX CHANGET HEINFOR MATION&#125;</span><br><span class="line">2764513 2764513 2764513 2764513 2764513</span><br></pre></td></tr></table></figure></p>
+<!--CTF{COULDY0UEXCHANGETHEINFORMATION}-->
+<h1 id="困在栅栏里的凯撒"><a href="#困在栅栏里的凯撒" class="headerlink" title="困在栅栏里的凯撒"></a>困在栅栏里的凯撒</h1><p>小白发现了一段很6的字符：NlEyQd{seft}<br>注意大小写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">A B C D E</span><br><span class="line">F G H I J</span><br><span class="line">K L M N O</span><br><span class="line">P Q R S T</span><br><span class="line">U V W X Y Z</span><br><span class="line"></span><br><span class="line">C T  F&#123; &#125;</span><br><span class="line">3 20 6</span><br><span class="line"></span><br><span class="line">Nl Ey Qd &#123;s ef t&#125;</span><br><span class="line">NEQ&#123;et</span><br><span class="line">lydsf&#125;</span><br><span class="line"></span><br><span class="line">N  E  Q  &#123;  e  t  l  y  d  s  f  &#125;</span><br><span class="line">14 5  17    5  20 12 25 4  19 6</span><br><span class="line">C  T  F  &#123;  t  i  a  n  s  h  u  &#125;</span><br><span class="line">3  20 6     20 9  1  14 19 8  21</span><br></pre></td></tr></table></figure></p>
+<!--CTF{tianshu}-->
+<h1 id="奇妙的音乐"><a href="#奇妙的音乐" class="headerlink" title="奇妙的音乐"></a>奇妙的音乐</h1><p>据说flag就藏在这段音乐中，请仔细听。<br>格式：CTF{}<br>照片中下面盲文对应密码:kmdonowg<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/14-01.jpg" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/14-01.jpg" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用音频软件打开得出摩斯密码,听力好可以自己听…<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/14-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/14-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-.-./-/..-./.--/.--././../-----/---../--.../...--/..---/..--../..---/...--/-../--../</span><br></pre></td></tr></table></figure></p>
+<p>莫斯电码解密，注意格式以及小写<br><!--CTF{wpei08732?23dz}--></p>
+<h1 id="Fair-Play"><a href="#Fair-Play" class="headerlink" title="Fair-Play"></a>Fair-Play</h1><p>提示Fair-Play，应该是普莱菲尔密码,密钥在给出的句子中。<br>参考：<a href="https://baike.baidu.com/item/playfair%E5%AF%86%E7%A0%81" target="_blank" rel="noopener">playfair密码</a><br>The quick brown fox jumps over the lazy dog!<br>去掉重复字母，ij视为同一个，组成5x5矩阵<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">t   h e q u</span><br><span class="line">i/j c k b r</span><br><span class="line">o   w n f x</span><br><span class="line">m   p s v l</span><br><span class="line">a   z y d g</span><br><span class="line">按照加密方法逆向解密，同列这里向左移，不同列矩阵替换得到flag</span><br><span class="line">ih xo &#123;sm zd od ci km od ci sm zd&#125;</span><br><span class="line">cf fx &#123;pl ay fa ir is fa ir pl ay&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在线<a href="http://ctf.ssleye.com/playfair.html" target="_blank" rel="noopener">普莱费尔密码解密</a>，需要将矩阵生成<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/03-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/03-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--ctfx{playfairisfairplay}--></p>
+<h1 id="我喜欢培根"><a href="#我喜欢培根" class="headerlink" title="我喜欢培根"></a>我喜欢培根</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-- --- .-. ... . ..--.- .. ... ..--.- -.-. --- --- .-.. ..--.- -... ..- - ..--.- -... .- -.-. --- -. ..--.- .. ... ..--.- -.-. --- --- .-.. . .-. ..--.- -.. -.-. -.-. -.. -.-. -.-. -.-. -.. -.. -.. -.-. -.. -.-. -.-. -.-. -.. -.. -.-. -.-. -.-. -.-. -.-. -.-. -.-. -.-. -.-. -.. -.. -.-. -.. -.-. -.-. -.-. -.-. -.. -.-. -.-. -.-. -.-. -.-. / -.-. -.. -.-. -.-. -.-. -.. -.-. -.-. -.. -.-. / -.-. -.-. -.-. -.. -.-. -.-. -.. -.. -.. -.-. -.-. -.. -.. -.. -.-. -.-. -.. -.-. -.. -..</span><br><span class="line">摩斯电码解密</span><br><span class="line">MORSE..--.-IS..--.-COOL..--.-BUT..--.-BACON..--.-IS..--.-COOLER..--.-DCCDCCCDDDCDCCCDDCCCCCCCCCDDCDCCCCDCCCCC/CDCCCDCCDC/CCCDCCDDDCCDDDCCDCDD</span><br><span class="line">摩斯.. -。-是。-。-酷..。但.. -。-培根.. -。-是。-。-冷..。—</span><br><span class="line"></span><br><span class="line">培根密码：</span><br><span class="line">A aaaaa  B aaaab  C aaaba  D aaabb  E aabaa  F aabab  G aabba  H aabbb  I abaaa  J abaab</span><br><span class="line">K ababa  L ababb  M abbaa  N abbab  O abbba  P abbbb  Q baaaa  R baaab  S baaba  T baabb</span><br><span class="line">U babaa  V babab  W babba  X babbb  Y bbaaa  Z bbaab</span><br><span class="line"></span><br><span class="line">DCCDC CCDDD CDCCC DDCCC CCCCC CDDCD CCCCD CCCCC/CDCCC DCCDC/CCCDC CDDDC CDDDC CDCDD</span><br><span class="line">baaba aabbb abaaa bbaaa aaaaa abbab aaaab aaaaa/abaaa baaba/aaaba abbba abbba ababb</span><br><span class="line">s     h     i     y     a     n     b     a     i     s     c     o     o     l</span><br></pre></td></tr></table></figure>
+<p>注意格式：CTF{xxxxxxxx&nbsp;xx&nbsp;xxxx}<br><!--CTF{SHIYANBA IS COOL}--></p>
+<h1 id="Strength"><a href="#Strength" class="headerlink" title="Strength"></a>Strength</h1><p>N都是一样的，应该是RSA公模攻击，首先找个两个互为素数的e</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2,re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PanDuan</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(e)):</span><br><span class="line">        a = e[i]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,len(e)):</span><br><span class="line">            b = e[j]</span><br><span class="line">            <span class="comment"># print(i,j)</span></span><br><span class="line">            a = a.replace(<span class="string">'L'</span>,<span class="string">''</span>)</span><br><span class="line">            b = b.replace(<span class="string">'L'</span>,<span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> gmpy2.gcd(int(a,<span class="number">16</span>),int(b,<span class="number">16</span>)) == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> a,b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'problem.txt'</span>)</span><br><span class="line">txt = f.read().splitlines()</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment"># print(txt)</span></span><br><span class="line">List = &#123;&#125;</span><br><span class="line">e = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(txt)):</span><br><span class="line">    a = re.findall(<span class="string">'729743L : (.*) : 0x'</span>,txt[i])</span><br><span class="line">    b = re.findall(<span class="string">'%s : (.*)L&#125;'</span>%a[<span class="number">0</span>],txt[i])</span><br><span class="line">    e.append(a[<span class="number">0</span>])</span><br><span class="line">    List[a[<span class="number">0</span>]]=b[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = PanDuan()</span><br><span class="line">print(<span class="string">'e1=%d'</span>%int(a[<span class="number">0</span>],<span class="number">16</span>))</span><br><span class="line">print(<span class="string">'e2=%d'</span>%int(a[<span class="number">1</span>],<span class="number">16</span>))</span><br><span class="line">print(<span class="string">'message1=%d'</span>%int(List[a[<span class="number">0</span>]],<span class="number">16</span>))</span><br><span class="line">print(<span class="string">'message2=%d'</span>%int(List[a[<span class="number">1</span>]],<span class="number">16</span>))</span><br></pre></td></tr></table></figure>
+<p>判断出两组互为素数的e后，即可进行共模攻击得到flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2,binascii</span><br><span class="line"></span><br><span class="line">e1=<span class="number">1804229351</span></span><br><span class="line">e2=<span class="number">17249876309</span></span><br><span class="line">message1=<span class="number">78552378607874335972488545767374401332953345586323262531477516680347117293352843468592985447836452620945707838830990843415342047337735534418287912723395148814463617627398248738969202758950481027762126608368555442533803610260859075919831387641824493902538796161102236794716963153162784732179636344267189394853</span></span><br><span class="line">message2=<span class="number">98790462909782651815146615208104450165337326951856608832305081731255876886710141821823912122797166057063387122774480296375186739026132806230834774921466445172852604926204802577270611302881214045975455878277660638731607530487289267225666045742782663867519468766276566912954519691795540730313772338991769270201</span></span><br><span class="line">n = <span class="string">'0xa5f7f8aaa82921f70aad9ece4eb77b62112f51ac2be75910b3137a28d22d7ef3be3d734dabb9d853221f1a17b1afb956a50236a7e858569cdfec3edf350e1f88ad13c1efdd1e98b151ce2a207e5d8b6ab31c2b66e6114b1d5384c5fa0aad92cc079965d4127339847477877d0a057335e2a761562d2d56f1bebb21374b729743'</span></span><br><span class="line">n = int(n,<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># s &amp; t</span></span><br><span class="line">gcd, s, t = gmpy2.gcdext(e1, e2)</span><br><span class="line"><span class="keyword">if</span> s &lt; <span class="number">0</span>:</span><br><span class="line">    s = -s</span><br><span class="line">    message1 = gmpy2.invert(message1, n)</span><br><span class="line"><span class="keyword">if</span> t &lt; <span class="number">0</span>:</span><br><span class="line">    t = -t</span><br><span class="line">    message2 = gmpy2.invert(message2, n)</span><br><span class="line">plain = gmpy2.powmod(message1, s, n) * gmpy2.powmod(message2, t, n) % n</span><br><span class="line">print(plain)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 10进制转16进制再转ASCII</span></span><br><span class="line">flag = str(binascii.a2b_hex(hex(plain)[<span class="number">2</span>:]),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
+<!--flag_Strength_Lies_In_Differences-->
+<h1 id="Decode"><a href="#Decode" class="headerlink" title="Decode"></a>Decode</h1><p>16进制转ASCII-&gt;URL解码-&gt;base64解码-&gt;10进制转ASCII<br><!--ctf{welcometoshiyanbar}--></p>
+<h1 id="RSA实践"><a href="#RSA实践" class="headerlink" title="RSA实践"></a>RSA实践</h1><p>由于gmpy2模块还没用支持py3.6，所以我用py2写的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#coding:utf-8</span><br><span class="line">import gmpy2</span><br><span class="line"></span><br><span class="line">p=473398607161</span><br><span class="line">q=4511491</span><br><span class="line">e=17</span><br><span class="line">print gmpy2.invert(e,(p-1)*(q-1))</span><br></pre></td></tr></table></figure></p>
+<!--125631357777427553-->
+<h1 id="杯酒人生"><a href="#杯酒人生" class="headerlink" title="杯酒人生"></a>杯酒人生</h1><p>先将加密的密钥<code>HTRUZYJW</code>进行凯撒解密得到秘钥<code>COMPUTER</code><br>再将密文<code>BLOCKCIPHERDESIGNPRINCIPLE</code>进行维吉尼亚密码加密得到flag，注意格式大写<br>加密网址：<a href="http://ctf.ssleye.com/vigenere.html" target="_blank" rel="noopener">http://ctf.ssleye.com/vigenere.html</a><br><!--DZAREVMGJSDSYLMXPDDXHVMGNS--></p>
+<h1 id="一串奇怪的数"><a href="#一串奇怪的数" class="headerlink" title="一串奇怪的数"></a>一串奇怪的数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">md5</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(s.encode(<span class="string">'utf-8'</span>)).hexdigest()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evalCrossTotal</span><span class="params">(strMd5)</span>:</span></span><br><span class="line">    r = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> strMd5:</span><br><span class="line">        r += int(<span class="string">"0x%s"</span> % i, <span class="number">16</span>)</span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encryptString</span><span class="params">(strString, strPasswd)</span>:</span></span><br><span class="line">    strPasswdMd5 = md5(strPasswd)</span><br><span class="line">    intMd5 = evalCrossTotal(strPasswdMd5)</span><br><span class="line">    r = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(strString)):</span><br><span class="line">        r.append(ord(strString[i]) + int(<span class="string">"0x%s"</span> % strPasswdMd5[i%<span class="number">32</span>], <span class="number">16</span>) - intMd5)</span><br><span class="line">        intMd5 = evalCrossTotal(md5(strString[:(i+<span class="number">1</span>)])[:<span class="number">16</span>] + md5(str(intMd5))[:<span class="number">16</span>])</span><br><span class="line">    <span class="keyword">return</span> <span class="string">" "</span>.join(map(<span class="keyword">lambda</span> x: str(x), r))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decryptString</span><span class="params">(nList, strPasswd)</span>:</span></span><br><span class="line">    strPasswdMd5 = md5(strPasswd)</span><br><span class="line">    intMd5 = evalCrossTotal(strPasswdMd5)</span><br><span class="line">    r = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nList)):</span><br><span class="line">        r += chr(nList[i] - int(<span class="string">"0x%s"</span> % strPasswdMd5[i % <span class="number">32</span>], <span class="number">16</span>) + intMd5)</span><br><span class="line">        intMd5 = evalCrossTotal(md5(r[:(i + <span class="number">1</span>)])[:<span class="number">16</span>] + md5(str(intMd5))[:<span class="number">16</span>])</span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    s = <span class="string">"-149 -234 -157 -132 -187 -140 -157 -241 -158 -177 -85 -215 -180 -187 -173 -218 -161 -183 -133 -226 -136 -171 -126 -169 -155 -96 -169 -240 -163 -153 -137 -111 -123 -191 -151 -213 -151 -142 -152 -208 -118 -137 -136 -244 -157 -168 -187 -201 -170 -176 -192 -209 -205 -174 -163 -189 -126 -133 -148 -194 -145 -212 -170 -155 -148 -165 -167 -206 -171 -177 -88 -173 -125 -129 -129 -235 -121 -190 -161 -165"</span></span><br><span class="line">    nList = eval(<span class="string">'[%s]'</span> % s.replace(<span class="string">' '</span>, <span class="string">','</span>))</span><br><span class="line">    strPasswd = <span class="string">''</span></span><br><span class="line">    print(decryptString(nList, strPasswd))</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<!--SEC-URI-KEY-TYB-HAH-->
+<h1 id="凯撒和某某加密"><a href="#凯撒和某某加密" class="headerlink" title="凯撒和某某加密"></a>凯撒和某某加密</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Crypto =<span class="string">'aZZg/x\ZbavpZiEZp+n)o+'</span></span><br><span class="line">list1 = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> Crypto:</span><br><span class="line">    num = ord(i) + <span class="number">5</span> <span class="comment">#多次尝试发现增加5得到类似flag的值</span></span><br><span class="line">    list1 += chr(num)</span><br><span class="line"></span><br><span class="line">print(list1)</span><br><span class="line"><span class="comment"># f__l4&#125;a_gf&#123;u_nJ_u0s.t0</span></span><br><span class="line"><span class="comment"># 输出看到位置不对，根据flag，所以应该是三个一组的栅栏</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">根据flag猜测是栅栏</span><br><span class="line">f__</span><br><span class="line">l4&#125;</span><br><span class="line">a_</span><br><span class="line">gf</span><br><span class="line">&#123;u</span><br><span class="line">_n</span><br><span class="line">J_</span><br><span class="line">u0</span><br><span class="line">s.</span><br><span class="line">t0</span><br><span class="line">前两行三个字符，后面是两个字符。真坑</span><br></pre></td></tr></table></figure>
+<!--flag{_Just_4_fun_0.0_}-->
+<h1 id="他的情书"><a href="#他的情书" class="headerlink" title="他的情书"></a>他的情书</h1><p>打开链接什么鬼，直接view-source查看源代码，查看jsfuck得到提示<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>unescape解码后js再次解密得到js代码<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/04-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">zhegejiamiyidiandoubuku</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> pass = <span class="built_in">document</span>.form.passwd.value;</span><br><span class="line">	<span class="keyword">var</span> cry = <span class="string">"Rm9yM0re354v5E4FUg5FasDboooo=="</span>;</span><br><span class="line">	<span class="keyword">var</span> addr = <span class="string">'soroki.php?passwd='</span>;</span><br><span class="line">	<span class="keyword">var</span> locatie = location.href;</span><br><span class="line">	<span class="keyword">var</span> out = <span class="string">''</span>;</span><br><span class="line">	<span class="keyword">var</span> pass2 = cry.substring(<span class="number">15</span>, <span class="number">4</span> * <span class="number">4</span>) + cry.substring(<span class="number">24</span>, <span class="number">5</span> * <span class="number">5</span>) + cry.substring(<span class="number">0</span>, <span class="number">1</span>) + cry.substr(<span class="number">7</span>, <span class="number">1</span>) + cry.substr(<span class="number">11</span>, <span class="number">1</span>) + cry.substr(<span class="number">13</span>, <span class="number">1</span>) + cry.substring(<span class="number">3</span> + <span class="number">3</span>, <span class="number">7</span>);</span><br><span class="line">	pass = locatie.substr(locatie.indexOf(<span class="string">'?'</span>) + <span class="number">1</span>);</span><br><span class="line">	addr = addr.substring(<span class="number">0</span>, addr.indexOf(<span class="string">'?'</span>) + <span class="number">1</span>) + <span class="string">'l0vau='</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; pass.Len; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (pass.charAt(i) == pass2.charAt(i)) &#123;</span><br><span class="line">			<span class="built_in">document</span>.write(pass.charAt(i))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	location = addr + pass</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>分析后访问url/soroki.php?l0vau=FoRevEr得到base64值，解码后得到：zqc{fkqtl_fp_yfd_py}<br>尝试凯撒移位得到flag，格式ctf{}<br><!--ctf{intwo_is_big_sb}--></p>
+<h1 id="RSANG-Asis-CTF-2013"><a href="#RSANG-Asis-CTF-2013" class="headerlink" title="RSANG(Asis CTF 2013)"></a>RSANG(Asis CTF 2013)</h1><p>不会<br>参考1：<a href="https://blog.csdn.net/dongyanwen6036/article/details/77131442" target="_blank" rel="noopener">Asis CTF 2013: “RSAng”</a><br>参考2：<a href="http://hebin.me/2017/09/07/%E8%A5%BF%E6%99%AEctf-rsangasis-ctf-2013/" target="_blank" rel="noopener">西普CTF-RSANG(Asis CTF 2013)</a><br><!--CTF_13f1c2154d59e27b5405bc859149b970--></p>
+<h1 id="唯密文攻击"><a href="#唯密文攻击" class="headerlink" title="唯密文攻击"></a>唯密文攻击</h1><p>解题思路：<a href="https://blog.csdn.net/dongyanwen6036/article/details/76767506" target="_blank" rel="noopener">唯密文攻击–实验吧详细解</a><br><!--CTF{USTC-F49D7F}--></p>
+<h1 id="base"><a href="#base" class="headerlink" title="base??"></a>base??</h1><p>所有字母都变成大写的，需要循环大小写，base64解码后校验哈希值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64decode</span><br><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> md5</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">List = product([<span class="string">'Y'</span>,<span class="string">'y'</span>],[<span class="string">'M'</span>,<span class="string">'m'</span>],[<span class="string">'F'</span>,<span class="string">'f'</span>],[<span class="string">'Z'</span>,<span class="string">'z'</span>],[<span class="string">'Z'</span>,<span class="string">'z'</span>],[<span class="string">'T'</span>,<span class="string">'t'</span>],[<span class="string">'Y'</span>,<span class="string">'y'</span>],[<span class="string">'0'</span>],[<span class="string">'D'</span>,<span class="string">'d'</span>],[<span class="string">'3'</span>],[<span class="string">'R'</span>,<span class="string">'r'</span>],[<span class="string">'M'</span>,<span class="string">'m'</span>],[<span class="string">'D'</span>,<span class="string">'d'</span>],[<span class="string">'3'</span>],[<span class="string">'R'</span>,<span class="string">'r'</span>],[<span class="string">'M'</span>,<span class="string">'m'</span>],[<span class="string">'M'</span>,<span class="string">'m'</span>],[<span class="string">'T'</span>,<span class="string">'t'</span>],[<span class="string">'I'</span>,<span class="string">'i'</span>],[<span class="string">'Z'</span>,<span class="string">'z'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> List:</span><br><span class="line">    Str = <span class="string">''</span>.join(i)</span><br><span class="line">    <span class="comment"># print(Str)</span></span><br><span class="line">    Md5 = md5(b64decode(Str)).hexdigest() <span class="comment">#计算哈希</span></span><br><span class="line">    <span class="keyword">if</span> Md5 == <span class="string">'16478a151bdd41335dcd69b270f6b985'</span>: <span class="comment">#对比</span></span><br><span class="line">        print(<span class="string">'flag:'</span> + str(b64decode(Str),encoding=<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
+<h2 id="非常规解"><a href="#非常规解" class="headerlink" title="非常规解"></a>非常规解</h2><p>链接：<a href="https://somd5.com/" target="_blank" rel="noopener">https://somd5.com/</a><br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/20-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/20-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--base64wtfwtf123--></p>
+<h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><p>js解密-&gt;unicode转中文后得到flag<br>这里需要注意打开题目链接后复制源代码内的内容，而不是网页内的内容（坑死我了.jpg）<br><!--SimCTF{js_encode}--></p>
+<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><p>参考：<a href="http://hebin.me/2017/09/07/%E8%A5%BF%E6%99%AEctf-rsa/" target="_blank" rel="noopener">http://hebin.me/2017/09/07/%E8%A5%BF%E6%99%AEctf-rsa/</a><br>python2脚本，先提取出n和e<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">pub = RSA.importKey(open(<span class="string">'public.pem'</span>).read())</span><br><span class="line">n = long(pub.n)</span><br><span class="line">e = long(pub.e)</span><br><span class="line"><span class="keyword">print</span> n</span><br><span class="line"><span class="keyword">print</span> e</span><br><span class="line"><span class="comment"># n = 74207624142945242263057035287110983967646020057307828709587969646701361764263</span></span><br><span class="line"><span class="comment"># e = 65537</span></span><br></pre></td></tr></table></figure></p>
+<p>分解n，得到pq：<a href="http://www.factordb.com/index.php" target="_blank" rel="noopener">http://www.factordb.com/index.php</a><br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/07-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/07-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>生成私钥<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">keypair = RSA.generate(<span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">keypair.p = <span class="number">258631601377848992211685134376492365269</span></span><br><span class="line">keypair.q = <span class="number">286924040788547268861394901519826758027</span></span><br><span class="line">keypair.e = <span class="number">65537</span></span><br><span class="line"></span><br><span class="line">keypair.n = keypair.p * keypair.q</span><br><span class="line">Qn = long((keypair.p<span class="number">-1</span>) * (keypair.q<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">True</span>):</span><br><span class="line">    x = (Qn * i ) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> (x % keypair.e == <span class="number">0</span>):</span><br><span class="line">        keypair.d = x / keypair.e</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">private = open(<span class="string">'private.pem'</span>,<span class="string">'w'</span>)</span><br><span class="line">private.write(keypair.exportKey())</span><br><span class="line">private.close()</span><br></pre></td></tr></table></figure></p>
+<p>使用openssl解密文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -decrypt -<span class="keyword">in</span> flag.enc -inkey private.pem -out flag.dec</span><br></pre></td></tr></table></figure></p>
+<!--ISG{256bit_is_weak}-->
+<h1 id="NSCTF-crypto200"><a href="#NSCTF-crypto200" class="headerlink" title="NSCTF crypto200"></a>NSCTF crypto200</h1><p>stegsolve打开，找到二维码，再用QR Research解开二维码得到flag<br><!--flag{NSCTF_Qr_C0De}--></p>
+<h1 id="NSCTF-crypto50"><a href="#NSCTF-crypto50" class="headerlink" title="NSCTF crypto50"></a>NSCTF crypto50</h1><p>AES解密-&gt;凯撒解密<br>AES：<a href="https://www.sojson.com/encrypt_aes.html" target="_blank" rel="noopener">https://www.sojson.com/encrypt_aes.html</a><br><!--flag{NSCTF_Rot_EnCryption}--></p>
+<h1 id="黑客叔叔（雨袭团）内部交流题（第一季1-0-2）"><a href="#黑客叔叔（雨袭团）内部交流题（第一季1-0-2）" class="headerlink" title="黑客叔叔（雨袭团）内部交流题（第一季1.0.2）"></a>黑客叔叔（雨袭团）内部交流题（第一季1.0.2）</h1><p>先将所有密文变成一行，将<code>等等</code>替换成<code>==</code>，其他中文替换成<code>/</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U2FsdGVkX18vmjE0tvWk69T/B/u9inuiNnM3rBhsu6tXzLhu+iofwuHNHq3YtDKs8ZlYLvSZuUY+mxLRKO7+m254R5YTCW8yzzgD+mGwWfGRgqmPKdD/xA==</span><br></pre></td></tr></table></figure></p>
+<p>先<a href="https://www.sojson.com/encrypt_triple_des.html" target="_blank" rel="noopener">TripleDes解密</a>，然后<a href="https://www.sojson.com/encrypt_rabbit.html" target="_blank" rel="noopener">Rabbit解密</a><br><!--RainRaid_Flag_Rabbit&TripleDes_Nice--></p>
+<h1 id="黑客叔叔（雨袭团）内部交流题（第一季1-0-1）"><a href="#黑客叔叔（雨袭团）内部交流题（第一季1-0-1）" class="headerlink" title="黑客叔叔（雨袭团）内部交流题（第一季1.0.1）"></a>黑客叔叔（雨袭团）内部交流题（第一季1.0.1）</h1><p>先base64解密<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umfpbljhawrfrmxhz19zmf9megnrmw45x3donhq|01|03|07|+|+1|+3|+7|2+1|2+2|2+6|2+7|2+9|3+0|3+3|3+7|3+8|3+9|?|</span><br></pre></td></tr></table></figure></p>
+<p>一脸懵比，其实后面<code>01</code>代表前面的字符串第一个变成大写,<code>+</code>代表10，<code>2+1</code>代表21<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UmFpblJhaWRfRmxhZ19zMF9meGNrMW45X3doNHQ</span><br></pre></td></tr></table></figure></p>
+<p>最后加上<code>=</code>号得到flag<br><!--RainRaid_Flag_s0_fxck1n9_wh4t--></p>
+<h1 id="simple-algorithm"><a href="#simple-algorithm" class="headerlink" title="simple algorithm"></a>simple algorithm</h1><p>刚开始写出与FAN对应的解密函数，但是发现字符长度不可控制，看了<a href="https://blog.csdn.net/dongyanwen6036/article/details/76560332" target="_blank" rel="noopener">别人的writeup</a>，发现n值有限定范围：0~99，于是生成字典得到flag<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FAN</span><span class="params">(n, m)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    z = []</span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> n % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">            z.append(<span class="number">2</span> - (n % <span class="number">4</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            z.append(<span class="number">0</span>)</span><br><span class="line">        n = (n - z[i])/<span class="number">2</span></span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line">    z = z[::<span class="number">-1</span>]</span><br><span class="line">    l = len(z)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, l):</span><br><span class="line">        s += z[i] * m ** (l - <span class="number">1</span> - i)</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">deFAN = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">    a = FAN(i,<span class="number">3</span>)</span><br><span class="line">    deFAN[a]=i</span><br><span class="line"><span class="comment"># print deFAN</span></span><br><span class="line">r = <span class="string">'2712733801194381163880124319146586498182192151917719248224681364019142438188097307292437016388011943193619457377217328473027324319178428'</span></span><br><span class="line">b = <span class="number">0</span></span><br><span class="line">str1 = <span class="string">''</span></span><br><span class="line"><span class="keyword">while</span> b &lt; len(r):</span><br><span class="line">    <span class="keyword">if</span> int(r[b:b + <span class="number">4</span>]) <span class="keyword">in</span> deFAN:</span><br><span class="line">        str1 += <span class="string">'%d'</span> % (deFAN[int(r[b:b + <span class="number">4</span>])])</span><br><span class="line">        b += <span class="number">4</span></span><br><span class="line">    <span class="keyword">elif</span> int(r[b:b + <span class="number">3</span>]) <span class="keyword">in</span> deFAN:</span><br><span class="line">        str1 += <span class="string">'%02d'</span> % (deFAN[int(r[b:b + <span class="number">3</span>])])</span><br><span class="line">        b += <span class="number">3</span></span><br><span class="line">    <span class="keyword">elif</span> int(r[b:b + <span class="number">2</span>]) <span class="keyword">in</span> deFAN:</span><br><span class="line">        str1 += <span class="string">'%02d'</span> % (deFAN[int(r[b:b + <span class="number">2</span>])])</span><br><span class="line">        b += <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> int(r[b:b + <span class="number">1</span>]) <span class="keyword">in</span> deFAN:</span><br><span class="line">        str1 += <span class="string">'%02d'</span> % (deFAN[int(r[b:b + <span class="number">1</span>])])</span><br><span class="line">        b += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">str2 = <span class="string">'%x'</span> % (int(str1))<span class="comment">#最后注意bytes与string的转换</span></span><br><span class="line">print(<span class="string">'结果为： '</span> + str2.decode(<span class="string">'hex'</span>))</span><br></pre></td></tr></table></figure></p>
+<!--SIS{a9ab115c488a311896dac4e8bc20a6d7}-->
+<h1 id="warmup"><a href="#warmup" class="headerlink" title="warmup"></a>warmup</h1><p>先提取n，e<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python2</span></span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"></span><br><span class="line">pub = RSA.importKey(open(<span class="string">'warmup.pub'</span>).read())</span><br><span class="line">n = long(pub.n)</span><br><span class="line">e = long(pub.e)</span><br><span class="line"><span class="keyword">print</span> n</span><br><span class="line"><span class="keyword">print</span> e</span><br></pre></td></tr></table></figure></p>
+<p>n特别大，所以分解是不可能分解的，用<a href="https://github.com/pablocelayes/rsa-wiener-attack" target="_blank" rel="noopener">rsa-wiener-attack</a>得到d<br>修改<code>RSAwienerHacker.py</code>中的代码↓<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/15-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/15-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>python2和3都可以跑，运行得到d<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/15-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/15-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>有了d就可以解密了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> binascii <span class="keyword">import</span> unhexlify</span><br><span class="line"></span><br><span class="line">n = <span class="number">0x367198D6B5614E95813ADD8F22A4717BC72BE1EABD933D1B86944FDB75B8ED230BE62D7D1B69D222095C128C86F82012ECB116191FD9D018A6D02F84DB27BC51A21307DC86F4BF771C691C143E5ABE549B5BD2D6EB1A21FD6270E7E1B48FE0611FBB2E1B0B3524E6F4DE8B4E4A345DA44A13DE825B72608DB6C7C4A40B78266E6C87BBFDEF6B48381D49C4507A58BCD47B76D64B45908B158BD7EBC4DACB0B1CFD6C2C19574F40EB2EFD0E9E10DC7005CAD39BCAF52B9EAC3873368D69031C5E724684A44F068EFD1D3DC096D9B5D6411E58BDEE43E46B99A0D0494B9DB28195AF901AFF130D4A6E203DAD08DA57FA7E40262A5BADB2A323EDA28B44696AB305D</span></span><br><span class="line">d = <span class="number">4221909016509078129201801236879446760697885220928506696150646938237440992746683409881141451831939190609743447676525325543963362353923989076199470515758399</span></span><br><span class="line">c = <span class="number">0x1e04304936215de8e21965cfca9c245b1a8f38339875d36779c0f123c475bc24d5eef50e7d9ff5830e80c62e8083ec55f27456c80b0ab26546b9aeb8af30e82b650690a2ed7ea407dcd094ab9c9d3d25a93b2140dcebae1814610302896e67f3ae37d108cd029fae6362ea7ac1168974c1a747ec9173799e1107e7a56d783660418ebdf6898d7037cea25867093216c2c702ef3eef71f694a6063f5f0f1179c8a2afe9898ae8dec5bb393cdffa3a52a297cd96d1ea602309ecf47cd009829b44ed3100cf6194510c53c25ca7435f60ce5f4f614cdd2c63756093b848a70aade002d6bc8f316c9e5503f32d39a56193d1d92b697b48f5aa43417631846824b5e86</span></span><br><span class="line"></span><br><span class="line">m = hex(pow(c, d, n)).rstrip(<span class="string">"L"</span>)</span><br><span class="line"><span class="comment"># print(m)</span></span><br><span class="line">print(str(unhexlify(m[<span class="number">2</span>:]),encoding=<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
+<!--BCTF{9etRea4y!}-->
+<h1 id="密文-rot13"><a href="#密文-rot13" class="headerlink" title="密文 rot13"></a>密文 rot13</h1><p>rot13:<a href="http://ctf.ssleye.com/rot13.html" target="_blank" rel="noopener">在线解密</a><br>格式大写<br><!--57E9F980EABF49973F757CDB9F80D36C--></p>
+<h1 id="keyboard"><a href="#keyboard" class="headerlink" title="keyboard"></a>keyboard</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BHUK,LP TGBNHGYT BHUK,LP UYGBN TGBNHGYT BHUK,LP BHUK,LP TGBNHGYT BHUK,LP TGBNHGYT UYGBN</span><br></pre></td></tr></table></figure>
+<p>提示很明显，BHUK,LP按顺序连起来为‘N’，同理得到flag，注意格式大写<br><!--NBNCBNNBNBC--></p>
+<h1 id="一个img文件"><a href="#一个img文件" class="headerlink" title="一个img文件"></a>一个img文件</h1><p>参考：<a href="https://blog.csdn.net/dongyanwen6036/article/details/77113891" target="_blank" rel="noopener">一个img文件-实验吧</a><br><!--flag{245d734b559c6b084b7ecb40596055243e8afdd2}--></p>
+<h1 id="数码管"><a href="#数码管" class="headerlink" title="数码管"></a>数码管</h1><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/18-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/18-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>图片字符为：HELLO，对表解密，红色共阳极，蓝色共阴极，共阴极二进制值取反<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/18-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/18-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">H -&gt; 89</span><br><span class="line">E -&gt; 86 -&gt; ‭‭10000110‬‬ -&gt; 01111001 -&gt; ‭79‬</span><br><span class="line">L -&gt; C7</span><br><span class="line">L -&gt; C7 -&gt; ‭11000111‬ -&gt; 00111000 -&gt; ‭38‬</span><br><span class="line">O -&gt; C0</span><br></pre></td></tr></table></figure></p>
+<!--DUTCTF{8979C738C0}-->
+<h1 id="古典密码的安全性不高，但仍然十分美妙，请破译下面的密文"><a href="#古典密码的安全性不高，但仍然十分美妙，请破译下面的密文" class="headerlink" title="古典密码的安全性不高，但仍然十分美妙，请破译下面的密文"></a>古典密码的安全性不高，但仍然十分美妙，请破译下面的密文</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Os drnuzearyuwn, y jtkjzoztzoes douwlr oj y ilzwex eq lsdexosa kn pwodw tsozj eq ufyoszlbz yrl rlufydlx pozw douwlrzlbz, ydderxosa ze y rlatfyr jnjzli; mjy gfbmw vla xy wbfnsy symmyew (mjy vrwm qrvvrf), hlbew rd symmyew, mebhsymw rd symmyew, vbomgeyw rd mjy lxrzy, lfk wr dremj. Mjy eyqybzye kyqbhjyew mjy myom xa hyedrevbfn lf bfzyewy wgxwmbmgmbrf. Wr mjy dsln bw f1_2jyf-k3_jg1-vb-vl_l</span><br></pre></td></tr></table></figure>
+<p>词频分析：<a href="https://quipqiup.com/" target="_blank" rel="noopener">https://quipqiup.com/</a><br><!--n1_2hen-d3_hu1-mi-ma_a--></p>
+<h1 id="最近在论证一个问题，到底是先有鸡还是先有蛋"><a href="#最近在论证一个问题，到底是先有鸡还是先有蛋" class="headerlink" title="最近在论证一个问题，到底是先有鸡还是先有蛋"></a>最近在论证一个问题，到底是先有鸡还是先有蛋</h1><p>Ijm,lo 3wsdr4 6tghu7<br>键盘圈<br><!--KEY--></p>
+<h1 id="压缩的问题"><a href="#压缩的问题" class="headerlink" title="压缩的问题"></a>压缩的问题</h1><p>将16进制字符串用winhex写入文件<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/17-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/17-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>可以看到是rar文件，解压需要密码，再次审题看到提示↓，这一段的值为密码<br><figure class="image-box">
+                <a rel="实验吧-Crypto-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/17-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Crypto/17-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>最后计算哈希的前8位sha1值，小写为flag<br><!--58a09ae4--></p>
+<h1 id="chinese-hacker"><a href="#chinese-hacker" class="headerlink" title="chinese hacker"></a>chinese hacker</h1><p>下载数据库，用数据库查看器打开看到<code>INXW2ZLPNYZDAMJSMJQWE6I=</code><br>直接提交code1得到前半个flag<code>1GetThEFirst</code><br>在将值<code>INXW2ZLPNYZDAMJSMJQWE6I=</code>base32解码得到<code>Comeon2012baby</code><br>提交得到后半个flag<code>2tHEWinNer</code><br><!--1GetThEFirst2tHEWinNer--></p>
+<h1 id="这里没有key"><a href="#这里没有key" class="headerlink" title="这里没有key"></a>这里没有key</h1><p>查看源码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>大家好<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=Utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">alert(<span class="string">"这里没有key"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- #@~^TgAAAA=='[6*liLa6++p'aXvfiLaa6i[[avWi[[a*p[[6*!I'[6cp'aXvXILa6fp[:6+Wp[:XvWi[[6+XivRIAAA==^#~@ --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>asp解码后html解码得到flag</p>
+<p style="display:none;">Encode@decode</p>
+
+<h1 id="敌军情报"><a href="#敌军情报" class="headerlink" title="敌军情报"></a>敌军情报</h1><p> 知彼知己方能百战不殆。天枢战队成员截获了一条命令密文45 46 45 46 32 45 32 46 46 45 46 32 46 45 32，你能解密成明文，做到知己知彼吗？<br>格式：CTF{ }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">45 46 45 46 32 45 32 46 46 45 46 32 46 45 32</span><br><span class="line">ascii,32为空格</span><br><span class="line">- . - .   -   . . - .   . -</span><br><span class="line">根据莫斯密码表</span><br><span class="line">- . - .    	C</span><br><span class="line">   -   		T</span><br><span class="line">. . - .		F</span><br><span class="line">  . -  		A</span><br></pre></td></tr></table></figure></p>
+<!--CTF{a}-->
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-09T01:27:02.000Z" itemprop="dateUpdated">2018-05-09 09:27:02</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/05/09/实验吧-Crypto-writeup/" target="_blank" rel="external">https://yuanlichenai.cn/2018/05/09/实验吧-Crypto-writeup/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crypto/">Crypto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验吧/">实验吧</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/09/实验吧-Crypto-writeup/&title=《实验吧-Crypto-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/09/实验吧-Crypto-writeup/&title=《实验吧-Crypto-writeup》 — YuanLiChenAi&source=实验吧密码类题目,
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/05/09/实验吧-Misc-writeup/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">实验吧-Misc-writeup</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/05/07/Bugku-Crypto-writeup/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Bugku-Crypto-writeup</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变异凯撒"><span class="post-toc-number">1.</span> <span class="post-toc-text">变异凯撒</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#传统知识-古典密码"><span class="post-toc-number">2.</span> <span class="post-toc-text">传统知识+古典密码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#what’s-wrong-with-this"><span class="post-toc-number">3.</span> <span class="post-toc-text">what’s wrong with this</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#try-them-all"><span class="post-toc-number">4.</span> <span class="post-toc-text">try them all</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#rsarsa"><span class="post-toc-number">5.</span> <span class="post-toc-text">rsarsa</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#robomunication"><span class="post-toc-number">6.</span> <span class="post-toc-text">robomunication</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#The-Flash-14"><span class="post-toc-number">7.</span> <span class="post-toc-text">The Flash-14</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#奇怪的短信"><span class="post-toc-number">8.</span> <span class="post-toc-text">奇怪的短信</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RSAROLL"><span class="post-toc-number">9.</span> <span class="post-toc-text">RSAROLL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逆推解法"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">逆推解法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#爆破解法"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">爆破解法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#围在栅栏中的爱"><span class="post-toc-number">10.</span> <span class="post-toc-text">围在栅栏中的爱</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#神秘字母"><span class="post-toc-number">11.</span> <span class="post-toc-text">神秘字母</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#疑惑的汉字"><span class="post-toc-number">12.</span> <span class="post-toc-text">疑惑的汉字</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#古典密码"><span class="post-toc-number">13.</span> <span class="post-toc-text">古典密码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#困在栅栏里的凯撒"><span class="post-toc-number">14.</span> <span class="post-toc-text">困在栅栏里的凯撒</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#奇妙的音乐"><span class="post-toc-number">15.</span> <span class="post-toc-text">奇妙的音乐</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Fair-Play"><span class="post-toc-number">16.</span> <span class="post-toc-text">Fair-Play</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我喜欢培根"><span class="post-toc-number">17.</span> <span class="post-toc-text">我喜欢培根</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Strength"><span class="post-toc-number">18.</span> <span class="post-toc-text">Strength</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Decode"><span class="post-toc-number">19.</span> <span class="post-toc-text">Decode</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RSA实践"><span class="post-toc-number">20.</span> <span class="post-toc-text">RSA实践</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#杯酒人生"><span class="post-toc-number">21.</span> <span class="post-toc-text">杯酒人生</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一串奇怪的数"><span class="post-toc-number">22.</span> <span class="post-toc-text">一串奇怪的数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#凯撒和某某加密"><span class="post-toc-number">23.</span> <span class="post-toc-text">凯撒和某某加密</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#他的情书"><span class="post-toc-number">24.</span> <span class="post-toc-text">他的情书</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RSANG-Asis-CTF-2013"><span class="post-toc-number">25.</span> <span class="post-toc-text">RSANG(Asis CTF 2013)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#唯密文攻击"><span class="post-toc-number">26.</span> <span class="post-toc-text">唯密文攻击</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#base"><span class="post-toc-number">27.</span> <span class="post-toc-text">base??</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非常规解"><span class="post-toc-number">27.1.</span> <span class="post-toc-text">非常规解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#js"><span class="post-toc-number">28.</span> <span class="post-toc-text">js</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RSA"><span class="post-toc-number">29.</span> <span class="post-toc-text">RSA</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NSCTF-crypto200"><span class="post-toc-number">30.</span> <span class="post-toc-text">NSCTF crypto200</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NSCTF-crypto50"><span class="post-toc-number">31.</span> <span class="post-toc-text">NSCTF crypto50</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#黑客叔叔（雨袭团）内部交流题（第一季1-0-2）"><span class="post-toc-number">32.</span> <span class="post-toc-text">黑客叔叔（雨袭团）内部交流题（第一季1.0.2）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#黑客叔叔（雨袭团）内部交流题（第一季1-0-1）"><span class="post-toc-number">33.</span> <span class="post-toc-text">黑客叔叔（雨袭团）内部交流题（第一季1.0.1）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#simple-algorithm"><span class="post-toc-number">34.</span> <span class="post-toc-text">simple algorithm</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#warmup"><span class="post-toc-number">35.</span> <span class="post-toc-text">warmup</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#密文-rot13"><span class="post-toc-number">36.</span> <span class="post-toc-text">密文 rot13</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#keyboard"><span class="post-toc-number">37.</span> <span class="post-toc-text">keyboard</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个img文件"><span class="post-toc-number">38.</span> <span class="post-toc-text">一个img文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数码管"><span class="post-toc-number">39.</span> <span class="post-toc-text">数码管</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#古典密码的安全性不高，但仍然十分美妙，请破译下面的密文"><span class="post-toc-number">40.</span> <span class="post-toc-text">古典密码的安全性不高，但仍然十分美妙，请破译下面的密文</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最近在论证一个问题，到底是先有鸡还是先有蛋"><span class="post-toc-number">41.</span> <span class="post-toc-text">最近在论证一个问题，到底是先有鸡还是先有蛋</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#压缩的问题"><span class="post-toc-number">42.</span> <span class="post-toc-text">压缩的问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#chinese-hacker"><span class="post-toc-number">43.</span> <span class="post-toc-text">chinese hacker</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这里没有key"><span class="post-toc-number">44.</span> <span class="post-toc-text">这里没有key</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#敌军情报"><span class="post-toc-number">45.</span> <span class="post-toc-text">敌军情报</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/09/实验吧-Crypto-writeup/&title=《实验吧-Crypto-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/09/实验吧-Crypto-writeup/&title=《实验吧-Crypto-writeup》 — YuanLiChenAi&source=实验吧密码类题目,
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aQW7EIAwF0Ln/paebLiqNwnxjIjXwsho1FHhZWLbh9Yqf95+nOv7qvz7fVlcpPxgYGI9lvIdPMiZZeDz+c618bxgYGOcwrhYej1kVRsefb7w3DAwMjKsx443mG5r7fBgYGBgdRvL3cSDGwMDA6BSx44nyFDBZ/cZaHAMD44GMTrp29+9bzjcwMDAexXgXn+o8+XHm3H5+Z8PAwNiakQe4vN2fJJfJ2/LlDwwMjE0Z+WLV8Ne/WpE0BF/5V8HAwHgsIz9uXDumGpojMAYGxgGMPOAmieDcFbHqSAwMjNMYeXCstsnmZstbchgYGHszkhbY2mZcvtECHgMD4wBGson8aLN6GNC5IXJ5EouBgbERo1q4ri1ZkxDcardhYGBswci3mNfEnVRyDPtShWNgYGzNmEsQ8yXzUDtX9GJgYOzNqIbapIidS++SOQt3RjAwMLZjrEr15jY6t+KNGSsGBsY/Y+SpWH4A0E9Dy0gMDIytGUlp2mmNzX2I/AoaBgYGRjJRtQQdf5S8kL68bIGBgXEAI0/X8gbc3NvybBgYGAcw8kZ8P1yuuqJRrsgxMDAeyHgXn2TqfIZ+oMfAwDiB0TngnEvjqs27TnDHwMDYibFqsZw3d+3jS1KLgYFxAKN62au6cP+6RpTnYmBgYMRHnv2CsxysMTAwMKbC6ILNBSEeAwPjHEa1oVZtuuWNubxUxsDAOIfRybvmGmR3HGpiYGBsyvgB+ZVqmAvrg/0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

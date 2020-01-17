@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>实验吧-Misc-writeup | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Misc,实验吧">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>实验吧-Misc-writeup</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">实验吧-Misc-writeup</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-09T11:28:23.000Z" itemprop="datePublished" class="page-time">
+  2018-05-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-实验吧-Misc-writeup" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">实验吧-Misc-writeup</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-09 19:28:23" datetime="2018-05-09T11:28:23.000Z" itemprop="datePublished">2018-05-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>实验吧Misc题writeup</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="图片里的动漫"><a href="#图片里的动漫" class="headerlink" title="图片里的动漫"></a>图片里的动漫</h1><p>下载图片，后缀改为rar，打开发现flag.rar；解压出来，将flag.rar后缀改为jpg<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/01-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/01-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>七龙珠英文是：DRAGON BALL<br>提交提示错误，因为图片是倒置的，此时把英文反过来写llabnogard,<br><!--CTF{llabnogard}--></p>
+<h1 id="这是捕获的黑客攻击数据包，"><a href="#这是捕获的黑客攻击数据包，" class="headerlink" title="这是捕获的黑客攻击数据包，"></a>这是捕获的黑客攻击数据包，</h1><p>Administrator用户的密码在此次攻击中泄露了，你能找到吗？<br>http过滤数据包，密码应该在数据包前半部分，所以从头开始看post数据包，将每个数据包中的base64依次解码，直到找到flag<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/02-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/02-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/02-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/02-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure></p>
+<p style="display:none;">Test!@#123</p>
+
+<h1 id="抓到你了"><a href="#抓到你了" class="headerlink" title="抓到你了"></a>抓到你了</h1><p>Hint：入侵者通过 ping 工具对局域网内一主机进行存活性扫描， flag 为入侵所 发送的 16 字节的数据包内容。<br>提示很明显，ping也就是icmp协议，过滤icmp，找到flag,不要带冒号<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/03-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/03-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--2122232425262728292a2b2c2d2e2f30--></p>
+<h1 id="紧急报文"><a href="#紧急报文" class="headerlink" title="紧急报文"></a>紧急报文</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解密一下这份截获的密文吧，时间就是机会！</span><br><span class="line">FA XX DD AG FF XG FD XG DD DG GA XF FA</span><br><span class="line">flag格式:flag_Xd&#123;hSh_ctf:******&#125;</span><br></pre></td></tr></table></figure>
+<p>ADFGX密码,对表得到flag<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/04-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/04-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--flag_Xd{hSh_ctf:flagxidianctf}--></p>
+<h1 id="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><a href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙" class="headerlink" title="MD5之守株待兔，你需要找到和系统锁匹配的钥匙"></a>MD5之守株待兔，你需要找到和系统锁匹配的钥匙</h1><p>根据提示访问<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ctf5.shiyanbar.com/misc/keys/keys.php?key=123</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>MD5解密<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><a href="http://tool.chinaz.com/Tools/unixtime.aspx" target="_blank" rel="noopener">站长之家</a>查看unix时间戳<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/05-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>所以这题就是要key值等于服务器系统时间戳的md5值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time,requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://ctf5.shiyanbar.com/misc/keys/keys.php?key='</span></span><br><span class="line">    s = requests.session()</span><br><span class="line">    Time = str(int(time.time())) <span class="comment">#获取unix时间戳并转换成字符</span></span><br><span class="line">    req = s.get(url+Time)</span><br><span class="line">    req.encoding=<span class="string">'gbk'</span></span><br><span class="line">    print(req.text)</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure></p>
+<p>受到网络延迟影响，不是每次执行都可以成功，多试几次得到flag，格式CTF{}<br><!--CTF{c04ffec18156c696}--></p>
+<h1 id="女神"><a href="#女神" class="headerlink" title="女神"></a>女神</h1><p>base64转Binary<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/06-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/06-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>但是并不认识emmm…<br><figure class="image-box">
+                <a rel="实验吧-Misc-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/06-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/Misc-1/06-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--爱新觉罗启星--></p>
+<h1 id="内网攻击数据包，请分析"><a href="#内网攻击数据包，请分析" class="headerlink" title="内网攻击数据包，请分析"></a>内网攻击数据包，请分析</h1><p>SMB包里找到hash和challange。<br><a href="http://hebin.me/2017/09/09/%E8%A5%BF%E6%99%AEctf-%E5%86%85%E7%BD%91%E6%94%BB%E5%87%BB%E6%95%B0%E6%8D%AE%E5%8C%85%EF%BC%8C%E8%AF%B7%E5%88%86%E6%9E%90/" target="_blank" rel="noopener">解题思路</a><br><!--NetLMis666--></p>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-05-09T11:28:23.000Z" itemprop="dateUpdated">2018-05-09 19:28:23</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/05/09/实验吧-Misc-writeup/" target="_blank" rel="external">https://yuanlichenai.cn/2018/05/09/实验吧-Misc-writeup/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Misc/">Misc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验吧/">实验吧</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/09/实验吧-Misc-writeup/&title=《实验吧-Misc-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/09/实验吧-Misc-writeup/&title=《实验吧-Misc-writeup》 — YuanLiChenAi&source=实验吧Misc题writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/05/15/实验吧-隐写术-writeup/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">实验吧-隐写术-writeup</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/05/09/实验吧-Crypto-writeup/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">实验吧-Crypto-writeup</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图片里的动漫"><span class="post-toc-number">1.</span> <span class="post-toc-text">图片里的动漫</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是捕获的黑客攻击数据包，"><span class="post-toc-number">2.</span> <span class="post-toc-text">这是捕获的黑客攻击数据包，</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#抓到你了"><span class="post-toc-number">3.</span> <span class="post-toc-text">抓到你了</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#紧急报文"><span class="post-toc-number">4.</span> <span class="post-toc-text">紧急报文</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MD5之守株待兔，你需要找到和系统锁匹配的钥匙"><span class="post-toc-number">5.</span> <span class="post-toc-text">MD5之守株待兔，你需要找到和系统锁匹配的钥匙</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#女神"><span class="post-toc-number">6.</span> <span class="post-toc-text">女神</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#内网攻击数据包，请分析"><span class="post-toc-number">7.</span> <span class="post-toc-text">内网攻击数据包，请分析</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/09/实验吧-Misc-writeup/&title=《实验吧-Misc-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/09/实验吧-Misc-writeup/&title=《实验吧-Misc-writeup》 — YuanLiChenAi&source=实验吧Misc题writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay26DMBAF0P7/T9NtqyjkXk9SFXO8qhowHBYjz+PrK17Hw/r5//Prkz3zu0YLAwPjsozjdJ0/8hzz7MrH6893Pn83DAyM+zCSx+d3tWF0LaBjYGBgtOE1Z7cBGgMDA2PyWvmB8nwHDAwMjISRvNCnS2z5rxgYGHdj5FX3v//7I/0NDAyMSzGOcuVF/Hnjs3grDAyMrRl5gEvS0bVm5FrAxcDAuBtjXkSbFNraUYw3HBYxMDAuxchD3lq5LS+TrSW6v064GBgYWzPyY9/5g5MmZYuJPhkGBsbWjMloV14gy3fLh8YwMDDuzFh7uckARFu8K56CgYGxBWOt3N82L9eOicUnwMDA2JoxH3GYjFaspcovOrEYGBjbMYqhqzJo5oNfk4S5PsliYGBswWinFyZFsTw012U1DAyMjRhtMvmJUv5kIONp2MXAwNiOsTZC0aaak9LeqA6HgYGxHSM/dyVhOmkMJIfUtyExMDA2YrRhdy0BXpsNKRqfGBgYGzHaYn07qNp+jjaIY2BgYMwT0bbclrDrgIuBgbERoy2rtcMWk9T0RfMAAwNjU8ZRrqTpmAfopJAXpcQYGBhbMyaNgTlpXsirMRgYGJdltEW0tt3Yfrn8LgwMjLsx8hJ8ctRrd2iRGBgYGJMRivzIuNbyjHwYGBgYcaBsGwbtPh8PuBgYGP+M8a5yfz4w0bZRXzwdAwNja8Yk5K2loJMRsVEjEwMD43qMbxllapg7B4U3AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

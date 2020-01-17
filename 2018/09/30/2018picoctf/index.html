@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>2018 Picoctf | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="CTF比赛,picoctf">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>2018 Picoctf</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">2018 Picoctf</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-30T05:04:37.000Z" itemprop="datePublished" class="page-time">
+  2018-09-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-2018picoctf" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">2018 Picoctf</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-30 13:04:37" datetime="2018-09-30T05:04:37.000Z" itemprop="datePublished">2018-09-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>国外的CTF比赛，前面很简单，感觉很适合入门，地址：<a href="https://2018game.picoctf.com/" target="_blank" rel="noopener">https://2018game.picoctf.com/</a></p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Forensics-Warmup-1"><a href="#Forensics-Warmup-1" class="headerlink" title="Forensics Warmup 1"></a>Forensics Warmup 1</h1><p>压缩包解开就有<br><!--picoCTF{welcome_to_forensics}--></p>
+<h1 id="Forensics-Warmup-2"><a href="#Forensics-Warmup-2" class="headerlink" title="Forensics Warmup 2"></a>Forensics Warmup 2</h1><p>反正我能直接打开emmm<br><!--picoCTF{extensions_are_a_lie}--></p>
+<h1 id="General-Warmup-1"><a href="#General-Warmup-1" class="headerlink" title="General Warmup 1"></a>General Warmup 1</h1><p>进制转换，略…<br><!--picoCTF{A}--></p>
+<h1 id="General-Warmup-2"><a href="#General-Warmup-2" class="headerlink" title="General Warmup 2"></a>General Warmup 2</h1><p>进制转换，略…<br><!--picoCTF{11011}--></p>
+<h1 id="General-Warmup-3"><a href="#General-Warmup-3" class="headerlink" title="General Warmup 3"></a>General Warmup 3</h1><p>进制转换，略…<br><!--picoCTF{61}--></p>
+<h1 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h1><p>视频下面有flag<br><!-- picoCTF{xiexie_ni_lai_zheli}--></p>
+<h1 id="Reversing-Warmup-1"><a href="#Reversing-Warmup-1" class="headerlink" title="Reversing Warmup 1"></a>Reversing Warmup 1</h1><p>编辑器打开查找flag<br><!--picoCTF{welc0m3_t0_r3VeRs1nG}--></p>
+<h1 id="Reversing-Warmup-2"><a href="#Reversing-Warmup-2" class="headerlink" title="Reversing Warmup 2"></a>Reversing Warmup 2</h1><p>base64<br><!--picoCTF{th4t_w4s_s1mpL3}--></p>
+<h1 id="Crypto-Warmup-1"><a href="#Crypto-Warmup-1" class="headerlink" title="Crypto Warmup 1"></a>Crypto Warmup 1</h1><p><a href="http://ctf.ssleye.com/vigenere.html" target="_blank" rel="noopener">维吉尼亚密码</a><br><!--picoCTF{SECRETMESSAGE}--></p>
+<h1 id="Crypto-Warmup-2"><a href="#Crypto-Warmup-2" class="headerlink" title="Crypto Warmup 2"></a>Crypto Warmup 2</h1><p><a href="http://ctf.ssleye.com/rot13.html" target="_blank" rel="noopener">rot13密码</a><br><!--picoCTF{this_is_crypto!}--></p>
+<h1 id="grep-1"><a href="#grep-1" class="headerlink" title="grep 1"></a>grep 1</h1><p>一样用编辑器打开找flag<br><!--picoCTF{grep_and_you_will_find_c709fa94}--></p>
+<h1 id="net-cat"><a href="#net-cat" class="headerlink" title="net cat"></a>net cat</h1><p>nc一下喽<br><!--picoCTF{NEtcat_iS_a_NEcESSiTy_c97963fe}--></p>
+<h1 id="HEEEEEEERE’S-Johnny"><a href="#HEEEEEEERE’S-Johnny" class="headerlink" title="HEEEEEEERE’S Johnny!"></a>HEEEEEEERE’S Johnny!</h1><p>通过passwd和shadow爆破密码，使用kali破解<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># unshadow passwd shadow &gt; flag_passwd</span></span><br><span class="line">root@kali:~/Desktop<span class="comment"># john --wordlist=/usr/share/john/password.lst flag_passwd</span></span><br><span class="line">root@kali:~/Desktop<span class="comment"># john --show flag_passwd</span></span><br></pre></td></tr></table></figure></p>
+<p>参考：<a href="http://topspeedsnail.com/John-the-Ripper-learn/" target="_blank" rel="noopener">Kali Linux：使用John the Ripper破解密码</a><br><!--picoCTF{J0hn_1$_R1pp3d_289677b5}--></p>
+<h1 id="strings"><a href="#strings" class="headerlink" title="strings"></a>strings</h1><p>strings一下，编辑器打开也找得到<br><!--picoCTF{sTrIngS_sAVeS_Time_d7c8de6c}--></p>
+<h1 id="pipe"><a href="#pipe" class="headerlink" title="pipe"></a>pipe</h1><figure class="highlight plain"><figcaption><span>payload</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc 2018shell2.picoctf.com 44310 &gt;&gt;1.txt</span><br></pre></td></tr></table></figure>
+<p>使用telnet也行，如果使用ssh会得到一个错误答案2333。<br><!--picoCTF{almost_like_mario_a13e5b27}--></p>
+<h1 id="Inspect-Me"><a href="#Inspect-Me" class="headerlink" title="Inspect Me"></a>Inspect Me</h1><p>留意页面提示，flag分别在index、js和css里<br><!--picoCTF{ur_4_real_1nspect0r_g4dget_b4887011}--></p>
+<h1 id="grep-2"><a href="#grep-2" class="headerlink" title="grep 2"></a>grep 2</h1><figure class="highlight bash"><figcaption><span>payload</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /problems/grep-2_4_06c2058761f24267033e7ca6ff9d9144/files/.|xargs grep <span class="string">"picoCTF"</span></span><br></pre></td></tr></table></figure>
+<!--picoCTF{grep_r_and_you_will_find_036bbb25}-->
+<h1 id="Aca-Shell-A"><a href="#Aca-Shell-A" class="headerlink" title="Aca-Shell-A"></a>Aca-Shell-A</h1><p>失败了n次，总算过了。。。<br><figure class="highlight bash"><figcaption><span>Payload</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> secret</span><br><span class="line">ls</span><br><span class="line">rm intel*</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Drop it in!'</span></span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line"><span class="built_in">cd</span> executables</span><br><span class="line">ls</span><br><span class="line">./dontLookHere</span><br><span class="line">whoami</span><br><span class="line"><span class="built_in">cd</span></span><br><span class="line">cp /tmp/TopSecret passwords</span><br><span class="line"><span class="built_in">cd</span> passwords</span><br><span class="line">cat TopSecret</span><br></pre></td></tr></table></figure></p>
+<!--picoCTF{CrUsHeD_It_d6f202f1}-->
+<h1 id="Client-Side-is-Still-Bad"><a href="#Client-Side-is-Still-Bad" class="headerlink" title="Client Side is Still Bad"></a>Client Side is Still Bad</h1><figure class="highlight js"><figcaption><span>源码js部分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">verify</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   checkpass = <span class="built_in">document</span>.getElementById(<span class="string">"pass"</span>).value;</span><br><span class="line">   split = <span class="number">4</span>;</span><br><span class="line">   <span class="keyword">if</span> (checkpass.substring(split*<span class="number">7</span>, split*<span class="number">8</span>) == <span class="string">'&#125;'</span>) &#123;</span><br><span class="line">     <span class="keyword">if</span> (checkpass.substring(split*<span class="number">6</span>, split*<span class="number">7</span>) == <span class="string">'17e9'</span>) &#123;</span><br><span class="line">       <span class="keyword">if</span> (checkpass.substring(split*<span class="number">5</span>, split*<span class="number">6</span>) == <span class="string">'d_91'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (checkpass.substring(split*<span class="number">4</span>, split*<span class="number">5</span>) == <span class="string">'s_ba'</span>) &#123;</span><br><span class="line">         <span class="keyword">if</span> (checkpass.substring(split*<span class="number">3</span>, split*<span class="number">4</span>) == <span class="string">'nt_i'</span>) &#123;</span><br><span class="line">           <span class="keyword">if</span> (checkpass.substring(split*<span class="number">2</span>, split*<span class="number">3</span>) == <span class="string">'clie'</span>) &#123;</span><br><span class="line">             <span class="keyword">if</span> (checkpass.substring(split, split*<span class="number">2</span>) == <span class="string">'CTF&#123;'</span>) &#123;</span><br><span class="line">               <span class="keyword">if</span> (checkpass.substring(<span class="number">0</span>,split) == <span class="string">'pico'</span>) &#123;</span><br><span class="line">                 alert(<span class="string">"You got the flag!"</span>)</span><br><span class="line">                 &#125;</span><br><span class="line">               &#125;</span><br><span class="line">             &#125;</span><br><span class="line">     </span><br><span class="line">           &#125;</span><br><span class="line">         &#125;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> &#123;</span><br><span class="line">     alert(<span class="string">"Incorrect password"</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<!--picoCTF{client_is_bad_9117e9}-->
+<h1 id="Desrouleaux"><a href="#Desrouleaux" class="headerlink" title="Desrouleaux"></a>Desrouleaux</h1><p>最后一个问题没看懂，参考：<a href="https://medium.com/@anglee19/forensics-question-desrouleaux-solved-2a8b692d2425" target="_blank" rel="noopener">https://medium.com/@anglee19/forensics-question-desrouleaux-solved-2a8b692d2425</a><br><!--picoCTF{J4y_s0n_d3rUUUULo_a062e5f8}--></p>
+<h1 id="Logon"><a href="#Logon" class="headerlink" title="Logon"></a>Logon</h1><p>打开代理，将<code>admin=False</code>改成<code>admin=True</code><br><!--picoCTF{l0g1ns_ar3nt_r34l_2a968c11}--></p>
+<h1 id="Reading-Between-the-Eyes"><a href="#Reading-Between-the-Eyes" class="headerlink" title="Reading Between the Eyes"></a>Reading Between the Eyes</h1><figure class="image-box">
+                <a rel="2018" picoctf="" href="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-07-20-53-24.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-07-20-53-24.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<!--picoCTF{r34d1ng_b37w33n_7h3_by73s}-->
+<h1 id="Recovering-From-the-Snap"><a href="#Recovering-From-the-Snap" class="headerlink" title="Recovering From the Snap"></a>Recovering From the Snap</h1><p>用WinHex打开，可以看到在00009A00处有jpg的文件头，将前面的数据删除。<br><figure class="image-box">
+                <a rel="2018" picoctf="" href="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-15-22-06-12.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-15-22-06-12.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用bingwalk扫描发现多张图片，用foremost分离出来，flag在最后一张图里。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># binwalk animals.dd </span></span><br><span class="line"></span><br><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             JPEG image data, JFIF standard 1.01</span><br><span class="line">30            0x1E            TIFF image data, big-endian, offset of first image directory: 8</span><br><span class="line">632832        0x9A800         JPEG image data, JFIF standard 1.01</span><br><span class="line">1126400       0x113000        JPEG image data, JFIF standard 1.01</span><br><span class="line">1517568       0x172800        JPEG image data, JFIF standard 1.01</span><br><span class="line">1773568       0x1B1000        JPEG image data, JFIF standard 1.01</span><br><span class="line">1773598       0x1B101E        TIFF image data, big-endian, offset of first image directory: 8</span><br><span class="line">2097152       0x200000        JPEG image data, JFIF standard 1.01</span><br><span class="line">2097182       0x20001E        TIFF image data, big-endian, offset of first image directory: 8</span><br><span class="line">2568192       0x273000        JPEG image data, JFIF standard 1.01</span><br><span class="line">2568222       0x27301E        TIFF image data, big-endian, offset of first image directory: 8</span><br><span class="line">2961408       0x2D3000        JPEG image data, JFIF standard 1.01</span><br><span class="line">2961438       0x2D301E        TIFF image data, big-endian, offset of first image directory: 8</span><br><span class="line"></span><br><span class="line">root@kali:~/Desktop<span class="comment"># foremost animals.dd </span></span><br><span class="line">Processing: animals.dd</span><br><span class="line">|*|</span><br><span class="line">root@kali:~/Desktop<span class="comment">#</span></span><br></pre></td></tr></table></figure></p>
+<!--picoCTF{th3_5n4p_happ3n3d}-->
+<h1 id="admin-panel"><a href="#admin-panel" class="headerlink" title="admin panel"></a>admin panel</h1><figure class="image-box">
+                <a rel="2018" picoctf="" href="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-07-21-02-14.png" title="查找分组字节流" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/CTF-Game/2018picoctf/2018-10-07-21-02-14.png" alt="查找分组字节流" title="" class=""></a>
+                <p>查找分组字节流</p>
+            </figure>
+<!--picoCTF{n0ts3cur3_df598569}-->
+<h1 id="Mr-Robots"><a href="#Mr-Robots" class="headerlink" title="Mr. Robots"></a>Mr. Robots</h1><p>访问robots.txt文件<br><!--picoCTF{th3_w0rld_1s_4_danger0us_pl4c3_3lli0t_30de1}--></p>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-15T14:10:00.000Z" itemprop="dateUpdated">2018-10-15 22:10:00</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/09/30/2018picoctf/" target="_blank" rel="external">https://yuanlichenai.cn/2018/09/30/2018picoctf/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF比赛/">CTF比赛</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/picoctf/">picoctf</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/09/30/2018picoctf/&title=《2018 Picoctf》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/09/30/2018picoctf/&title=《2018 Picoctf》 — YuanLiChenAi&source=国外的CTF比赛，前面很简单，感觉很适合入门，地址：https://2018game.picoctf.com/
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/10/13/设置文件右键快捷菜单/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">设置文件右键快捷菜单</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/09/29/markdown语法与hexo标签插件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">markdown语法与hexo标签插件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Forensics-Warmup-1"><span class="post-toc-number">1.</span> <span class="post-toc-text">Forensics Warmup 1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Forensics-Warmup-2"><span class="post-toc-number">2.</span> <span class="post-toc-text">Forensics Warmup 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#General-Warmup-1"><span class="post-toc-number">3.</span> <span class="post-toc-text">General Warmup 1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#General-Warmup-2"><span class="post-toc-number">4.</span> <span class="post-toc-text">General Warmup 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#General-Warmup-3"><span class="post-toc-number">5.</span> <span class="post-toc-text">General Warmup 3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Resources"><span class="post-toc-number">6.</span> <span class="post-toc-text">Resources</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reversing-Warmup-1"><span class="post-toc-number">7.</span> <span class="post-toc-text">Reversing Warmup 1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reversing-Warmup-2"><span class="post-toc-number">8.</span> <span class="post-toc-text">Reversing Warmup 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Crypto-Warmup-1"><span class="post-toc-number">9.</span> <span class="post-toc-text">Crypto Warmup 1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Crypto-Warmup-2"><span class="post-toc-number">10.</span> <span class="post-toc-text">Crypto Warmup 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#grep-1"><span class="post-toc-number">11.</span> <span class="post-toc-text">grep 1</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#net-cat"><span class="post-toc-number">12.</span> <span class="post-toc-text">net cat</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HEEEEEEERE’S-Johnny"><span class="post-toc-number">13.</span> <span class="post-toc-text">HEEEEEEERE’S Johnny!</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#strings"><span class="post-toc-number">14.</span> <span class="post-toc-text">strings</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#pipe"><span class="post-toc-number">15.</span> <span class="post-toc-text">pipe</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Inspect-Me"><span class="post-toc-number">16.</span> <span class="post-toc-text">Inspect Me</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#grep-2"><span class="post-toc-number">17.</span> <span class="post-toc-text">grep 2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Aca-Shell-A"><span class="post-toc-number">18.</span> <span class="post-toc-text">Aca-Shell-A</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Client-Side-is-Still-Bad"><span class="post-toc-number">19.</span> <span class="post-toc-text">Client Side is Still Bad</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Desrouleaux"><span class="post-toc-number">20.</span> <span class="post-toc-text">Desrouleaux</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Logon"><span class="post-toc-number">21.</span> <span class="post-toc-text">Logon</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reading-Between-the-Eyes"><span class="post-toc-number">22.</span> <span class="post-toc-text">Reading Between the Eyes</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Recovering-From-the-Snap"><span class="post-toc-number">23.</span> <span class="post-toc-text">Recovering From the Snap</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#admin-panel"><span class="post-toc-number">24.</span> <span class="post-toc-text">admin panel</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Mr-Robots"><span class="post-toc-number">25.</span> <span class="post-toc-text">Mr. Robots</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/09/30/2018picoctf/&title=《2018 Picoctf》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/09/30/2018picoctf/&title=《2018 Picoctf》 — YuanLiChenAi&source=国外的CTF比赛，前面很简单，感觉很适合入门，地址：https://2018game.picoctf.com/
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awa7CMAwEQP7/p/uuSEhhbdMnNZmeEGoh08Mqjv16xdf1dr1/83nP5/2fdyZPve64MDAwHsu4lleVkfPW9+Rrw8DAOIeRRGEerHmMJq9vvTYMDAyM6tKTcMy/x8DAwOgxknJ0HanrRWNgYGBMitikfE0O2pKYvrEWx8DAeCAjP3X//8+39DcwMDAexbiKV+/gvhqR5VVhYGBszagWqNVF562CXsGMgYFxDuOOhmK1iM1HMUabRQwMjMcymgfxwR/0QrY65IGBgXECoxea1cO4HDNqAGBgYGzHqC50UpT2to9JuxQDA2NvRl7KTkYlqq9jkqgYGBh7M/Ig68105CNfvReKgYGxNyOPuWpcVgcvJivBwMDYm9ErKXuDX5NYj57FwMDYjpGEafLHk6cmDVQMDIxzGPlYaq/ZWR2eqB7zYWBgnMPIfzovKZNnJxvN0QQHBgbGQxh5OFbbjdUDuzzEC41MDAyMjRjVkM2Lz16boRnHGBgYhzHywM03i78tX78MW2BgYGzNqMZu/me9AYtCWYuBgXEAI9nwNaNw0LwstDMxMDA2ZfRK1mrpWx3zKrdRMTAwtmZUe4LzMYv1q+kNZ2BgYJzAmB/9/2qDuA7cL9tEDAyMAxiT4OuFdXkSJG9hYmBgHM/ID86qrc3qL2NgYGBMFjcP1vzkHwMD4xxGPuZVPcrPR1R7w2QYGBgnMHojDvmh2Pwo7WeNTAwMjOcx/gCNz2qY9CkeqQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

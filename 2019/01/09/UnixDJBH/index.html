@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>UnixDJBH | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Unix">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>UnixDJBH</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">UnixDJBH</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-09T12:39:12.000Z" itemprop="datePublished" class="page-time">
+  2019-01-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/等级保护/">等级保护</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-UnixDJBH" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">UnixDJBH</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-09 20:39:12" datetime="2019-01-09T12:39:12.000Z" itemprop="datePublished">2019-01-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/等级保护/">等级保护</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>Unix等保笔记</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h1><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oslevel -r</span><br></pre></td></tr></table></figure>
+<h1 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h1><h2 id="密码策略"><a href="#密码策略" class="headerlink" title="密码策略"></a>密码策略</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/etc/security/user</span><br><span class="line"><span class="comment"># 参数</span></span><br><span class="line">maxage：8     <span class="comment">#密码有效的星期数，指出两次修改密码之间的距离最长时间，在这个时间之前用户必须修改密码，该属性的值是一个正整数，范围为0-52.当为0时表示没有最短时间限制</span></span><br><span class="line">minlen：8     <span class="comment">#密码的最短长度，值的范围为0到8,0表示没有限制</span></span><br><span class="line">minalpha：2   <span class="comment">#新密码中含有字符的最少个数，这是一个正整数的值，他的范围为0到8，为0时表示没有最少字符限制</span></span><br><span class="line">maxrepeats：3 <span class="comment">#在新密码中相同支付出现的最大次数，0表示无限制，8表示没有最大数目的限制</span></span><br><span class="line">mindiff：4    <span class="comment">#指旧密码中的字符在新密码中出现的最小个数，该属性值是个正整数，范围为0到8.0表示没有限制</span></span><br><span class="line">minother：2   <span class="comment">#新密码中含有非字母字符的最少个数，这是一个正整数的值，他的范围是0到8,，为0表示无最少非字母字符数限制flags不为NOCHECK</span></span><br><span class="line">histexpire：  <span class="comment">#该用户在多个个星期内不能重复使用相同的密码，该属性是一个正整数，值的范围在0到260，若为0表示没有这个限制，推荐值为26（大约6个月）</span></span><br><span class="line">histsize：    <span class="comment">#该用户不能重复使用以前的密码（旧密码）的数，该属性的值是一个正整数，值的范围是0到50</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/etc/default/security</span><br><span class="line"><span class="comment"># 参数</span></span><br><span class="line">MIN_PASSWORD_LENGTH=8 <span class="comment">#最短密码长度</span></span><br><span class="line">PASSWORD_HISTORY_DEPTH=5 <span class="comment">#密码历史</span></span><br><span class="line">PASSWORD_MIN_UPPER_CASE_CHARS=1 <span class="comment">#最小大写字母个数</span></span><br><span class="line">PASSWORD_MIN_LOWER_CASE_CHARS=1 <span class="comment">#最小小写字母个数</span></span><br><span class="line">PASSWORD_MIN_DIGIT_CHARS=1 <span class="comment">#最小数字个数</span></span><br><span class="line">PASSWORD_MIN_SPECIAL_CHARS=1 <span class="comment">#最小特殊字符个数</span></span><br><span class="line">PASSWORD_MAXDAYS=90 <span class="comment">#最长有效期</span></span><br><span class="line">PASSWORD_MINDAYS=14 <span class="comment">#最短有效期</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果上述策略文件未配置，则查看是否开启了信任模式（trusted system），如果开启了，查看以下内容：</span></span><br><span class="line">SAM-Auditing and Security-System Security Policies-password format policies</span><br><span class="line">SAM-Auditing and Security-System Security Policies-password format policies-Maximum Password Length</span><br><span class="line">SAM-Auditing and Security-System Security Policies-password Aging policies-password expiration time(days)</span><br><span class="line">SAM-Auditing and Security-System Security Policies-password Aging policies-password life time(days)</span><br></pre></td></tr></table></figure>
+<h2 id="口令更换时间"><a href="#口令更换时间" class="headerlink" title="口令更换时间"></a>口令更换时间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/security/passwd</span><br><span class="line">perl -le <span class="string">'print scalar localtime 1200982154'</span></span><br></pre></td></tr></table></figure>
+<h2 id="登录失败"><a href="#登录失败" class="headerlink" title="登录失败"></a>登录失败</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/etc/security/login.cfg</span><br><span class="line">logindisable:5    <span class="comment">#5次失败登录后锁定端口</span></span><br><span class="line">logininterval:60  <span class="comment">#在60秒内5次失败登录才锁定端口</span></span><br><span class="line">loginreenable：30 <span class="comment">#端口锁定30分钟后解锁</span></span><br><span class="line"></span><br><span class="line">/etc/security/user</span><br><span class="line">loginretries=5    <span class="comment">#密码输错5次账户锁定,0表示不限制</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/etc/default/security</span><br><span class="line"><span class="comment"># 参数</span></span><br><span class="line">AUTH_MAXTRIES</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果上述策略文件未配置，则查看是否开启了信任模式（trusted system），如果开启了，查看以下内容：</span></span><br><span class="line">SAM-Auditing and Security-System Security Policies-General User Account policies-Unsunccessful Login Tries Allowed</span><br></pre></td></tr></table></figure>
+<h2 id="远程协议"><a href="#远程协议" class="headerlink" title="远程协议"></a>远程协议</h2><h1 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h1><h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 默认值</span></span><br><span class="line">022</span><br><span class="line"><span class="comment"># 推荐值</span></span><br><span class="line">077</span><br></pre></td></tr></table></figure>
+<h1 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h1><h2 id="审计进程"><a href="#审计进程" class="headerlink" title="审计进程"></a>审计进程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep syslog <span class="comment">#syslog</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">audit query <span class="comment">#audit</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SAM-Auditing and Security-Audited users <span class="comment">#打开对所有用户的审计</span></span><br></pre></td></tr></table></figure>
+<h2 id="审计内容"><a href="#审计内容" class="headerlink" title="审计内容"></a>审计内容</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件</span></span><br><span class="line">audit query</span><br><span class="line">/etc/syslog.conf</span><br><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">kern    <span class="comment">#由kernel产生的信息；</span></span><br><span class="line">user    <span class="comment">#由用户进行产生的信息；</span></span><br><span class="line">mail    <span class="comment">#邮件系统产生的信息；</span></span><br><span class="line">daemon  <span class="comment">#系统守护进程的信息；</span></span><br><span class="line">auth    <span class="comment">#由login，su，getty等进行身份认证时产生的信息；</span></span><br><span class="line">syslog  <span class="comment">#由syslogd自己内部产生的信息；</span></span><br><span class="line">uucp    <span class="comment">#UUCP系统信息；</span></span><br><span class="line">cron    <span class="comment">#cron和at工具信息；</span></span><br><span class="line">emerg   <span class="comment">#紧急，通常应广播到所有用户；</span></span><br><span class="line">alert   <span class="comment">#告警，当前状态必须立即进行纠正。例如，系统数据库崩溃；</span></span><br><span class="line">crit    <span class="comment">#关键状态的警告。例如，硬件故障；</span></span><br><span class="line">err     <span class="comment">#其他错误；</span></span><br><span class="line">warning <span class="comment">#警告；</span></span><br><span class="line">notice  <span class="comment">#注意；非错误状态的报告，但应特别处理；</span></span><br><span class="line">info    <span class="comment">#通报信息；</span></span><br><span class="line">debug   <span class="comment">#调试程序时的信息。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SAM-Auditing and Security-Audited Event <span class="comment">#打开对admin，login，modacccess，moddac事件的审计</span></span><br><span class="line">/etc/syslog.conf</span><br></pre></td></tr></table></figure>
+<h2 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/var/adm/message</span><br><span class="line">/var/adm/sulog </span><br><span class="line">/var/adm/wtmp </span><br><span class="line">/etc/utmp/security/faillogin </span><br><span class="line">/etc/security/lastlog</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/var/.audit/audfile1</span><br><span class="line">/var/.audit/audfile2</span><br><span class="line">/var/adm/syslog/*.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h1 id="入侵防范"><a href="#入侵防范" class="headerlink" title="入侵防范"></a>入侵防范</h1><h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -lntp <span class="comment">#查看tcp端口</span></span><br><span class="line">netstat -lnup <span class="comment">#查看udp端口</span></span><br><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<h2 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lssrc -a <span class="comment">#查看所有系统组服务</span></span><br><span class="line">lssrc -a|grep active <span class="comment">#查看所有启动的服务</span></span><br></pre></td></tr></table></figure>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/inetd.conf</span><br></pre></td></tr></table></figure>
+<h2 id="补丁"><a href="#补丁" class="headerlink" title="补丁"></a>补丁</h2><figure class="highlight bash"><figcaption><span>AIX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">oslevel -r <span class="comment">#查看操作系统当前 AIX 版本达到的最高的推荐维护包</span></span><br><span class="line">oslevel -q <span class="comment">#查看操作系统已知的版本号和名称</span></span><br><span class="line">instfix -i | grep AIX_ML <span class="comment">#查看打了哪些补丁</span></span><br><span class="line">instfix -I | grep AIX_ML oslevel -r</span><br><span class="line">instfix -ivk IY07276 <span class="comment">#查看是否打了某个补丁</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">swlist -l bundle</span><br></pre></td></tr></table></figure>
+<h1 id="资源控制"><a href="#资源控制" class="headerlink" title="资源控制"></a>资源控制</h1><h2 id="地址限制"><a href="#地址限制" class="headerlink" title="地址限制"></a>地址限制</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/hosts.allow</span><br><span class="line">/etc/hosts.deny</span><br><span class="line">/etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/securetty <span class="comment">#console</span></span><br><span class="line">cat /var/adm/inetd.sec <span class="comment">#指定IP进行远程管理</span></span><br></pre></td></tr></table></figure>
+<h2 id="超时锁定"><a href="#超时锁定" class="headerlink" title="超时锁定"></a>超时锁定</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件</span></span><br><span class="line">/etc/profile</span><br><span class="line">/etc/ssh/ssh_config</span><br><span class="line"><span class="comment"># 值</span></span><br><span class="line">TMOUT=120</span><br><span class="line">ConnectTimeout=120</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System Security Policies-Terminal Security Policies-Login Timeout Value</span><br></pre></td></tr></table></figure>
+<h2 id="系统资源"><a href="#系统资源" class="headerlink" title="系统资源"></a>系统资源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件</span></span><br><span class="line">/etc/security/limits.conf</span><br><span class="line"><span class="comment"># 1、fsize 用户创建的文件大小限制；</span></span><br><span class="line"><span class="comment"># 2、core 生成的core文件大小的限制；</span></span><br><span class="line"><span class="comment"># 3、cpu 用户进程可用cpu的限定值；</span></span><br><span class="line"><span class="comment"># 4、data 进程数据段大小的限定值；</span></span><br><span class="line"><span class="comment"># 5、stack 进程堆栈短大小的限定值；</span></span><br><span class="line"><span class="comment"># 6、rss 进程常驻内存段的限定值；</span></span><br><span class="line"><span class="comment"># 7、nofiles 进程中打开文件的最大数量。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>HP-UX</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ulimit</span> -a</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-03T12:39:12.000Z" itemprop="dateUpdated">2019-02-03 20:39:12</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/01/09/UnixDJBH/" target="_blank" rel="external">https://yuanlichenai.cn/2019/01/09/UnixDJBH/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unix/">Unix</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/01/09/UnixDJBH/&title=《UnixDJBH》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/01/09/UnixDJBH/&title=《UnixDJBH》 — YuanLiChenAi&source=Unix等保笔记
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2019/02/04/家用网络设计/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">家用网络设计</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2019/01/09/LinuxDJBH/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">LinuxDJBH</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查看版本"><span class="post-toc-number">1.</span> <span class="post-toc-text">查看版本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#身份鉴别"><span class="post-toc-number">2.</span> <span class="post-toc-text">身份鉴别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#密码策略"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">密码策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#口令更换时间"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">口令更换时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#登录失败"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">登录失败</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#远程协议"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">远程协议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#访问控制"><span class="post-toc-number">3.</span> <span class="post-toc-text">访问控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#umask"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">umask</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安全审计"><span class="post-toc-number">4.</span> <span class="post-toc-text">安全审计</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#审计进程"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">审计进程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#审计内容"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">审计内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#日志文件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">日志文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#入侵防范"><span class="post-toc-number">5.</span> <span class="post-toc-text">入侵防范</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#端口"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">端口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组件"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">组件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#补丁"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">补丁</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源控制"><span class="post-toc-number">6.</span> <span class="post-toc-text">资源控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#地址限制"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">地址限制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#超时锁定"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">超时锁定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#系统资源"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">系统资源</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/01/09/UnixDJBH/&title=《UnixDJBH》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/01/09/UnixDJBH/&title=《UnixDJBH》 — YuanLiChenAi&source=Unix等保笔记
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aQW6DQAwF0Nz/0lTqqlIa8u2BSPG8WUWEAI9Krsf24xGv43clR/6u5zPPz3k+fvHCwMD4WsZxul49dHKFc/arb895L6kYGBgbMPJL5wH3/Fd5IE7+AWBgYGAkqVue8PWoGBgYGNV07RyQhGkMDAyMKiPZxJ7fuLoZTl7HLXtxDAyML2RUGwOf/HxjfwMDA+NLGEdr5Wll9bfN58HAwBjNON9MrkS8+4p30UNgYGAMYuQjXNcW3VaaoP9cAQMDYzQjL+LnAbd6ZoKJABgYGBswCkGtWJJb36AmRzAwMHZg5GMQzWGIhcGOQvMSAwNjG8bKo+fDXr3UM5ocwcDAGMToZY69MllvXCx6uRgYGKMZ1aJb7/PdbAwMjN0Y941W9M7p3R0DA2MeozqEWm129lqbZSoGBsZQxnqylQ+WVY8XXgQGBsYGjJWx1KV2Y1A4W6oaYmBgDGL0Np+9slrvam/uhYGBMZqx0hhYL8P1aoHRmRgYGOMYeTpYDcS9ZmSejEZ/AQwMjEGM6ma1V+KvYgrJKAYGxmjGVUlhdcNZnfvAwMDYk3EU18qDVq9fCMoYGBijGdWhivVAuR6+MTAw9mRcG2SrW9Be4/NRje4YGBgjGHngWymi5XcvtzkxMDAw4rGtvJSfhN1CcwIDAwOjlQ7mG9HkXm9CMwYGxgaMvFjfaw98qOiPgYExlNFrDCSPWB0O671uDAyM0Ywf/dgNy+vpZ24AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

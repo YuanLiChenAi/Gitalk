@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>密码学基础与应用 | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="AES,DES,SM4,RC4,SHA,RSA">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>密码学基础与应用</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">密码学基础与应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-08T07:03:34.000Z" itemprop="datePublished" class="page-time">
+  2019-05-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Crypto/">Crypto</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-密码学基础与应用" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">密码学基础与应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-08 15:03:34" datetime="2019-05-08T07:03:34.000Z" itemprop="datePublished">2019-05-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Crypto/">Crypto</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>梳理下最近学的密码学基础知识</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="密码学概论"><a href="#密码学概论" class="headerlink" title="密码学概论"></a>密码学概论</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>密码学是一门古老的学科，研究密码学编制的科学称为<strong>密码编制学</strong>(Cryptography),研究破译密码学的科学称为<strong>密码分析学</strong>(Cryptoanalysis),密码编制学和密码分析学共同组成<strong>密码学</strong>。</li>
+<li>密码学的三个安全目标<ul>
+<li>保密性      </li>
+<li>完整性</li>
+<li>可用性</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>保密性是确保信息仅被合法用户访问，而不被泄露给非授权用户、实体或过程，或供其利用的特性。</li>
+<li>完整性是指所有资源只能由授权方或以授权的方式进行修改，即信息未经授权不能进行改变的特性。</li>
+<li>可用性是指所有资源在适当的时候可以由授权方访问，即信息可被授权实体访问并按需求使用的特性。</li>
+</ul>
+</blockquote>
+<h2 id="密码体制"><a href="#密码体制" class="headerlink" title="密码体制"></a>密码体制</h2><ul>
+<li>明文空间M</li>
+<li>密文空间C</li>
+<li>密钥空间K</li>
+<li>加密算法E</li>
+<li>解密算法D</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-03-49.png" title="密码体制" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-03-49.png" alt="密码体制" title="" class=""></a>
+                <p>密码体制</p>
+            </figure>
+<p><br></p>
+<h2 id="密码分析学"><a href="#密码分析学" class="headerlink" title="密码分析学"></a>密码分析学</h2><p><strong>攻击方法</strong></p>
+<ul>
+<li>穷举法</li>
+<li>数学分析攻击</li>
+<li>基于物理的攻击</li>
+</ul>
+<p><strong>可利用的数学资源</strong></p>
+<ul>
+<li>仅知密文攻击(最不利的情况)</li>
+<li>已知明文攻击(某些明文-密文对)</li>
+<li>选择明文攻击(计算机系统和数据库系统特别容易受到这种攻击)</li>
+<li>选择密文攻击(主要用于攻击公开密钥密码体制，特别是攻击其数字签名)</li>
+</ul>
+<p><br></p>
+<h2 id="古典密码"><a href="#古典密码" class="headerlink" title="古典密码"></a>古典密码</h2><ul>
+<li>置换密码<br>将明文中的字母重新排列，字母本身不变，但其位置改变了，这样编成的密码称为<strong>置换密码</strong>。</li>
+<li>代替密码<br>用密文字母表中的字母或字母组来代替明文字母或字母组，各字母或字母组的相对位置不变，但其本身改变了，这样编成的密码称为<strong>代替密码</strong>。<ol>
+<li>加法密码：凯撒密码(Caesar)，右移3位<br><a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-23-35.png" title="加法密码" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-23-35.png" alt="加法密码"></a></li>
+<li>乘法密码<br><a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-24-00.png" title="乘法密码" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-24-00.png" alt="乘法密码"></a></li>
+<li>仿射密码：乘法密码与加法密码相结合<br><a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-28-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-11-11-28-05.png" alt=""></a><br>简单代替密码<br>多表代替密码：维吉尼亚密码(Vigenre)，密行、明列。</li>
+<li>代数密码<br>相同为0，不同为1<br><a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-09-40-56.png" title="代数密码" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-09-40-56.png" alt="代数密码"></a></li>
+</ol>
+</li>
+</ul>
+<h2 id="古典密码破解方法"><a href="#古典密码破解方法" class="headerlink" title="古典密码破解方法"></a>古典密码破解方法</h2><p><strong>穷举分析</strong></p>
+<ul>
+<li>加法密码：对k的可能取值逐一穷举</li>
+<li>乘法密码：密钥k要满足(n,k)=1</li>
+<li>放射密码：密钥k有$26*12-1=311$种</li>
+</ul>
+<p><strong>统计分析</strong></p>
+<ul>
+<li>统计密文的各种统计特性</li>
+<li>分析双字母、三字母密文组，以区分元音和辅音字母</li>
+<li>最后分析字母较多的密文</li>
+</ul>
+<p><br><br><br></p>
+<h1 id="分组密码"><a href="#分组密码" class="headerlink" title="分组密码"></a>分组密码</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>设M为明文，分组密码将M划分为一系列的明文块M<sub>i</sub>,通常每块包含若干个位或字符，并且对每一块M<sub>i</sub>都用同一个密文K<sub>e</sub>进行加密。常用于商用领域。<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-06-02.png" title="分组密码" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-06-02.png" alt="分组密码" title="" class=""></a>
+                <p>分组密码</p>
+            </figure>
+</li>
+</ul>
+<h2 id="分组密码算法结构"><a href="#分组密码算法结构" class="headerlink" title="分组密码算法结构"></a>分组密码算法结构</h2><h3 id="Feistel结构"><a href="#Feistel结构" class="headerlink" title="Feistel结构"></a>Feistel结构</h3><ul>
+<li>Feistel结构把任何函数(一般称为f函数，又称轮函数)转化为一个置换<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/Feistel.png" title="Feistel结构" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/Feistel.png" alt="Feistel结构" title="" class=""></a>
+                <p>Feistel结构</p>
+            </figure>
+</li>
+</ul>
+<h3 id="SP结构"><a href="#SP结构" class="headerlink" title="SP结构"></a>SP结构</h3><ul>
+<li>SP结构是Feistel结构的一种推广，其结构清晰<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-35-09.png" title="SP结构" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-35-09.png" alt="SP结构" title="" class=""></a>
+                <p>SP结构</p>
+            </figure>
+<blockquote>
+<p>替换S：混淆的作用，即密文和密钥尽可能的复杂<br>线性变换P：扩散的作用，即明文当中的每一位能够影响密文当中的每一位。</p>
+</blockquote>
+</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="DES算法"><a href="#DES算法" class="headerlink" title="DES算法"></a>DES算法</h2><p><strong>DES算法流程</strong></p>
+<ul>
+<li>初始置换IP</li>
+<li>生成16个48位的子密钥</li>
+<li>16轮Feistel结构迭代<ul>
+<li>扩展置换E</li>
+<li>S盒代换</li>
+<li>置换P</li>
+</ul>
+</li>
+<li>逆初始置换IP<sup>-1</sup></li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-41-40.png" title="DES算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-10-41-40.png" alt="DES算法" title="" class=""></a>
+                <p>DES算法</p>
+            </figure>
+<h3 id="初始置换IP"><a href="#初始置换IP" class="headerlink" title="初始置换IP"></a>初始置换IP</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-11-17.png" title="初始置换IP" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-11-17.png" alt="初始置换IP" title="" class=""></a>
+                <p>初始置换IP</p>
+            </figure>
+<h3 id="生成16个48位的子密钥"><a href="#生成16个48位的子密钥" class="headerlink" title="生成16个48位的子密钥"></a>生成16个48位的子密钥</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-16-11.png" title="生成16个48位的子密钥" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-16-11.png" alt="生成16个48位的子密钥" title="" class=""></a>
+                <p>生成16个48位的子密钥</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-24-44.png" title="置换选择1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-24-44.png" alt="置换选择1" title="" class=""></a>
+                <p>置换选择1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-49-03.png" title="循环左移" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-49-03.png" alt="循环左移" title="" class=""></a>
+                <p>循环左移</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-51-43.png" title="置换选择2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-51-43.png" alt="置换选择2" title="" class=""></a>
+                <p>置换选择2</p>
+            </figure>
+<p><br></p>
+<h3 id="16轮Feistel结构迭代"><a href="#16轮Feistel结构迭代" class="headerlink" title="16轮Feistel结构迭代"></a>16轮Feistel结构迭代</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-58-51.png" title="16轮Feistel结构迭代" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-11-58-51.png" alt="16轮Feistel结构迭代" title="" class=""></a>
+                <p>16轮Feistel结构迭代</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-12-16.png" title="扩展置换E" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-12-16.png" alt="扩展置换E" title="" class=""></a>
+                <p>扩展置换E</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-18-18.png" title="S盒代换" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-18-18.png" alt="S盒代换" title="" class=""></a>
+                <p>S盒代换</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-21-27.png" title="置换P" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-21-27.png" alt="置换P" title="" class=""></a>
+                <p>置换P</p>
+            </figure>
+<p><br></p>
+<h3 id="逆初始置换IP-1"><a href="#逆初始置换IP-1" class="headerlink" title="逆初始置换IP-1"></a>逆初始置换IP<sup>-1</sup></h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-29-25.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-29-25.png" alt="逆初始置换IP<sup></a>-1</sup>" title="" class="">
+                <p>逆初始置换IP<sup>-1</sup></p>
+            </a></figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-48-49.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-14-48-49.png" alt="IP<sup></a>-1</sup>" title="" class="">
+                <p>IP<sup>-1</sup></p>
+            </a></figure>
+<p><br></p>
+<h3 id="DES算法的安全性"><a href="#DES算法的安全性" class="headerlink" title="DES算法的安全性"></a>DES算法的安全性</h3><ul>
+<li>密钥较短<br>面对计算能力高速发展的形势，DES采用56位密钥，密钥量仅为2<sup>56</sup>，约为10<sup>17</sup></li>
+<li>存在弱密钥<ul>
+<li>弱密钥K<br>K<sub>1</sub>=K<sub>2</sub>=……K<sub>16</sub>,弱密钥不受任何循环移位影响。<br>全为0或全为1，被分割的两部分分别为全0或全1，共<strong>4</strong>种弱密钥。</li>
+<li>半弱密钥K<br>有些种子密钥只能生成两个不同的子密钥，这样的种子密钥称为半弱密钥。DES至少存在<strong>12</strong>个半弱密钥，半弱密钥将导致把明文加密成相同的密文。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三重DES"><a href="#三重DES" class="headerlink" title="三重DES"></a>三重DES</h3><p><strong>优点</strong></p>
+<ul>
+<li>密钥长度为168位，能够抵挡有效攻击(第一次和第三次加密都是同一个密钥则为112位)</li>
+<li>相当安全，而且经过实践检验</li>
+<li>加密算法与DES相同，现有的DES软硬件产品都能方便实现3DES</li>
+</ul>
+<p><strong>缺点</strong></p>
+<ul>
+<li>用软件实现该算法的速度比较慢</li>
+</ul>
+<h3 id="考试知识点"><a href="#考试知识点" class="headerlink" title="考试知识点"></a>考试知识点</h3><p>在DES算法中</p>
+<ul>
+<li>密钥的长度(有效)是56位</li>
+<li>加密分组的长度是64位</li>
+<li>子密钥的长度是48位</li>
+<li>函数F输入时32位</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="AES算法"><a href="#AES算法" class="headerlink" title="AES算法"></a>AES算法</h2><ul>
+<li>一个初始轮密钥加</li>
+<li>Nr-1圈的标准轮函数</li>
+<li>最后一圈的非标准轮函数</li>
+<li><p>最后一轮不进行列混淆变换</p>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-15-29-15.png" title="AES算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-15-29-15.png" alt="AES算法" title="" class=""></a>
+                <p>AES算法</p>
+            </figure>
+</li>
+<li><p>RIJNDAEL算法<br>数据块长度和密钥长度都可变的分组加密算法，其数据块长度和密钥长度都可独立地选定为大于等于128位、且小于等于256位的32位的任意倍数。</p>
+</li>
+<li>AES(先进加密标准)算法<br>数据块长度为128位，密钥的长度可分别选择为128位、192位或256位。</li>
+</ul>
+<blockquote>
+<p><strong>状态</strong>：在RIJNDAEL算法中，加解密要经过多次数据变换操作，每一次变换操作产生一个中间结果，称这个中间结果叫做<strong>状态</strong>。状态表示为<strong>二维字节数组</strong>(每个元素为一个字节)，它有<strong>四行</strong>，<strong>Nb列</strong>，Nb列等于数据块长度除以32。</p>
+</blockquote>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-11-56.png" title="数据块长度为128位的状态" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-11-56.png" alt="数据块长度为128位的状态" title="" class=""></a>
+                <p>数据块长度为128位的状态</p>
+            </figure>
+<blockquote>
+<p>密钥也可以表示为<strong>二维字节数组</strong>(每个元素为一个字节)，它有四行，Nk列，Nk列等于密钥块长度除以32。</p>
+</blockquote>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-13-54.png" title="密钥长度为128位的密钥二维字节数组" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-13-54.png" alt="密钥长度为128位的密钥二维字节数组" title="" class=""></a>
+                <p>密钥长度为128位的密钥二维字节数组</p>
+            </figure>
+<blockquote>
+<p>迭代圈数Nr由Nb和Nk共同决定。</p>
+</blockquote>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-33-03.png" title="算法迭代圈数Nr" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-33-03.png" alt="算法迭代圈数Nr" title="" class=""></a>
+                <p>算法迭代圈数Nr</p>
+            </figure>
+<h3 id="初始轮密钥加"><a href="#初始轮密钥加" class="headerlink" title="初始轮密钥加"></a>初始轮密钥加</h3><ul>
+<li>将明文矩阵与子密钥矩阵的对应字节进行<strong>逐比特异或</strong>。<br>$AddRoundKey(a_0,k_0)=a_0 \bigoplus k_0$</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-43-38.png" title="逐比特异或" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-43-38.png" alt="逐比特异或" title="" class=""></a>
+                <p>逐比特异或</p>
+            </figure>
+<p><br><br><br></p>
+<h3 id="轮函数"><a href="#轮函数" class="headerlink" title="轮函数"></a>轮函数</h3><ul>
+<li>采用替换/置换网络(SP)结构，组成：<ul>
+<li>非线性层：S盒变换ByteSub，<strong>混淆作用</strong>。</li>
+<li>线性混合层：行位移变换ShiftRow和列混合变换MixColumn，<strong>扩散作用</strong>。</li>
+<li>密钥加层：圈密钥加变换AddRoundkey组成，最后一圈的轮函数<strong>没有</strong>列混合变换。</li>
+</ul>
+</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-49-55.png" title="轮函数" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-09-16-49-55.png" alt="轮函数" title="" class=""></a>
+                <p>轮函数</p>
+            </figure>
+<p><br></p>
+<h4 id="字节代换"><a href="#字节代换" class="headerlink" title="字节代换"></a>字节代换</h4><p><strong>字节代换：S盒变换ByteSub</strong></p>
+<ul>
+<li>一个关于字节的非线性变换，可以使用<strong>S盒查表</strong>得出输出。</li>
+<li>AES定义了一个S盒，由16*16个字节组成的方形表，包含了8位值所能表示的256种可能的变换。</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-10-16-13.png" title="字节代换" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-10-16-13.png" alt="字节代换" title="" class=""></a>
+                <p>字节代换</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-10-40-53.png" title="AES加密算法 S盒表(十六进制)" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-10-40-53.png" alt="AES加密算法 S盒表(十六进制)" title="" class=""></a>
+                <p>AES加密算法 S盒表(十六进制)</p>
+            </figure>
+<ul>
+<li>高位为行，低位为列。即51对应5行1列的D1</li>
+</ul>
+<blockquote>
+<p>AES算法与DES算法的S盒比较：</p>
+<ul>
+<li>AES，由16个S盒组成，运算是可逆的；输入输出位数相同。</li>
+<li>DES，由8个S盒组成，运算不可逆，每个S盒输入是6bit,输出是4bit。</li>
+</ul>
+</blockquote>
+<h4 id="行移位"><a href="#行移位" class="headerlink" title="行移位"></a>行移位</h4><p><strong>行移位：ShiftRow</strong></p>
+<ul>
+<li>将状态矩阵的每行进行循环左移</li>
+<li>第0行不移；第i行左移i个字节(i=1,2,3)</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-05-20.png" title="行移位1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-05-20.png" alt="行移位1" title="" class=""></a>
+                <p>行移位1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-07-53.png" title="行移位2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-07-53.png" alt="行移位2" title="" class=""></a>
+                <p>行移位2</p>
+            </figure>
+<h4 id="列混合"><a href="#列混合" class="headerlink" title="列混合"></a>列混合</h4><p><strong>列混合：MixColumn</strong></p>
+<ul>
+<li>列混合变换将<strong>State乘以一个固定的矩阵A</strong>，对State逐列进行变换，每一列中的每个字节将变换成一个新值，直到4列均变换完毕。</li>
+<li>相乘后得到的乘积矩阵，其中每个元素均是一行和一列中所对元素的乘积之和。</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-09-43.png" title="列混合" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-09-43.png" alt="列混合" title="" class=""></a>
+                <p>列混合</p>
+            </figure>
+<blockquote>
+<p>将固定矩阵中的第一行和State的第一列的每个字节分别相乘，再进行异或运算得到第一行第一列的值，即：<br>$(02*D1) \bigoplus (03*93) \bigoplus (01*CA) \bigoplus (01*40)=9D$<br>第二行第一列则通过固定矩阵中的第二行和State的第一列进行计算，即：<br>$(01*D1) \bigoplus (02*93) \bigoplus (03*CA) \bigoplus (01*40)=E9$<br>以此类推…</p>
+</blockquote>
+<h4 id="轮密钥加"><a href="#轮密钥加" class="headerlink" title="轮密钥加"></a>轮密钥加</h4><p><strong>轮密钥加：AddRoundkey(State,RoundKey)</strong></p>
+<ul>
+<li>将状态矩阵与子密钥矩阵的对应字节进行<strong>逐比特异或</strong>：<br>$AddRoundKey(a_{ij},k_{ij})=a_{ij} \bigoplus k_{ij}$</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-31-48.png" title="轮密钥加" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-11-31-48.png" alt="轮密钥加" title="" class=""></a>
+                <p>轮密钥加</p>
+            </figure>
+<blockquote>
+<p><strong>轮函数：</strong>第一轮结束后，回到轮函数迭代10轮(主要针对数据块长度和密钥长度为128位)，最后一轮不需要进行列混合变换，结束迭代后输出密文。 </p>
+</blockquote>
+<h3 id="解密算法"><a href="#解密算法" class="headerlink" title="解密算法"></a>解密算法</h3><blockquote>
+<p>AES算法的解密过程中依次进行逆字节代换，逆行移位，逆列混合和轮密钥加。</p>
+<ul>
+<li>InvByteSub()是ByteSub()的逆变换，通过查逆S盒来实现。</li>
+<li>InvShiftRow()是ShiftRow()的逆变换，对State的各行进行一定量的循环移位(Nb=4)。第0行不移位，第1行循环右移1个字节，第2行循环右移2个字节，第三行右移3个字节。</li>
+<li>InvMixColumn()是MixColumn()的逆变换。</li>
+<li>AddRoundKey的逆就是他本身。</li>
+</ul>
+</blockquote>
+<h3 id="AES算法的安全性"><a href="#AES算法的安全性" class="headerlink" title="AES算法的安全性"></a>AES算法的安全性</h3><blockquote>
+<ul>
+<li><strong>不存在弱密钥</strong><br>该算法对密钥的选择没有任何限制，还没有发现弱密钥和半弱密钥的存在。</li>
+<li><strong>抗攻击能力强</strong><br>可抵抗穷举法密钥的攻击，密钥量为2<sup>128</sup>/2<sup>192</sup>/2<sup>256</sup>,足以抵抗穷举攻击。<br>可抵抗线性攻击(已知明文攻击)，经4轮变换后，线性分析就无能为力了。<br>可抵抗差分攻击(选择明文攻击)，经8轮变换后，差分攻击就无从着手了。</li>
+<li><strong>适应性强</strong><br>Rijindael的数据库长度和密钥长度都可变，因此能够适应不同的安全应用环境。</li>
+</ul>
+</blockquote>
+<p><br><br><br></p>
+<h2 id="SM4算法"><a href="#SM4算法" class="headerlink" title="SM4算法"></a>SM4算法</h2><ul>
+<li>简介<ul>
+<li>我国国家密码管理局公布的<strong>无线局域网</strong>产品使用的密码算法。</li>
+<li>数据分组为128位，密钥长度为128位，迭代32次。</li>
+<li>数据处理单位：字节(8位)，字(32位)。</li>
+</ul>
+</li>
+<li>特点<ul>
+<li>对合运算：解密算法和加密算法结构相同</li>
+<li>子密钥生成算法与加密算法结构类似</li>
+</ul>
+</li>
+<li>结构<ul>
+<li>采用非对称Feistel结构。</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h3><ul>
+<li>模2加：$\bigoplus$，32位异或运算</li>
+<li>循环移位：&lt;&lt;&lt;i，把32位字循环左移i位</li>
+</ul>
+<h3 id="基本密码部件"><a href="#基本密码部件" class="headerlink" title="基本密码部件"></a>基本密码部件</h3><ol>
+<li><strong>S盒：</strong><ul>
+<li>非线性<strong>字节</strong>变换，起混淆作用</li>
+<li>8位输入，8位输出。</li>
+<li>本质上是8位的非线性置换。</li>
+<li>设输入字节为a，输出字节为b，则S盒的运算可表示为：b=S_Box(a)</li>
+<li>S盒置换规则<br>  以输入的<strong>高半字节为行号，低半字节为列号</strong>，行列交叉点的数据即为输出。<br>  例：设S盒的输入为EF，则S盒的输出为E行F列交叉点的值，即<br>  Sbox(‘ef’)=’84’<br>  说明：在主要密码学指标上达到最佳，与AES的S盒相当</li>
+</ul>
+</li>
+</ol>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-14-53-14.png" title="SM4密码算法S盒数据表" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-14-53-14.png" alt="SM4密码算法S盒数据表" title="" class=""></a>
+                <p>SM4密码算法S盒数据表</p>
+            </figure>
+<p><br></p>
+<ol start="2">
+<li><strong>非线性变换$τ$:起混淆作用</strong><br>4个S和并行置换<br>设输入字$A=(a_0,a_1,a_2,a_3)$,输出字$B=(b_0,b_1,b_2,b_3)$<br>B=τ(A)=(S_box(a<sub>0</sub>),S_box(a<sub>1</sub>), S_box(a<sub>2</sub>),S_box(a<sub>3</sub>))</li>
+</ol>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-15-29-37.png" title="非线性变换$τ$" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-15-29-37.png" alt="非线性变换$τ$" title="" class=""></a>
+                <p>非线性变换$τ$</p>
+            </figure>
+<p><br></p>
+<ol start="3">
+<li><strong>字线性部件L变换：起扩散作用</strong></li>
+</ol>
+<ul>
+<li>32位输入，32位输出。</li>
+<li>设输入为字B，输出为字C，则<br>$C=L(B)=B \bigoplus (B&lt;&lt;&lt;2) \bigoplus (B&lt;&lt;&lt;10) \bigoplus (B&lt;&lt;&lt;18) \bigoplus (B&lt;&lt;&lt;24)$</li>
+</ul>
+<ol start="4">
+<li><strong>字合成变换$τ$：</strong></li>
+</ol>
+<ul>
+<li>由非线性变换$τ$和线性变换L复合而成。<br>$T(x)=L(τ(A))$<br><strong>先S变换，再L变换</strong></li>
+</ul>
+<p><br></p>
+<h3 id="轮函数-1"><a href="#轮函数-1" class="headerlink" title="轮函数"></a>轮函数</h3><ul>
+<li>输入数据：$(x_0,x_1,x_2,x_3)$，128位，四个32位字。</li>
+<li>输入轮密钥：rk，32位字。</li>
+<li>输出数据32位字。</li>
+<li>轮函数：$F(x_0,x_1,x_2,x_3)=x_0 \bigoplus T((x_1 \bigoplus x_2 \bigoplus x_3 \bigoplus rk))$</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-15-37-34.png" title="轮函数" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-15-37-34.png" alt="轮函数" title="" class=""></a>
+                <p>轮函数</p>
+            </figure>
+<p><br></p>
+<h3 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h3><ul>
+<li>输入明文：$(M_0,M_1,M_2,M_3)=(X_0,X_1,X_2,X_3)$四个字，128位。</li>
+<li>输入轮密钥：$rk_i,i=0,1,……,31$，共32个轮密钥。</li>
+<li>输出密文：$(Y_0,Y_1,Y_2,Y_3)$，四个字，128位。</li>
+<li>算法结构：轮函数32轮迭代，每轮使用一个轮密钥。</li>
+<li>加密算法：<ul>
+<li>加密变换 $X_{i+4}=F(x_i,x_{i+1},x_{x+2},x_{i+3},rk_i)=x_i \bigoplus T(x_{i+1} \bigoplus x_{i+2} \bigoplus x_{i+3} \bigoplus rk_i,i=0,1…31)$</li>
+<li>反序变换：$(Y_0,Y_1,Y_2,Y_3)=(X_{35},X_{34},X_{33},X_{32})$</li>
+</ul>
+</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-16-19-20.png" title="加密算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-16-19-20.png" alt="加密算法" title="" class=""></a>
+                <p>加密算法</p>
+            </figure>
+<p><br></p>
+<h3 id="解密算法-1"><a href="#解密算法-1" class="headerlink" title="解密算法"></a>解密算法</h3><ul>
+<li>SM4密码算法是对合的，因此解密与加密算法相同，只是轮密钥的使用顺序相反。</li>
+<li>输入密文：$(Y_0,Y_1,Y_2,Y_3)=(X_35,X_34,X_33，X_32)$</li>
+<li>输入轮密钥：$rk_i,i=31,30,……,0$</li>
+<li>输出明文：(X_0,X_1,X_2,X_3)</li>
+<li>算法：轮函数的32轮迭代，每轮使用一个轮密钥</li>
+<li>解密算法：用符号X描述</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-16-55-38.png" title="解密算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-16-55-38.png" alt="解密算法" title="" class=""></a>
+                <p>解密算法</p>
+            </figure>
+<p><br></p>
+<h3 id="密钥扩展算法"><a href="#密钥扩展算法" class="headerlink" title="密钥扩展算法"></a>密钥扩展算法</h3><ol>
+<li><p>常数FK<br>在密钥扩展中使用一些常数(32位字)；<br>$FK_0=(A3B1BAC6)$<br>$FK_1=(56AA3350)$<br>$FK_2=(677D9197)$<br>$FK_3=(B27022DC)$</p>
+</li>
+<li><p>固定参数CK，32位：32个固定参数CK<sub>i</sub>,i=0,1,2,…,31</p>
+</li>
+</ol>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-17-01-15.png" title="固定参数CK" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-17-01-15.png" alt="固定参数CK" title="" class=""></a>
+                <p>固定参数CK</p>
+            </figure>
+<ul>
+<li>输入加密密钥：$MK=(MK_0,MK_1,MK_2,MK_3)$</li>
+<li>输出轮密钥：$rk_i,i=0,1,…,30,31$</li>
+<li>中间数据：$K_i,i=0,1,…,34,35$</li>
+<li>密钥扩展算法：</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-10-17-04-34.png" title="密钥扩展算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-10-17-04-34.png" alt="密钥扩展算法" title="" class=""></a>
+                <p>密钥扩展算法</p>
+            </figure>
+<h3 id="SM4密码结构"><a href="#SM4密码结构" class="headerlink" title="SM4密码结构"></a>SM4密码结构</h3><ul>
+<li>SM4密码与DES密码有相似性</li>
+<li>DES密码采用的是Feistel结构，SM4也采用Feistel结构。</li>
+<li>DES中参与交换的两个数据块的长度也是相等的，而在SM4中参与交换的两个数据块的长度是不相等的。</li>
+<li>因此，密码届称DES密码采用的是对称Feistel结构，SM4密码采用的是非对称Feistel结构。</li>
+</ul>
+<p><br><br><br></p>
+<h2 id="分组密码工作模式"><a href="#分组密码工作模式" class="headerlink" title="分组密码工作模式"></a>分组密码工作模式</h2><ul>
+<li>分组密码可以按不同的模式工作，实际应用的环境不同应采用不同的工作模式。只有这样才能既确保安全，又方便高效。</li>
+</ul>
+<h3 id="电子密码本-ECB"><a href="#电子密码本-ECB" class="headerlink" title="电子密码本(ECB)"></a>电子密码本(ECB)</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-09-58-00.png" title="ECB" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-09-58-00.png" alt="ECB" title="" class=""></a>
+                <p>ECB</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-10-58-37.png" title="ECB加密" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-10-58-37.png" alt="ECB加密" title="" class=""></a>
+                <p>ECB加密</p>
+            </figure>
+<p><strong>特点</strong></p>
+<ul>
+<li>数据的长度是密码分组长度的整数倍</li>
+<li>容易暴露明文的数据模式</li>
+<li>由于所有数据块分组的加密方式一致，难以抵抗统计分析攻击</li>
+<li>操作简单，容易实现</li>
+<li>由于每个块的加密和解密都是独立的，可并行进行加密</li>
+</ul>
+<p><br></p>
+<h3 id="密码块链接-CBC"><a href="#密码块链接-CBC" class="headerlink" title="密码块链接(CBC)"></a>密码块链接(CBC)</h3><h4 id="明密文链接模式"><a href="#明密文链接模式" class="headerlink" title="明密文链接模式"></a>明密文链接模式</h4><ul>
+<li>解决了ECB的安全缺陷，可以让重复的明文分组产生不同的密文分组，可以抵御重放攻击。</li>
+<li>适合传输数据长度大的报文</li>
+<li>加解密传播无界，加密时，当明文块或密文块中发生一位错误时，自此以后的密文都发生错误</li>
+<li>数据的长度是密码分组的整数倍</li>
+<li>不能进行并行加密</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-00-33.png" title="明密文链接模式" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-00-33.png" alt="明密文链接模式" title="" class=""></a>
+                <p>明密文链接模式</p>
+            </figure>
+<h4 id="密文链接模式"><a href="#密文链接模式" class="headerlink" title="密文链接模式"></a>密文链接模式</h4><ul>
+<li>使用了不同的初始向量组，完全相同的明文在加密之后可以得到不同的密文，可以抵御重放攻击</li>
+<li>适合传输数据长度大的报文</li>
+<li>加密传播无界，但解密传播有界，解密时，当密文块中发生一位错误时，只影响其中相应解密的明文，其余不会发生错误，适合磁盘文件加解密</li>
+<li>数据的长度是密码分组的整数倍</li>
+<li>不能进行并行加密</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-13-55.png" title="密文链接模式" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-13-55.png" alt="密文链接模式" title="" class=""></a>
+                <p>密文链接模式</p>
+            </figure>
+<h4 id="CBC特点"><a href="#CBC特点" class="headerlink" title="CBC特点"></a>CBC特点</h4><ul>
+<li>解决了ECB的安全缺陷，可以让重复的明文分组产生不同的密文分组，可以抵御重放攻击。</li>
+<li>适合传输数据长度大的报文</li>
+<li>明密文链接模式加解密传播无界；密文链接模式加密错误传播无界，解密错误传播有界</li>
+<li>数据的长度是密码分组的整数倍</li>
+<li>不能进行并行加密</li>
+</ul>
+<p><br></p>
+<h3 id="填充密码块链接-PCBC"><a href="#填充密码块链接-PCBC" class="headerlink" title="填充密码块链接(PCBC)"></a>填充密码块链接(PCBC)</h3><p><br></p>
+<h3 id="输出反馈-OFB"><a href="#输出反馈-OFB" class="headerlink" title="输出反馈(OFB)"></a>输出反馈(OFB)</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-14-38-47.png" title="OFB" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-14-38-47.png" alt="OFB" title="" class=""></a>
+                <p>OFB</p>
+            </figure>
+<p><br></p>
+<h3 id="密文反馈-CFB"><a href="#密文反馈-CFB" class="headerlink" title="密文反馈(CFB)"></a>密文反馈(CFB)</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-14-59-34.png" title="CFB" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-14-59-34.png" alt="CFB" title="" class=""></a>
+                <p>CFB</p>
+            </figure>
+<p><br></p>
+<h3 id="计数器模式-CTR"><a href="#计数器模式-CTR" class="headerlink" title="计数器模式(CTR)"></a>计数器模式(CTR)</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-03-03.png" title="CTR" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-03-03.png" alt="CTR" title="" class=""></a>
+                <p>CTR</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-05-01.png" title="CTR特点" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-05-01.png" alt="CTR特点" title="" class=""></a>
+                <p>CTR特点</p>
+            </figure>
+<p><br></p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-09-41.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-09-41.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-11-07.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-11-07.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-32-33.png" title="例题3" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-11-32-33.png" alt="例题3" title="" class=""></a>
+                <p>例题3</p>
+            </figure>
+<ol>
+<li>明密文链接模式</li>
+<li>加解密错误传播无界<br>数据的长度是密码分组的整数倍</li>
+</ol>
+<p><br><br><br></p>
+<h1 id="序列密码"><a href="#序列密码" class="headerlink" title="序列密码"></a>序列密码</h1><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-15-55.png" title="概念" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-15-55.png" alt="概念" title="" class=""></a>
+                <p>概念</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-20-49.png" title="与分组密码的区别" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-20-49.png" alt="与分组密码的区别" title="" class=""></a>
+                <p>与分组密码的区别</p>
+            </figure>
+<p><br></p>
+<h2 id="RC4序列密码"><a href="#RC4序列密码" class="headerlink" title="RC4序列密码"></a>RC4序列密码</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-21-40.png" title="rc4" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-21-40.png" alt="rc4" title="" class=""></a>
+                <p>rc4</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-32-32.png" title="KSA算法1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-32-32.png" alt="KSA算法1" title="" class=""></a>
+                <p>KSA算法1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-41-43.png" title="KSA算法2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-41-43.png" alt="KSA算法2" title="" class=""></a>
+                <p>KSA算法2</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-44-26.png" title="PRGA算法1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-44-26.png" alt="PRGA算法1" title="" class=""></a>
+                <p>PRGA算法1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-46-25.png" title="PRGA算法2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-46-25.png" alt="PRGA算法2" title="" class=""></a>
+                <p>PRGA算法2</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-50-53.png" title="RC4的安全性" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-50-53.png" alt="RC4的安全性" title="" class=""></a>
+                <p>RC4的安全性</p>
+            </figure>
+<p><br></p>
+<h2 id="ZUC算法"><a href="#ZUC算法" class="headerlink" title="ZUC算法"></a>ZUC算法</h2><p>ZUC算法，又称为祖冲之算法，是移动通信3GPP机密性算法EEA3和完整性算法EIA3的核心，是中国自主设计的加密算法。<br><br></p>
+<h2 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-54-32.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-54-32.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-55-20.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-55-20.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure>
+<p><br><br><br></p>
+<h1 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h1><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-57-46.png" title="概念" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-15-57-46.png" alt="概念" title="" class=""></a>
+                <p>概念</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-04-46.png" title="Hash函数基本设计结构" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-04-46.png" alt="Hash函数基本设计结构" title="" class=""></a>
+                <p>Hash函数基本设计结构</p>
+            </figure>
+<p><br></p>
+<h2 id="SHA算法"><a href="#SHA算法" class="headerlink" title="SHA算法"></a>SHA算法</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-06-22.png" title="SHA算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-06-22.png" alt="SHA算法" title="" class=""></a>
+                <p>SHA算法</p>
+            </figure>
+<p><strong>算法步骤</strong><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-12-56.png" title="消息填充" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-12-56.png" alt="消息填充" title="" class=""></a>
+                <p>消息填充</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-16-32.png" title="初始化缓冲区" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-16-32.png" alt="初始化缓冲区" title="" class=""></a>
+                <p>初始化缓冲区</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-17-26.png" title="算法主循环" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-17-26.png" alt="算法主循环" title="" class=""></a>
+                <p>算法主循环</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-18-41.png" title="压缩函数处理1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-18-41.png" alt="压缩函数处理1" title="" class=""></a>
+                <p>压缩函数处理1</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-21-50.png" title="压缩函数处理2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-21-50.png" alt="压缩函数处理2" title="" class=""></a>
+                <p>压缩函数处理2</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-27-19.png" title="压缩函数处理3" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-27-19.png" alt="压缩函数处理3" title="" class=""></a>
+                <p>压缩函数处理3</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-29-03.png" title="压缩函数处理4" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-29-03.png" alt="压缩函数处理4" title="" class=""></a>
+                <p>压缩函数处理4</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-30-01.png" title="压缩函数处理5及输出" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-30-01.png" alt="压缩函数处理5及输出" title="" class=""></a>
+                <p>压缩函数处理5及输出</p>
+            </figure></p>
+<h2 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-30-43.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-30-43.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-31-17.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-31-17.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-31-32.png" title="例题3" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-31-32.png" alt="例题3" title="" class=""></a>
+                <p>例题3</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-32-32.png" title="例题4" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-32-32.png" alt="例题4" title="" class=""></a>
+                <p>例题4</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-33-45.png" title="例题5" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-16-33-45.png" alt="例题5" title="" class=""></a>
+                <p>例题5</p>
+            </figure>
+<h1 id="公钥密码体制"><a href="#公钥密码体制" class="headerlink" title="公钥密码体制"></a>公钥密码体制</h1><p><strong>对称密码存在哪些局限性</strong></p>
+<ul>
+<li>密钥分发的问题</li>
+<li>密钥数量的问题</li>
+<li>数字签名问题</li>
+</ul>
+<h2 id="公钥密码体制模型"><a href="#公钥密码体制模型" class="headerlink" title="公钥密码体制模型"></a>公钥密码体制模型</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-19-20.png" title="加密模型" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-19-20.png" alt="加密模型" title="" class=""></a>
+                <p>加密模型</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-23-58.png" title="认证模型" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-23-58.png" alt="认证模型" title="" class=""></a>
+                <p>认证模型</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-24-48.png" title="加密认证混合模型" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-24-48.png" alt="加密认证混合模型" title="" class=""></a>
+                <p>加密认证混合模型</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-35-47.png" title="数字信封技术" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-35-47.png" alt="数字信封技术" title="" class=""></a>
+                <p>数字信封技术</p>
+            </figure>
+<p><strong>公钥加密的安全性</strong></p>
+<ul>
+<li>确保数据的秘密性</li>
+<li>确保数据的真实性</li>
+<li>同时确保数据的秘密性和真实性</li>
+</ul>
+<p><strong>例题</strong><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-38-56.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-38-56.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-44-12.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-44-12.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-45-16.png" title="例题3" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-45-16.png" alt="例题3" title="" class=""></a>
+                <p>例题3</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-49-35.png" title="例题4" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-49-35.png" alt="例题4" title="" class=""></a>
+                <p>例题4</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-51-10.png" title="例题5" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-51-10.png" alt="例题5" title="" class=""></a>
+                <p>例题5</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-52-51.png" title="例题6" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-52-51.png" alt="例题6" title="" class=""></a>
+                <p>例题6</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-54-50.png" title="例题7" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-54-50.png" alt="例题7" title="" class=""></a>
+                <p>例题7</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-58-55.png" title="例题8" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-20-58-55.png" alt="例题8" title="" class=""></a>
+                <p>例题8</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-01-28.png" title="例题9" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-01-28.png" alt="例题9" title="" class=""></a>
+                <p>例题9</p>
+            </figure></p>
+<h2 id="RSA密码"><a href="#RSA密码" class="headerlink" title="RSA密码"></a>RSA密码</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-08-22.png" title="相关数学基础" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-08-22.png" alt="相关数学基础" title="" class=""></a>
+                <p>相关数学基础</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-11-37.png" title="RSA的加密和解密" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-11-37.png" alt="RSA的加密和解密" title="" class=""></a>
+                <p>RSA的加密和解密</p>
+            </figure>
+<ul>
+<li>n,e公开</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-22-07.png" title="求解乘法逆元" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-22-07.png" alt="求解乘法逆元" title="" class=""></a>
+                <p>求解乘法逆元</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-24-36.png" title="RSA实例" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-24-36.png" alt="RSA实例" title="" class=""></a>
+                <p>RSA实例</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-24-58.png" title="RSA实例体制的特点及安全性" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-24-58.png" alt="RSA实例体制的特点及安全性" title="" class=""></a>
+                <p>RSA实例体制的特点及安全性</p>
+            </figure>
+<p><br></p>
+<h2 id="ELGamal密码"><a href="#ELGamal密码" class="headerlink" title="ELGamal密码"></a>ELGamal密码</h2><p><strong>了解</strong><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-27-18.png" title="相关数学基础" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-27-18.png" alt="相关数学基础" title="" class=""></a>
+                <p>相关数学基础</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-29-27.png" title="参数定义和密钥生成" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-29-27.png" alt="参数定义和密钥生成" title="" class=""></a>
+                <p>参数定义和密钥生成</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-30-58.png" title="加密算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-30-58.png" alt="加密算法" title="" class=""></a>
+                <p>加密算法</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-31-16.png" title="解密算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-31-16.png" alt="解密算法" title="" class=""></a>
+                <p>解密算法</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-32-17.png" title="实例" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-32-17.png" alt="实例" title="" class=""></a>
+                <p>实例</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-33-09.png" title="特点和安全性" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-33-09.png" alt="特点和安全性" title="" class=""></a>
+                <p>特点和安全性</p>
+            </figure><br><br></p>
+<p><strong>例题</strong><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-34-57.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-34-57.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-35-36.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-35-36.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-40-22.png" title="例题3" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-40-22.png" alt="例题3" title="" class=""></a>
+                <p>例题3</p>
+            </figure><br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-41-54.png" title="例题4" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-41-54.png" alt="例题4" title="" class=""></a>
+                <p>例题4</p>
+            </figure><br><br></p>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-46-25.png" title="数字签名的特征" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-46-25.png" alt="数字签名的特征" title="" class=""></a>
+                <p>数字签名的特征</p>
+            </figure>
+<h3 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-47-54.png" title="RSA签名的生成和验证算法1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-47-54.png" alt="RSA签名的生成和验证算法1" title="" class=""></a>
+                <p>RSA签名的生成和验证算法1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-49-04.png" title="RSA签名的生成和验证算法2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-49-04.png" alt="RSA签名的生成和验证算法2" title="" class=""></a>
+                <p>RSA签名的生成和验证算法2</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-52-04.png" title="RSA签名验证算法实例" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-52-04.png" alt="RSA签名验证算法实例" title="" class=""></a>
+                <p>RSA签名验证算法实例</p>
+            </figure>
+<p><br></p>
+<h3 id="ELGamal密码-1"><a href="#ELGamal密码-1" class="headerlink" title="ELGamal密码"></a>ELGamal密码</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-53-59.png" title="ELGamal参数定义和密钥生成" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-53-59.png" alt="ELGamal参数定义和密钥生成" title="" class=""></a>
+                <p>ELGamal参数定义和密钥生成</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-55-41.png" title="ELGamal签名的生成和验证算法" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-55-41.png" alt="ELGamal签名的生成和验证算法" title="" class=""></a>
+                <p>ELGamal签名的生成和验证算法</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-56-02.png" title="ELGamal签名验证算法实例" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-56-02.png" alt="ELGamal签名验证算法实例" title="" class=""></a>
+                <p>ELGamal签名验证算法实例</p>
+            </figure>
+<p><br></p>
+<h3 id="RSA和ELGamal签名安全性"><a href="#RSA和ELGamal签名安全性" class="headerlink" title="RSA和ELGamal签名安全性"></a>RSA和ELGamal签名安全性</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-56-57.png" title="安全性" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-21-56-57.png" alt="安全性" title="" class=""></a>
+                <p>安全性</p>
+            </figure>
+<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-12-22-00-56.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-12-22-00-56.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure>
+<p><br><br><br></p>
+<h1 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h1><h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>认证，又称鉴别或确认，是证实某事是否名副其实或是否真实有效的一个过程。</li>
+<li>认证和加密的区别<ul>
+<li>加密用以确保数据的保密性，阻止对手的被动攻击，如截取、窃听等。</li>
+<li>认证用以确保报文发送者和接受者的真实性以及报文的完整性，阻止对手的主动攻击，如冒充、篡改、重播等。</li>
+</ul>
+</li>
+</ul>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-13-20-50-55.png" title="认证原理" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-13-20-50-55.png" alt="认证原理" title="" class=""></a>
+                <p>认证原理</p>
+            </figure>
+<ul>
+<li>认证和数字签名技术的区别<ul>
+<li>认证总是基于某种收发双方共享的保密数据来认证被鉴别对象的真实性，数字签名中用于验证签名的数据是公开的。</li>
+<li>认证允许收发双方互相验证其真实性，不准许第三者验证，数字签名允许双方和第三者都能认证。</li>
+<li>数字签名具有发送方不能抵赖，接收方不能伪造和具有在公证人前解决纠纷的能力，而认证不一定具备。</li>
+</ul>
+</li>
+</ul>
+<h2 id="身份认证"><a href="#身份认证" class="headerlink" title="身份认证"></a>身份认证</h2><h3 id="口令认证"><a href="#口令认证" class="headerlink" title="口令认证"></a>口令认证</h3><ul>
+<li>利用单向函数加密口令<br>  用户口令在系统中以密文的形式存储。只能加密，不能解密。</li>
+<li>利用数字签名方法验证口令<br>  用户的公钥存储在系统中。系统为用户设置了时间标志T<sub>i</sub>,可以抵抗重播攻击。</li>
+<li>口令的双向验证<br>  用户和系统相互平等地验证对方的身份<br>  选择一个单向函数f，假设A要求与B，则A和B可如下相互认证对方的身份：<ol>
+<li>A-&gt;B:R<sub>A</sub></li>
+<li>B-&gt;A:f(P<sub>B</sub>||R<sub>A</sub>)||R<sub>B</sub></li>
+<li>A-&gt;B:f(P<sub>A</sub>||R<sub>B</sub>)<br>由于f是单向函数，即使知道f(P<sub>B</sub>||R<sub>A</sub>)也不能计算出P<sub>A</sub>，即使知道f(P<sub>A</sub>||R<sub>B</sub>)，也不能计算出P<sub>B</sub>。可在f函数中加入时间参数，阻止重播攻击。</li>
+</ol>
+</li>
+<li>一次性口令<br>  一个口令只用一次，可以抵御重放攻击。</li>
+</ul>
+<h3 id="生物特征识别"><a href="#生物特征识别" class="headerlink" title="生物特征识别"></a>生物特征识别</h3><ul>
+<li>通过识别用户的生理特征来认证用户的身份，具有唯一性和稳定性</li>
+<li>如指纹、掌纹、面孔、发音、虹膜、视网膜、骨架等</li>
+</ul>
+<h2 id="报文认证"><a href="#报文认证" class="headerlink" title="报文认证"></a>报文认证</h2><p>报文认证，必须是通信方能够验证每份报文的发送方、接收方、内容和时间性的真实性和完整性</p>
+<h3 id="报文源的认证"><a href="#报文源的认证" class="headerlink" title="报文源的认证"></a>报文源的认证</h3><ul>
+<li>设A为报文发送方，简称为源，B是报文的接收方，简称为宿。</li>
+<li>A与B共享保密的密钥$K_S$。A的标识为$ID_A$，要发送的报文为$M$，那么B认证A的过程如下<br>  $A-&gt;B:E(ID_A||M,K_S)$</li>
+<li>A在发给B的每份报文中都增加标识$ID_A$，然后用$K_S$加密并发送给B。</li>
+<li>公开密钥密码实现报文源的认证：$A-&gt;B:E(ID_A||M,K_{dA})$</li>
+</ul>
+<h3 id="报文宿的认证"><a href="#报文宿的认证" class="headerlink" title="报文宿的认证"></a>报文宿的认证</h3><ul>
+<li>在以密钥为基础的认证方案的每份报文中加入接受方标识符$ID_B$<br>  $A-&gt;B:E(ID_B||M,K_S)$</li>
+<li>公开密钥密码实现报文宿的认证：$A-&gt;B:E(ID_B||M,K_{eB})$</li>
+</ul>
+<h3 id="报文内容的认证"><a href="#报文内容的认证" class="headerlink" title="报文内容的认证"></a>报文内容的认证</h3><p>报文内容认证使接收方确认报文内容的真实性，通过验证认证码的正确性来实现。</p>
+<h4 id="报文加密"><a href="#报文加密" class="headerlink" title="报文加密"></a>报文加密</h4><p>将整个报文的密文作为认证码：发送方A要发送报文给接收方B，则A用他们的共享密钥K对发送的报文M加密后发给B；<br>    $A-&gt;B:E(M,K)$</p>
+<ul>
+<li><strong>报文的密码性</strong>：如只有A和B知道密钥K，其他任何人均不能恢复出报文明文。</li>
+<li><strong>报文源的认证</strong>：除B外只有A拥有K，也就只有A可产生出B能解密的密文。</li>
+<li><strong>报文认证</strong>：如果B可以恢复出明文，则可认为M中的每一位都未被改变。</li>
+</ul>
+<h4 id="消息认证码-MAC"><a href="#消息认证码-MAC" class="headerlink" title="消息认证码(MAC)"></a>消息认证码(MAC)</h4><p>消息认证的实质是：发送者通过双方协商的某种函数(如Hash函数)，以待发消息作为输入经过函数变换产生消息认证码(简称MAC)。<br>    $MAC=C(M,K)$<br>    $A-&gt;B:E(M||C(M,K_1),K_2)$<br>    $A-&gt;B:E(M,K_2)||C(E(M,K_2),K_1)$</p>
+<h4 id="基于hash函数的消息认证码-HMAC"><a href="#基于hash函数的消息认证码-HMAC" class="headerlink" title="基于hash函数的消息认证码(HMAC)"></a>基于hash函数的消息认证码(HMAC)</h4><p>带密钥的Hash函数构造方案<br><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-37-09.png" title="HMAC" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-37-09.png" alt="HMAC" title="" class=""></a>
+                <p>HMAC</p>
+            </figure></p>
+<h2 id="例题-4"><a href="#例题-4" class="headerlink" title="例题"></a>例题</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-41-52.png" title="例题1" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-41-52.png" alt="例题1" title="" class=""></a>
+                <p>例题1</p>
+            </figure>
+<figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-43-06.png" title="例题2" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-43-06.png" alt="例题2" title="" class=""></a>
+                <p>例题2</p>
+            </figure>
+<p><br><br><br></p>
+<h1 id="密钥管理"><a href="#密钥管理" class="headerlink" title="密钥管理"></a>密钥管理</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>密钥管理包括密钥的产生、存储、分配、组织、使用、更换、销毁等一系列技术问题。</li>
+</ul>
+<h2 id="对称密码的密钥管理"><a href="#对称密码的密钥管理" class="headerlink" title="对称密码的密钥管理"></a>对称密码的密钥管理</h2><figure class="image-box">
+                <a rel="密码学基础与应用" href="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-44-34.png" title="对称密码的密钥管理" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Crypto/2019-05-13-21-44-34.png" alt="对称密码的密钥管理" title="" class=""></a>
+                <p>对称密码的密钥管理</p>
+            </figure>
+<h2 id="非对称密码的密钥管理"><a href="#非对称密码的密钥管理" class="headerlink" title="非对称密码的密钥管理"></a>非对称密码的密钥管理</h2><h3 id="公约基础设施PKI"><a href="#公约基础设施PKI" class="headerlink" title="公约基础设施PKI"></a>公约基础设施PKI</h3><ul>
+<li><strong>签证机构CA</strong>：负责签发证书，管理和撤销证书</li>
+<li><strong>注册机构RA</strong>：专门负责受理用户申请证书的机构</li>
+<li><strong>证书的签发</strong>：CA签发<br>  <strong>CA签发过程</strong>：<ol>
+<li>用户向CA提交RA的注册批准信息及自己的身份等信息(或由RA向CA提交)；</li>
+<li>CA验证所提交信息的正确性和真实性；</li>
+<li>CA为用户产生密钥(或由用户自己产生并提供密钥)，并进行备份；</li>
+<li>CA生成证书，并施加签名；</li>
+<li>将证书的一个副本交给用户，并存档入库。</li>
+</ol>
+</li>
+<li>证书目录</li>
+<li>证书的认证</li>
+<li>证书的撤销</li>
+<li>信任模型</li>
+</ul>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-08T07:03:34.000Z" itemprop="dateUpdated">2019-05-08 15:03:34</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/05/08/密码学基础与应用/" target="_blank" rel="external">https://yuanlichenai.cn/2019/05/08/密码学基础与应用/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AES/">AES</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DES/">DES</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RC4/">RC4</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RSA/">RSA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SHA/">SHA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SM4/">SM4</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/05/08/密码学基础与应用/&title=《密码学基础与应用》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/05/08/密码学基础与应用/&title=《密码学基础与应用》 — YuanLiChenAi&source=梳理下最近学的密码学基础知识
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2019/08/28/Windows桌面图标样式修改/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Windows桌面图标样式修改</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2019/03/26/SqlDJBH/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SqlDJBH</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#密码学概论"><span class="post-toc-number">1.</span> <span class="post-toc-text">密码学概论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#密码体制"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">密码体制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#密码分析学"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">密码分析学</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#古典密码"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">古典密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#古典密码破解方法"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">古典密码破解方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分组密码"><span class="post-toc-number">2.</span> <span class="post-toc-text">分组密码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分组密码算法结构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分组密码算法结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Feistel结构"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Feistel结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SP结构"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">SP结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DES算法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">DES算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始置换IP"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">初始置换IP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成16个48位的子密钥"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">生成16个48位的子密钥</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#16轮Feistel结构迭代"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">16轮Feistel结构迭代</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#逆初始置换IP-1"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">逆初始置换IP-1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DES算法的安全性"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">DES算法的安全性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三重DES"><span class="post-toc-number">2.3.6.</span> <span class="post-toc-text">三重DES</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#考试知识点"><span class="post-toc-number">2.3.7.</span> <span class="post-toc-text">考试知识点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AES算法"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">AES算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始轮密钥加"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">初始轮密钥加</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#轮函数"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">轮函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字节代换"><span class="post-toc-number">2.4.2.1.</span> <span class="post-toc-text">字节代换</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#行移位"><span class="post-toc-number">2.4.2.2.</span> <span class="post-toc-text">行移位</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列混合"><span class="post-toc-number">2.4.2.3.</span> <span class="post-toc-text">列混合</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#轮密钥加"><span class="post-toc-number">2.4.2.4.</span> <span class="post-toc-text">轮密钥加</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解密算法"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">解密算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AES算法的安全性"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">AES算法的安全性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SM4算法"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">SM4算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本运算"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">基本运算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本密码部件"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">基本密码部件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#轮函数-1"><span class="post-toc-number">2.5.3.</span> <span class="post-toc-text">轮函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加密算法"><span class="post-toc-number">2.5.4.</span> <span class="post-toc-text">加密算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解密算法-1"><span class="post-toc-number">2.5.5.</span> <span class="post-toc-text">解密算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密钥扩展算法"><span class="post-toc-number">2.5.6.</span> <span class="post-toc-text">密钥扩展算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SM4密码结构"><span class="post-toc-number">2.5.7.</span> <span class="post-toc-text">SM4密码结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分组密码工作模式"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">分组密码工作模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#电子密码本-ECB"><span class="post-toc-number">2.6.1.</span> <span class="post-toc-text">电子密码本(ECB)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码块链接-CBC"><span class="post-toc-number">2.6.2.</span> <span class="post-toc-text">密码块链接(CBC)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#明密文链接模式"><span class="post-toc-number">2.6.2.1.</span> <span class="post-toc-text">明密文链接模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#密文链接模式"><span class="post-toc-number">2.6.2.2.</span> <span class="post-toc-text">密文链接模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CBC特点"><span class="post-toc-number">2.6.2.3.</span> <span class="post-toc-text">CBC特点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#填充密码块链接-PCBC"><span class="post-toc-number">2.6.3.</span> <span class="post-toc-text">填充密码块链接(PCBC)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#输出反馈-OFB"><span class="post-toc-number">2.6.4.</span> <span class="post-toc-text">输出反馈(OFB)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密文反馈-CFB"><span class="post-toc-number">2.6.5.</span> <span class="post-toc-text">密文反馈(CFB)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#计数器模式-CTR"><span class="post-toc-number">2.6.6.</span> <span class="post-toc-text">计数器模式(CTR)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题"><span class="post-toc-number">2.6.7.</span> <span class="post-toc-text">例题</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#序列密码"><span class="post-toc-number">3.</span> <span class="post-toc-text">序列密码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RC4序列密码"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">RC4序列密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ZUC算法"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">ZUC算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题-1"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">例题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hash函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">Hash函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SHA算法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">SHA算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">例题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#公钥密码体制"><span class="post-toc-number">5.</span> <span class="post-toc-text">公钥密码体制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#公钥密码体制模型"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">公钥密码体制模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RSA密码"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">RSA密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ELGamal密码"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">ELGamal密码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数字签名"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">数字签名</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RSA"><span class="post-toc-number">5.4.1.</span> <span class="post-toc-text">RSA</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ELGamal密码-1"><span class="post-toc-number">5.4.2.</span> <span class="post-toc-text">ELGamal密码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RSA和ELGamal签名安全性"><span class="post-toc-number">5.4.3.</span> <span class="post-toc-text">RSA和ELGamal签名安全性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#例题-3"><span class="post-toc-number">5.4.4.</span> <span class="post-toc-text">例题</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#认证"><span class="post-toc-number">6.</span> <span class="post-toc-text">认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概念-1"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#身份认证"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">身份认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#口令认证"><span class="post-toc-number">6.2.1.</span> <span class="post-toc-text">口令认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生物特征识别"><span class="post-toc-number">6.2.2.</span> <span class="post-toc-text">生物特征识别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#报文认证"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">报文认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#报文源的认证"><span class="post-toc-number">6.3.1.</span> <span class="post-toc-text">报文源的认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#报文宿的认证"><span class="post-toc-number">6.3.2.</span> <span class="post-toc-text">报文宿的认证</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#报文内容的认证"><span class="post-toc-number">6.3.3.</span> <span class="post-toc-text">报文内容的认证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#报文加密"><span class="post-toc-number">6.3.3.1.</span> <span class="post-toc-text">报文加密</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#消息认证码-MAC"><span class="post-toc-number">6.3.3.2.</span> <span class="post-toc-text">消息认证码(MAC)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基于hash函数的消息认证码-HMAC"><span class="post-toc-number">6.3.3.3.</span> <span class="post-toc-text">基于hash函数的消息认证码(HMAC)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例题-4"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">例题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#密钥管理"><span class="post-toc-number">7.</span> <span class="post-toc-text">密钥管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概念-2"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对称密码的密钥管理"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">对称密码的密钥管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非对称密码的密钥管理"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">非对称密码的密钥管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#公约基础设施PKI"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">公约基础设施PKI</span></a></li></ol></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/05/08/密码学基础与应用/&title=《密码学基础与应用》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/05/08/密码学基础与应用/&title=《密码学基础与应用》 — YuanLiChenAi&source=梳理下最近学的密码学基础知识
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aS3KDQAxFUe9/02SSmUP7PglcQX0ZuVxgc3qg0u/1wtfxdr1/f3Y/+eX0qeIlQ4aMxzKO5cXvqR3EGSb+XxkyZGzAIKGwE4J5qF3/7+n3MmTIkBHes34hckAyZMiQ0WF0gi9JEGXIkCGjU8TyMjVNCnnKeEEtLkOGjAcyeLPs+59vmW/IkCHjUYwjvNbJWTpU6L/P7+/IkCFjNOO+tI+02zoBV4YMGbsxSMjjoTZtq/ElswuSRRkyZIxgpAGOv0QaZNOQLUOGjNmMtHztI9NQHmS4MmTIGMcgza/0Mz+CWiL4oWsoQ4aMDRh80aGf2NXGpR+2RWTIkDGOwVvthEFSQ17Wrnmn98uQIWM0gzTI+B+QsMvTRH5wMmTImM0gqV4aoDsHxEkyZMiYzeDpGp95dtpt6aHIkCFjB0atQZamd+lQs7PYIUOGjKkMkoR17iFPXba5JkOGjM0YaRrHn0oHnGh4IEOGjNGMO8JubSEjHabKkCFjHwYvI9NgmpbEaVj/o4iVIUPGaAZp8dcGk7xk5atmqN0mQ4aMcYz0ddMxJC9ieYi/4NRlyJDx7xlHeNVWNDpHg1pyMmTIGM1I54O1AjUtkmvlrgwZMmYzakE2HT2SUQQpiU9/QYYMGRsw0sCXRvFa4sjfSoYMGTJIAUnWJnijLc5hZciQISNcgCi2w/AbxpNYGTJkjGDwlYhOSE0XMoKEUoYMGaMZ/ZDXX7ZIBwzFQaYMGTKex/gB9ThqmPS1h3UAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

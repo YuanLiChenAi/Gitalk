@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>Bugku-Misc-writeup | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Bugku,Misc">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>Bugku-Misc-writeup</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">Bugku-Misc-writeup</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-14T09:39:43.000Z" itemprop="datePublished" class="page-time">
+  2018-03-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-Bugku-Misc-writeup" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">Bugku-Misc-writeup</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-14 17:39:43" datetime="2018-03-14T09:39:43.000Z" itemprop="datePublished">2018-03-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>Bugku杂项题目writeup</p>
+</blockquote>
+<a id="more"></a>
+<p>这里先放个连接：<a href="http://ctf.bugku.com" target="_blank" rel="noopener">ctf.bugku.com</a></p>
+<h1 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h1><p>略……</p>
+<h1 id="这是一张单纯的图片"><a href="#这是一张单纯的图片" class="headerlink" title="这是一张单纯的图片"></a>这是一张单纯的图片</h1><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/02-01.jpg" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/02-01.jpg" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>用文本编辑器打开发现 UTF-8编码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/02-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/02-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>在线解码<a href="https://utf8.supfree.net/" target="_blank" rel="noopener">https://utf8.supfree.net/</a>得到答案<br><!--key{you are right}--></p>
+<h1 id="隐写"><a href="#隐写" class="headerlink" title="隐写"></a>隐写</h1><p>下载后发现是个压缩包，<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解压后得到一张图片，发现无法查看<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>猜测是修改了图片高度，用WinHex打开图片，将第二行6列“01”改为“11”<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用画图打开发现flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/03-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--BUGKU{a1e5aSA}--></p>
+<h1 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h1><p>下载是个压缩包，里面是个流量包<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用wireshark打开，追踪tcp流<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/04-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><!--flag{d316759c281bf925d600be698a4973d5}--></p>
+<h1 id="眼见非实-ISCCCTF"><a href="#眼见非实-ISCCCTF" class="headerlink" title="眼见非实(ISCCCTF)"></a>眼见非实(ISCCCTF)</h1><p>下载得到一个名称为zip且没有后缀的文件，加上zip后缀后发现里面有个docx文档<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解压出来发现打不开，将后缀docx改为zip解压<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>打开word里面的document.xml<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/05-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure></p>
+<p style="display:none;">flag{F1@g}</p>
+
+<h1 id="又一张图片，还单纯吗"><a href="#又一张图片，还单纯吗" class="headerlink" title="又一张图片，还单纯吗"></a>又一张图片，还单纯吗</h1><p>下载是又一张图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿进kali用binwalk扫描一下<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>接下来输入命令<br>dd if=2.jpg of=2-1.jpg skip=158792 bs=1<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>得到另一张图片，拿到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/06-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--falg{NSCTF_e6532a34928a3d1dadd0b049d5a3cc57}--></p>
+<h1 id="猜"><a href="#猜" class="headerlink" title="猜"></a>猜</h1><p>flag格式key{某人名字全拼}<br>下载得到一张图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/07-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/07-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>好像毫无头绪，反正我脸盲，不过偷偷告诉你百度有百度识图功能<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/07-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/07-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>Get flag<br><!--key{liuyifei}--></p>
+<h1 id="宽带信息泄露"><a href="#宽带信息泄露" class="headerlink" title="宽带信息泄露"></a>宽带信息泄露</h1><p>flag格式：<br>flag{宽带用户名}<br>下载得到bin文件，用RouterPassView打开(RouterPassView是啥？自己百度)<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/08-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/08-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>搜索username<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/08-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/08-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><!--flag{053700357621}--></p>
+<h1 id="隐写2"><a href="#隐写2" class="headerlink" title="隐写2"></a>隐写2</h1><p>下载得到一张图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将后缀改为rar，解压出来flag.rar和 提示.jpg<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>flag.rar被加密查看提示，提示密码为三个数<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>这里可以用暴力破解<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>也可以解开谜题，三个国王分别指KJQ，在键盘上从左向右数序号分别为871<br>得到图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>emmmmm。。。好吧，不过感觉应该没错，离答案不远了<br>此时用文本编辑器打开图片，在最后发现类似flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/09-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>内容已被base64加密，解码得到flag<br>提交发现不对，修改下格式：flag{}<br><!--flag{y0u Are a h@cker!}--></p>
+<h1 id="多种方法解决"><a href="#多种方法解决" class="headerlink" title="多种方法解决"></a>多种方法解决</h1><p>在做题过程中你会得到一个二维码图片<br>下载得到一个zip文件,解压出来是个exe文件<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用编辑器打开exe<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>发现是用DATA URL将图片生成了数据流形式<br>用在线的base64图片编码得到图片 <a href="http://www.atool.org/img2base64.php" target="_blank" rel="noopener">http://www.atool.org/img2base64.php</a><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>在线二维码识别得到flag <a href="http://www.atool.org/qrcode-scan.php" target="_blank" rel="noopener">http://www.atool.org/qrcode-scan.php</a><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-1/10-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--KEY{dca57f966e4e4e31fd5b15417da63269}--></p>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><p>linux基础问题<br>下载的到一个压缩包，解压出来一个flag的文件<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用WinHex打开flag，搜索key找到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure></p>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>将flag放到kali中，输入命令strings flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/11-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--key{feb81d3834e2423c9903f4755464060b}--></p>
+<h1 id="中国菜刀"><a href="#中国菜刀" class="headerlink" title="中国菜刀"></a>中国菜刀</h1><p>国产神器</p>
+<p>下载得到一个压缩包，解压出来是流量包<br>用wireshark打开，因为是菜刀，猜测是http<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>追踪http流<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将中间base64解码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QGluaV9zZXQoImRpc3BsYXlfZXJyb3JzIiwiMCIpO0BzZXRfdGltZV9saW1pdCgwKTtpZihQSFBfVkVSU0lPTjwnNS4zLjAnKXtAc2V0X21hZ2ljX3F1b3Rlc19ydW50aW1lKDApO307ZWNobygiWEBZIik7JEY9IkM6XFx3d3dyb290XFxmbGFnLnRhci5neiI7JGZwPUBmb3BlbigkRiwncicpO2lmKEBmZ2V0YygkZnApKXtAZmNsb3NlKCRmcCk7QHJlYWRmaWxlKCRGKTt9ZWxzZXtlY2hvKCdFUlJPUjovLyBDYW4gTm90IFJlYWQnKTt9O2VjaG8oIlhAWSIpO2RpZSgpOw%3D%3D</span><br></pre></td></tr></table></figure></p>
+<p>得到代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ini_set(&quot;display_errors&quot;,&quot;0&quot;);@set_time_limit(0);if(PHP_VERSION&lt;&apos;5.3.0&apos;)&#123;@set_magic_quotes_runtime(0);&#125;;echo(&quot;X@Y&quot;);$F=&quot;C:\\wwwroot\\flag.tar.gz&quot;;$fp=@fopen($F,&apos;r&apos;);if(@fgetc($fp))&#123;@fclose($fp);@readfile($F);&#125;else&#123;echo(&apos;ERROR:// Can Not Read&apos;);&#125;;echo(&quot;X@Y&quot;);die();</span><br><span class="line">Ü</span><br></pre></td></tr></table></figure></p>
+<p>从代码里可以看出传输文件flag.tar.gz，前后还有字符“X@Y”，正是刚才追踪到的传输的数据：<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>最后一个http包，显示分组字节<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码为 压缩，显示为ASCII，开始于3，得到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure></p>
+<h2 id="其他方法-1"><a href="#其他方法-1" class="headerlink" title="其他方法"></a>其他方法</h2><p>将流量包用binwalk分离<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/12-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>得到压缩包，解压得到flag文件夹里的flag.txt<br>得到flag<br><!--key{8769fe393f2b998fa6a11afe2bfcd65e}--></p>
+<h1 id="这么多数据包"><a href="#这么多数据包" class="headerlink" title="这么多数据包"></a>这么多数据包</h1><p>这么多数据包找找吧，先找到getshell的流<br>下载文件后解压，用wireshark打开CTF.pcapng，发现有很多包，快速浏览后发现前面都是攻击机（192.168.116.138）在向目标机（192.168.116.159）进行端口扫描，再往后看到5542已经getshell，追踪TCP数据流，发现txt文件<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/13-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/13-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>对base64编码进行解密得到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/13-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/13-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--CCTF{do_you_like_sniffer}--></p>
+<h1 id="隐写3"><a href="#隐写3" class="headerlink" title="隐写3"></a>隐写3</h1><p>解压的到一张图片，发现无法打开<br>用WinHex打开，将第二行第6列改为11<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/14-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/14-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用画图打开得到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/14-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/14-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--flag{He1l0_d4_ba1}--></p>
+<h1 id="做个游戏-08067CTF"><a href="#做个游戏-08067CTF" class="headerlink" title="做个游戏(08067CTF)"></a>做个游戏(08067CTF)</h1><p>坚持60秒</p>
+<p>下载jar，运行是个小游戏，<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>好吧，有点难度，我们还是来做题吧。。。<br>解压缩jar，<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>随便浏览了下，然后发现了flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/15-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码后得到flag<br><!--flag{DajiDali_JinwanChiji}--></p>
+<h1 id="想蹭网先解开密码"><a href="#想蹭网先解开密码" class="headerlink" title="想蹭网先解开密码"></a>想蹭网先解开密码</h1><p>flag格式：flag{你破解的WiFi密码}<br>tips：密码为手机号，为了不为难你，大佬特地让我悄悄地把前七位告诉你<br>1391040<em>**</em><br>Goodluck!!</p>
+<p>下载是个流量包，先用wireshark打开查看一下<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>WIFI连接认证的重点在WPA的四次握手包，也就是eapol协议的包，过滤一下。。。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>刚好是四个包，<br>提示密码是手机号码，而且前7位已经给出<br>可以使用kali的crunch工具生成字典<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Usage: crunch &lt;min&gt; &lt;max&gt; [options]</span><br></pre></td></tr></table></figure></p>
+<p>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crunch 11 11 -t 1391040%%%% &gt;&gt;wifipass.txt</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>vi查看<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>接下来破解WiFi密码，这个时候需要用到kaili上的aircrack-ng这个工具<br>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aircrack-ng -w wifipass.txt wifi.cap</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>选择3<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/16-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><!--flag{13910407686}--></p>
+<h1 id="Linux2"><a href="#Linux2" class="headerlink" title="Linux2"></a>Linux2</h1><p>给你点提示吧：key的格式是KEY{}<br>题目地址：链接: <a href="http://pan.baidu.com/s/1skJ6t7R" target="_blank" rel="noopener">http://pan.baidu.com/s/1skJ6t7R</a> 密码: s7jy</p>
+<p>下载的到一个压缩包，解压得到一个文件，解法应该和Linux1一样，将文件放到linux下，<br>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings brave</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>发现这次内容非常多，而且key并不在最后，<br>此时可以将输出的内容生成txt文件<br>输入命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings brave &gt;&gt;brave.txt</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>记事本打开查找key<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/17-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>拿到flag<br><!--KEY{24f3627a86fc740a7f36ee2c7a1c124a}--></p>
+<h1 id="账号被盗了"><a href="#账号被盗了" class="headerlink" title="账号被盗了"></a>账号被盗了</h1><p><a href="http://120.24.86.145:9001/" target="_blank" rel="noopener">http://120.24.86.145:9001/</a><br>flag格式flag{QB充值卡密}<br>充值地址<a href="http://pay.qq.com/" target="_blank" rel="noopener">http://pay.qq.com/</a><br>一血有qb拿</p>
+<p>打开网址<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>点击“Get flag”<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>此时使用burpsuite代理<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>得到下载地址<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>得到一个123.exe,点击打开<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>居然是个CF刷枪工具，仔细一想应该是个盗号程序。<br>随便填，然后准备提交，同时打开wireshark抓取流量<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>发现有邮件传输的流量，追踪一下tcp流<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-07.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-07.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>发现两个明显的base64编码，解码一下<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-08.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/18-08.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>是个163的邮箱以及密码<br>登陆后找到flag<br><!--flag{182100518+725593795416}--></p>
+<h1 id="细心的大象"><a href="#细心的大象" class="headerlink" title="细心的大象"></a>细心的大象</h1><p>下载是个zip文件，解压出来是一张大象的图片<br>先用binwalk扫一下<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>发现有东西，那么用参数e尝试分离，出来一个压缩包，不过需要密码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>再次查看题目，并没有提示需要爆破，“细心”猜测密码需要自己去找<br>最终在图片的属性中找到base64编码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码后输入密码成功解压，又是一张图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>和之前的一道题有点类似，所以用winhex修改高度，拿到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/19-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--BUGKU{a1e5aSA}--></p>
+<h1 id="爆照-08067CTF"><a href="#爆照-08067CTF" class="headerlink" title="爆照(08067CTF)"></a>爆照(08067CTF)</h1><p>flag格式 flag{xxx_xxx_xxx}<br>下载是一张动漫少女图片<br>拿进kali用binwalk扫一下先<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>这么多压缩包。。。<br>接下来用dd提取出来<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>88看到有张二维码<br>再次用binwalk扫描后发现，88、888、8888都有改动<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将88图中的二维码扫描得到 bilibili<br>888在备注里看到base64编码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码得到 silisili<br>8888里提取出图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-2/20-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>扫码得到 panama<br>根据提示 flag格式 flag{xxx_xxx_xxx}<br>得到flag<br><!--flag{bilibili_silisili_panama}--></p>
+<h1 id="图穷匕见"><a href="#图穷匕见" class="headerlink" title="图穷匕见"></a>图穷匕见</h1><p>图片下载后，先右键查看属性，有如下发现：<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>用16进制编辑器（如010editor）打开图片，找到jpg的文件尾FF D9，发现其后还有大量的数据<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将之后的数据保存到txt中<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将数据按16进制-&gt;ASCII方式解码，思路就很明显了，下图中使用的是notepad++中的插件Converter进行解码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码结果如下，很明显是坐标的形式<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>这时候再结合会画图吗的提示，将这些坐标做成一张图即可，用gnuplot这个工具比较方便，因此将坐标转为gnuplot能识别的格式 坐标1 坐标2<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>在Linux中使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunplot</span><br><span class="line">plot <span class="string">"文件名"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-07.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-07.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>得到二维码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-08.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/01-08.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>扫描后得到flag<br><!--flag{40fc0a979f759c8892f4dc045e28b820}--></p>
+<h1 id="convert"><a href="#convert" class="headerlink" title="convert"></a>convert</h1><p>进制转换 8位的bit<br>写个py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line">file1=open(<span class="string">'1.txt'</span>)</span><br><span class="line">s=file1.read()</span><br><span class="line">file2=open(<span class="string">'3.rar'</span>,<span class="string">'wb'</span>)</span><br><span class="line">s1=<span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(s),<span class="number">8</span>):</span><br><span class="line">        <span class="comment">#print (type(int(s[i:i+8],2)))</span></span><br><span class="line">        <span class="keyword">if</span> ((int(s[i:i+<span class="number">8</span>],<span class="number">2</span>))&lt;= <span class="number">15</span>):</span><br><span class="line">                print(hex(int(s[i:i+<span class="number">8</span>],<span class="number">2</span>)))</span><br><span class="line">                s1=s1+<span class="string">'0'</span>+hex(int(s[i:i+<span class="number">8</span>],<span class="number">2</span>)).replace(<span class="string">'0x'</span>,<span class="string">''</span>)</span><br><span class="line">                <span class="keyword">print</span> (s1)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">                s1+=hex(int(s[i:i+<span class="number">8</span>],<span class="number">2</span>)).replace(<span class="string">'0x'</span>,<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (s1)</span><br><span class="line">file2.write(binascii.a2b_hex(s1))</span><br></pre></td></tr></table></figure></p>
+<p>打开rar是个图片，用WinHex打开发现base64<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/02-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/02-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>解码得到flag<br><!--flag{01a25ea3fd6349c6e635a1d0196e75fb}--></p>
+<h1 id="听首音乐"><a href="#听首音乐" class="headerlink" title="听首音乐"></a>听首音乐</h1><p>听首音乐放松放松吧~<br>下载地址：链接: <a href="http://pan.baidu.com/s/1gfvezBl" target="_blank" rel="noopener">http://pan.baidu.com/s/1gfvezBl</a> 密码: y6gh<br>下载后试听了下发现只有右声道，用音频软件（GoldWave）打开发现摩斯电码<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/03-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/03-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">...../-.../-.-./----./..---/...../-..../....-/----./-.-./-.../-----/.----/---../---../..-./...../..---/./-..../.----/--.../-../--.../-----/----./..---/----./.----/----./.----/-.-.</span><br></pre></td></tr></table></figure></p>
+<p>解密后得到flag<br><!--5BC925649CB0188F52E617D70929191C--></p>
+<h1 id="好多数值"><a href="#好多数值" class="headerlink" title="好多数值"></a>好多数值</h1><p>下载一看是一堆RGB数值，应该是要转成图片<br>去网上找了下Python RGB转图片的脚本，结果直接搜到原题了。<br><a href="https://www.cnblogs.com/webFuckeeeer/p/4536776.html" target="_blank" rel="noopener">https://www.cnblogs.com/webFuckeeeer/p/4536776.html</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">x = <span class="number">503</span> <span class="comment">#x坐标  通过对txt里的行数进行整数分解</span></span><br><span class="line">y = <span class="number">122</span> <span class="comment">#y坐标  x*y = 行数</span></span><br><span class="line"></span><br><span class="line">im = Image.new(<span class="string">"RGB"</span>,(x,y))<span class="comment">#创建图片</span></span><br><span class="line">file = open(<span class="string">'1.txt'</span>) <span class="comment">#打开rbg值文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过一个个rgb点生成图片</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,x):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,y):</span><br><span class="line">        line = file.readline()<span class="comment">#获取一行</span></span><br><span class="line">        rgb = line.split(<span class="string">","</span>)<span class="comment">#分离rgb</span></span><br><span class="line">        im.putpixel((i,j),(int(rgb[<span class="number">0</span>]),int(rgb[<span class="number">1</span>]),int(rgb[<span class="number">2</span>])))<span class="comment">#rgb转化为像素</span></span><br><span class="line">im.show()</span><br></pre></td></tr></table></figure></p>
+<p style="display:none;">flag{youc@n’tseeme}</p>
+
+<h1 id="很普通的数独-ISCCCTF"><a href="#很普通的数独-ISCCCTF" class="headerlink" title="很普通的数独(ISCCCTF)"></a>很普通的数独(ISCCCTF)</h1><p>下载解压后一堆数独图片，把所有带数字的方框改成黑色<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>应该是是一张二维码，刚好是25张，5X5组合起来。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>样子好像有点不对，这里需要把第1张、第5张和第21张互换位置，扫码得到base64值。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/05-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>Base64多次解码得到flag<br><!--flag{y0ud1any1s1}--></p>
+<h1 id="好多压缩包"><a href="#好多压缩包" class="headerlink" title="好多压缩包"></a>好多压缩包</h1><p>打开一看里面一堆压缩包，都有加密过，这题需要用到CRC碰撞<br>找了网上大神写的Python2脚本，时间蛮长的。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> zipfile</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CrackCrc</span><span class="params">(crc)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> dic:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> dic:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> dic:</span><br><span class="line">                <span class="keyword">for</span> q <span class="keyword">in</span> dic:</span><br><span class="line">                    s = i + j + p + q</span><br><span class="line">                    <span class="keyword">if</span> crc == (binascii.crc32(s) &amp; <span class="number">0xffffffff</span>):</span><br><span class="line">                        f.write(s)</span><br><span class="line">                        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CrackZip</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> I <span class="keyword">in</span> range(<span class="number">68</span>):</span><br><span class="line">        file = <span class="string">'out'</span> + str(I) + <span class="string">'.zip'</span></span><br><span class="line">        f = zipfile.ZipFile(file, <span class="string">'r'</span>)</span><br><span class="line">        GetCrc = f.getinfo(<span class="string">'data.txt'</span>)</span><br><span class="line">        crc = GetCrc.CRC</span><br><span class="line">        CrackCrc(crc)</span><br><span class="line"></span><br><span class="line">dic = string.ascii_letters + string.digits + <span class="string">'+/='</span></span><br><span class="line">f = open(<span class="string">'out.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">CrackZip()</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure></p>
+<p>输出base64值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z5BzAAANAAAAAAAAAKo+egCAIwBJAAAAVAAAAAKGNKv+a2MdSR0zAwABAAAAQ01UCRUUy91BT5UkSNPoj5hFEVFBRvefHSBCfG0ruGnKnygsMyj8SBaZHxsYHY84LEZ24cXtZ01y3k1K1YJ0vpK9HwqUzb6u9z8igEr3dCCQLQAdAAAAHQAAAAJi0efVT2MdSR0wCAAgAAAAZmxhZy50eHQAsDRpZmZpeCB0aGUgZmlsZSBhbmQgZ2V0IHRoZSBmbGFnxD17AEAHAA==</span><br></pre></td></tr></table></figure></p>
+<p>解码后保存文本，用winhex查看<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>发现存在rar的文件尾C43D7B00400700，但缺少文件头，于是补上rar的文件头526172211A0700<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>在注释里发现flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/06-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--flag{nev3r_enc0de_t00_sm4ll_fil3_w1th_zip}--></p>
+<h1 id="妹子的陌陌"><a href="#妹子的陌陌" class="headerlink" title="妹子的陌陌"></a>妹子的陌陌</h1><p>下载是一张小姐姐的图片，先用Winhex打开看看<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>查找到rar文件头，可以看到下面还有个txt文件，这里直接修改文件后缀名，首先尝试改为rar无法打开，改成zip后即可打开。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>然后提示输入密码，题目没有提示要爆破密码，想到之前的图片<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>momo.txt内容<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-04.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-04.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>摩斯电码解出来是个网站地址HTTP://ENCODE.CHAHUO.COM/<br>接下来是AES解密<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-05.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-05.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>网址<a href="http://c.bugku.com/momoj2j.png" target="_blank" rel="noopener">http://c.bugku.com/momoj2j.png</a>下下来一张黑白颠倒的二维码，解码得到flag<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/08-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--KEY{nitmzhen6}--></p>
+<h1 id="流量分析-cnss"><a href="#流量分析-cnss" class="headerlink" title="流量分析(cnss)"></a>流量分析(cnss)</h1><p>追踪http流，可以看到有个网址<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-07-25-09-41-12.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-07-25-09-41-12.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>访问发现用户昵称下有base64<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-07-25-09-42-06.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-07-25-09-42-06.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>两次解码得到flag，格式cnss{}<br><!--cnss{b1libil1_A_gay_wEbsite}--></p>
+<h1 id="猫片-安恒"><a href="#猫片-安恒" class="headerlink" title="猫片(安恒)"></a>猫片(安恒)</h1><p>原安恒2018年1月月赛题：喵喵喵 扫一扫<br>hint： LSB BGR NTFS<br>用<code>StegSolve</code>打开，直接翻页是不行的，用<code>Analyse</code>下的<code>Data Extract</code><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-52-11.png" title="保存为新的png文件" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-52-11.png" alt="保存为新的png文件" title="" class=""></a>
+                <p>保存为新的png文件</p>
+            </figure><br>删除文件头FFFE，同时将008c改为0118<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-53-43.png" title="如图所示" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-53-43.png" alt="如图所示" title="" class=""></a>
+                <p>如图所示</p>
+            </figure><br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-55-59.png" title="QR Research扫码" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-16-55-59.png" alt="QR Research扫码" title="" class=""></a>
+                <p>QR Research扫码</p>
+            </figure><br>下载是个flag.rar文件，此时用到最后一个提示<code>NTFS</code><br>这是一种流隐写，需要用到工具<code>ntfstreamseditor</code><br>将文件解压出来，注意必须用<code>winrar</code>解压才行，会有报错提示，没有关系。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-17-02-00.png" title="用ntfstreamseditor工具扫描文件所在文件夹" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-3/2018-08-20-17-02-00.png" alt="用ntfstreamseditor工具扫描文件所在文件夹" title="" class=""></a>
+                <p>用ntfstreamseditor工具扫描文件所在文件夹</p>
+            </figure><br>得到pyc文件，在线python反编译地址：<a href="https://tool.lu/pyc/" target="_blank" rel="noopener">tool.lu/pyc/</a><br>得到脚本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">()</span>:</span></span><br><span class="line">    flag = <span class="string">'*************'</span></span><br><span class="line">    ciphertext = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(flag)):</span><br><span class="line">        s = chr(i ^ ord(flag[i]))</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            s = ord(s) + <span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s = ord(s) - <span class="number">10</span></span><br><span class="line">        ciphertext.append(str(s))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ciphertext[::<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">ciphertext = [<span class="string">'96'</span>,<span class="string">'65'</span>,<span class="string">'93'</span>,<span class="string">'123'</span>,<span class="string">'91'</span>,<span class="string">'97'</span>,<span class="string">'22'</span>,<span class="string">'93'</span>,<span class="string">'70'</span>,<span class="string">'102'</span>,<span class="string">'94'</span>,<span class="string">'132'</span>,<span class="string">'46'</span>,<span class="string">'112'</span>,<span class="string">'64'</span>,<span class="string">'97'</span>,<span class="string">'88'</span>,<span class="string">'80'</span>,<span class="string">'82'</span>,<span class="string">'137'</span>,<span class="string">'90'</span>,<span class="string">'109'</span>,<span class="string">'99'</span>,<span class="string">'112'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>解码脚本<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">()</span>:</span></span><br><span class="line">    ciphertext = [<span class="string">'96'</span>,<span class="string">'65'</span>,<span class="string">'93'</span>,<span class="string">'123'</span>,<span class="string">'91'</span>,<span class="string">'97'</span>,<span class="string">'22'</span>,<span class="string">'93'</span>,<span class="string">'70'</span>,<span class="string">'102'</span>,<span class="string">'94'</span>,<span class="string">'132'</span>,<span class="string">'46'</span>,<span class="string">'112'</span>,<span class="string">'64'</span>,<span class="string">'97'</span>,<span class="string">'88'</span>,<span class="string">'80'</span>,<span class="string">'82'</span>,<span class="string">'137'</span>,<span class="string">'90'</span>,<span class="string">'109'</span>,<span class="string">'99'</span>,<span class="string">'112'</span>]</span><br><span class="line">    flag = <span class="string">''</span></span><br><span class="line">    ciphertext.reverse()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ciphertext)):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            s = int(ciphertext[i]) - <span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s = int(ciphertext[i]) + <span class="number">10</span></span><br><span class="line">        s = chr(i ^ s)</span><br><span class="line">        flag += s</span><br><span class="line">    <span class="keyword">return</span> flag</span><br><span class="line"></span><br><span class="line">a = decode()</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></p>
+<p style="display:none;">flag{Y@e_Cl3veR_C1Ever!}</p>
+
+<h1 id="2B"><a href="#2B" class="headerlink" title="2B"></a>2B</h1><p>下载是一张图片，用binwalk分理处一张B2的图片，咋一看两张图完全一样，仔细看发现B2里有条纹状的水印，这是应该一种盲水印<br>工具下载地址：<a href="https://github.com/linyacool/blind-watermark（记得点☆哦）" target="_blank" rel="noopener">https://github.com/linyacool/blind-watermark（记得点☆哦）</a><br>使用工具需要Python2的opencv库<br>pip安装：<code>pip install opencv-python</code><br>反变换解水印：<code>decode.py --original B2.png --image 2B.png --result extract.png</code><br><!--NUST{I_10v3_2B_F0r3v3r}--></p>
+<h1 id="多彩"><a href="#多彩" class="headerlink" title="多彩"></a>多彩</h1><p>先是LSB，里面有个压缩包，需要密码解开。<br><figure class="image-box">
+                <a rel="Bugku-Misc-writeup" href="https://bp.yuanlichenai.cn/Bugku/Misc-4/2018-09-18-16-25-55.png" title="LSB低位隐写" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Bugku/Misc-4/2018-09-18-16-25-55.png" alt="LSB低位隐写" title="" class=""></a>
+                <p>LSB低位隐写</p>
+            </figure><br>其他通道有YSL的标记，而<code>YSL</code>是口红的一种牌子，所以密码和色号有关（出题人真是变态）小声）<br>通过取色器的对比，找到色号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1,27 ,59 ,11 ,23 ,7 ,57,1 ,1 ,76 ,222 ,1,1,50 ,214 ,6 ,77 ,50,53,214 ,6</span><br></pre></td></tr></table></figure></p>
+<p>紧接着将色号转为二进制数值，再转成字符串，得到解压密码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="keyword">import</span> libnum</span><br><span class="line">a = [<span class="number">1</span>,<span class="number">27</span> ,<span class="number">59</span> ,<span class="number">11</span> ,<span class="number">23</span> ,<span class="number">7</span> ,<span class="number">57</span>,<span class="number">1</span> ,<span class="number">1</span> ,<span class="number">76</span> ,<span class="number">222</span> ,<span class="number">1</span>,<span class="number">1</span>,<span class="number">50</span> ,<span class="number">214</span> ,<span class="number">6</span> ,<span class="number">77</span> ,<span class="number">50</span>,<span class="number">53</span>,<span class="number">214</span> ,<span class="number">6</span>]</span><br><span class="line">aa =<span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    aa +=bin(i)[<span class="number">2</span>:]</span><br><span class="line"><span class="keyword">print</span> aa</span><br><span class="line">b = str(aa)</span><br><span class="line"><span class="keyword">print</span> libnum.b2s(b)</span><br></pre></td></tr></table></figure></p>
+<p>参考：<br>出题思路：<a href="https://github.com/Nu1LCTF/n1ctf-2018/blob/master/writeups/misc/Lipstick/Lipstick_CN.md" target="_blank" rel="noopener">Nu1LCTF/n1ctf-2018/Lipstick</a>，<a href="https://meta.tn/a/a3ba899a0fdeb3e9bc616181d43ffb93958846a89345fc9e77290738ca7d402b" target="_blank" rel="noopener">解题思路</a><br><a href="https://github.com/hellman/libnum" target="_blank" rel="noopener">libnum库</a>：<a href="https://www.cnblogs.com/pcat/p/7225782.html" target="_blank" rel="noopener">安装及使用教程</a><br><!--flag{White_Album_is_Really_worth_watching_on_White_Valentine’s_Day}--></p>
+<h1 id="闪的好快"><a href="#闪的好快" class="headerlink" title="闪的好快"></a>闪的好快</h1><p>分解gif，逐针扫二维码，一共18张，<a href="https://zh.bloggif.com/gif-extract" target="_blank" rel="noopener">在线分解gif链接</a><br><!--SYC{F1aSh_so_f4sT}--></p>
+<h1 id="come-game"><a href="#come-game" class="headerlink" title="come_game"></a>come_game</h1><p>玩一下，多了save1文件，用winhex打开，000132-&gt;000135,直接过关得到flag。<br><!--SYC{6E23F259D98DF153}--></p>
+<h1 id="旋转跳跃"><a href="#旋转跳跃" class="headerlink" title="旋转跳跃"></a>旋转跳跃</h1><p>先用音频文件打开没发现什么异常，试听的时候真是吓到我了。。。<br>再看一遍题目，发现提示<code>key：syclovergeek</code>，猜测可能是音频隐写，这个时候需要用到<code>Mp3Stego</code>工具。<br><figure class="highlight bash"><figcaption><span>payload</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\MP3StegoDecode.exe -X .\sycgeek-mp3.mp3 -P syclovergeek</span><br></pre></td></tr></table></figure></p>
+<!--SYC{Mp3_B15b1uBiu_W0W}-->
+<h1 id="啊哒"><a href="#啊哒" class="headerlink" title="啊哒"></a>啊哒</h1><p>图片包含一个加密的压缩包，密码在文件属性详细信息的照相机型号里，需16进制转成字符。<br><!--flag{3XiF_iNf0rM@ti0n}--></p>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-14T09:39:43.000Z" itemprop="dateUpdated">2018-03-14 17:39:43</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/03/14/Bugku-Misc-writeup/" target="_blank" rel="external">https://yuanlichenai.cn/2018/03/14/Bugku-Misc-writeup/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bugku/">Bugku</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Misc/">Misc</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/03/14/Bugku-Misc-writeup/&title=《Bugku-Misc-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/03/14/Bugku-Misc-writeup/&title=《Bugku-Misc-writeup》 — YuanLiChenAi&source=Bugku杂项题目writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/03/20/博客搭建笔记/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">博客搭建笔记</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#签到题"><span class="post-toc-number">1.</span> <span class="post-toc-text">签到题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这是一张单纯的图片"><span class="post-toc-number">2.</span> <span class="post-toc-text">这是一张单纯的图片</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#隐写"><span class="post-toc-number">3.</span> <span class="post-toc-text">隐写</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#telnet"><span class="post-toc-number">4.</span> <span class="post-toc-text">telnet</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#眼见非实-ISCCCTF"><span class="post-toc-number">5.</span> <span class="post-toc-text">眼见非实(ISCCCTF)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#又一张图片，还单纯吗"><span class="post-toc-number">6.</span> <span class="post-toc-text">又一张图片，还单纯吗</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#猜"><span class="post-toc-number">7.</span> <span class="post-toc-text">猜</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#宽带信息泄露"><span class="post-toc-number">8.</span> <span class="post-toc-text">宽带信息泄露</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#隐写2"><span class="post-toc-number">9.</span> <span class="post-toc-text">隐写2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多种方法解决"><span class="post-toc-number">10.</span> <span class="post-toc-text">多种方法解决</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#linux"><span class="post-toc-number">11.</span> <span class="post-toc-text">linux</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他方法"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">其他方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#中国菜刀"><span class="post-toc-number">12.</span> <span class="post-toc-text">中国菜刀</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他方法-1"><span class="post-toc-number">12.1.</span> <span class="post-toc-text">其他方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#这么多数据包"><span class="post-toc-number">13.</span> <span class="post-toc-text">这么多数据包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#隐写3"><span class="post-toc-number">14.</span> <span class="post-toc-text">隐写3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#做个游戏-08067CTF"><span class="post-toc-number">15.</span> <span class="post-toc-text">做个游戏(08067CTF)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#想蹭网先解开密码"><span class="post-toc-number">16.</span> <span class="post-toc-text">想蹭网先解开密码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Linux2"><span class="post-toc-number">17.</span> <span class="post-toc-text">Linux2</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#账号被盗了"><span class="post-toc-number">18.</span> <span class="post-toc-text">账号被盗了</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#细心的大象"><span class="post-toc-number">19.</span> <span class="post-toc-text">细心的大象</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#爆照-08067CTF"><span class="post-toc-number">20.</span> <span class="post-toc-text">爆照(08067CTF)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图穷匕见"><span class="post-toc-number">21.</span> <span class="post-toc-text">图穷匕见</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#convert"><span class="post-toc-number">22.</span> <span class="post-toc-text">convert</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#听首音乐"><span class="post-toc-number">23.</span> <span class="post-toc-text">听首音乐</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#好多数值"><span class="post-toc-number">24.</span> <span class="post-toc-text">好多数值</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#很普通的数独-ISCCCTF"><span class="post-toc-number">25.</span> <span class="post-toc-text">很普通的数独(ISCCCTF)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#好多压缩包"><span class="post-toc-number">26.</span> <span class="post-toc-text">好多压缩包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#妹子的陌陌"><span class="post-toc-number">27.</span> <span class="post-toc-text">妹子的陌陌</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流量分析-cnss"><span class="post-toc-number">28.</span> <span class="post-toc-text">流量分析(cnss)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#猫片-安恒"><span class="post-toc-number">29.</span> <span class="post-toc-text">猫片(安恒)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2B"><span class="post-toc-number">30.</span> <span class="post-toc-text">2B</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多彩"><span class="post-toc-number">31.</span> <span class="post-toc-text">多彩</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#闪的好快"><span class="post-toc-number">32.</span> <span class="post-toc-text">闪的好快</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#come-game"><span class="post-toc-number">33.</span> <span class="post-toc-text">come_game</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#旋转跳跃"><span class="post-toc-number">34.</span> <span class="post-toc-text">旋转跳跃</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#啊哒"><span class="post-toc-number">35.</span> <span class="post-toc-text">啊哒</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/03/14/Bugku-Misc-writeup/&title=《Bugku-Misc-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/03/14/Bugku-Misc-writeup/&title=《Bugku-Misc-writeup》 — YuanLiChenAi&source=Bugku杂项题目writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQXLDIAwF0Nz/0u46k3H6JZFOA49VxuMCzwtVID0e8bhexuvz5P27md/PtmxgYGB8LeN6O+4WyBe7m+f9Wvn7GBgY5zCS5ZOw2AMnpF/2jIGBgXGT/OXvJ+B8HgwMDIxewM2PuPn7GBgYGPODZRJAkzCdHJ6XncUxMDC+kNG7Mvub3x+pb2BgYHwV4yqOSTkhD5TlXWFgYGzNmFzcVy/Lqqln+aoOAwPjAMa83aF30ZYfjx9VGQYGxhaM/A966VoVVv39lOFiYGBsypgE3Mmlf3WGKNJiYGBszVjVYLF209W0EgMDY29GrwHiE1XTXgMHBgbG3oz3W5xc9ydXaZMyw9MTDAyMrRm9pLB6rVb9TJMSAgYGxn6MVUXH+bZ6Cevi2ikGBsa/ZEyu9atBOdlu9aNgYGCcwEiu+6vPk1BbTSijnhEMDIwDGPmxs9cWlnyI0f8KDAyMTRnVpoq8zJmze8dpDAyM0xjzQNxbMgnHk+MxBgbGToy80aEXIvNiZK9cioGBcQ6j13hRLVjmV3V5uxgGBsY5jN5BNE8Tq80WeSqJgYGxN+MqjkmpoFrabOa2GBgY2zGqwW5esMyTxV6SioGBsStjUmKsJpTV8sCoYImBgbEdI2nCmFcM8/nLx2AMDAyMcctFtSEjST1HARcDA+MAxjwcrz1CY2BgnMCotmclS65q14iCOAYGxtaMBf0a8fL5JibJKAYGxkaMH4AYIuBLpdmzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

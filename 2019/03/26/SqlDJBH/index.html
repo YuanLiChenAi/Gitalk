@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>SqlDJBH | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="oracle,mysql">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>SqlDJBH</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">SqlDJBH</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-26T14:58:58.000Z" itemprop="datePublished" class="page-time">
+  2019-03-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/等级保护/">等级保护</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-SqlDJBH" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">SqlDJBH</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-26 22:58:58" datetime="2019-03-26T14:58:58.000Z" itemprop="datePublished">2019-03-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/等级保护/">等级保护</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>数据库等级保护笔记2.0</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="oracle"><a href="#oracle" class="headerlink" title="oracle"></a>oracle</h1><h2 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h2><figure class="highlight sql"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> v$<span class="keyword">version</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">version</span> <span class="keyword">from</span> v$<span class="keyword">instance</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">version</span> <span class="keyword">FROM</span> Product_component_version <span class="keyword">Where</span> <span class="keyword">SUBSTR</span>(PRODUCT,<span class="number">1</span>,<span class="number">6</span>)=<span class="string">'Oracle'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="身份鉴别"><a href="#身份鉴别" class="headerlink" title="身份鉴别"></a>身份鉴别</h2><h3 id="密码策略"><a href="#密码策略" class="headerlink" title="密码策略"></a>密码策略</h3><p>Oracle默认提供了一个密码策略的sql执行文件<code>utlpwdmg.sql</code><br><figure class="highlight"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># Linux</span><br><span class="line">$ORACLE_HOME/rdbms/admin/utlpwdmg.sql #默认位置</span><br><span class="line"># Windows</span><br><span class="line"># windows路径位置可以通过搜索来获得。</span><br><span class="line">C:\app\Administrator\product\11.2.0\dbhome_1\RDBMS\ADMIN #默认位置</span><br><span class="line"></span><br><span class="line"># 查看用户状态及profile文件</span><br><span class="line"><span class="keyword">select</span> username,account_status,profile <span class="keyword">from</span> dba_users;</span><br><span class="line"># 只查看激活的用户</span><br><span class="line"><span class="keyword">select</span> username,account_status,profile <span class="keyword">from</span> dba_users <span class="keyword">where</span> account_status=<span class="string">'OPEN'</span>; </span><br><span class="line"></span><br><span class="line"># profile设置</span><br><span class="line"><span class="keyword">select</span> profile,resource_name,<span class="keyword">limit</span> <span class="keyword">from</span> dba_profiles <span class="keyword">where</span> resource_type=<span class="string">'PASSWORD'</span>;</span><br><span class="line">select profile,resource_name,limit from dba_profiles where resource_type='PASSWORD' and profile='DEFAULT'; #只查看默认profile</span><br><span class="line"># 参数</span><br><span class="line">PASSWORD_VERIFY_FUNCTION #复杂度设置，一般为null。</span><br><span class="line">PASSWORD_LIFE_TIME       #口令有效期，默认为180。</span><br><span class="line">PASSWORD_REUSE_TIME      #使用过口令多久可以再次被使用，默认为UNLIMITED。</span><br><span class="line">PASSWORD_REUSE_MAX       #口令被修改后原有口令被修改多少次才允许被重新使用，默认为UNLIMITED。</span><br><span class="line">PASSWORD_GRACE_TIME      #表示用户口令使用时间超过其生命周期后，可以延续使用的天数，并且可延续时间内登录会有相应口令即将过期的提示，默认为7天。</span><br><span class="line">FAILED_LOGIN_ATTEMPTS    #登录失败次数，默认为10。</span><br><span class="line">PASSWORD_LOCK_TIME       #账户锁定时间，默认为1。</span><br></pre></td></tr></table></figure></p>
+<h3 id="超时锁定"><a href="#超时锁定" class="headerlink" title="超时锁定"></a>超时锁定</h3><figure class="highlight sql"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看idle_time设置，默认为UNLIMITED。</span><br><span class="line"><span class="keyword">select</span> resource_name,<span class="keyword">limit</span> <span class="keyword">from</span> dba_profiles <span class="keyword">where</span> profile=<span class="string">'DEFAULT'</span> <span class="keyword">and</span> resource_type=<span class="string">'KERNEL'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from user_users; #查看当前用户</span><br><span class="line">select * from dba_users;  #查看数据库的所有用户</span><br><span class="line">select * from all_users;  #列出当前用户可见的数据库的所有用户</span><br></pre></td></tr></table></figure>
+<h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><figure class="highlight sql"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select * from V$PWFILE_USERS;  #查看哪些用户有sysdba或sysoper系统权限</span><br><span class="line">select * from user_sys_privs;  #查看当前用户系统权限</span><br><span class="line">select * from dba_sys_privs;   #查看所有用户系统权限</span><br><span class="line">select * from role_sys_privs;  #查看角色(只能查看登陆用户拥有的角色)所包含的权限</span><br><span class="line">select * from dba_role_privs;  #查看所有用户的角色</span><br><span class="line">select * from user_role_privs; #查看当前用户的角色</span><br><span class="line">select * from dba_roles;       #查看所有角色</span><br><span class="line">select * from dba_tab_privs;   #查看所有用户对象权限</span><br><span class="line">select * from user_tab_privs;  #查看当前用户对象权限</span><br><span class="line">select * from all_tab_privs;   #查看当前用户可查看用户的对象权限</span><br><span class="line">#查看当前用户的缺省表空间</span><br><span class="line"><span class="keyword">select</span> username,default_tablespace <span class="keyword">from</span> user_users;</span><br></pre></td></tr></table></figure>
+<h2 id="安全审计"><a href="#安全审计" class="headerlink" title="安全审计"></a>安全审计</h2><figure class="highlight"><figcaption><span>oracle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show parameter audit;                #查看日志</span><br><span class="line">show parameter audit_sys_operations; #启用对sys用户的审计</span><br><span class="line">show parameter audit_trail;          #日志存放位置，若为os，则保存在系统中，windows系统在事件查看器中。</span><br><span class="line">select * from v$logfile;             #日志文件路径</span><br><span class="line">select * from v$sql;                 #查看最近所作的操作</span><br><span class="line">select * fromv $sqlarea;             #查看最近所作的操作</span><br></pre></td></tr></table></figure>
+<h2 id="入侵防范"><a href="#入侵防范" class="headerlink" title="入侵防范"></a>入侵防范</h2><h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><h2 id="查看版本-1"><a href="#查看版本-1" class="headerlink" title="查看版本"></a>查看版本</h2><figure class="highlight sql"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">version</span>();</span><br><span class="line">status;</span><br></pre></td></tr></table></figure>
+<h2 id="身份鉴别-1"><a href="#身份鉴别-1" class="headerlink" title="身份鉴别"></a>身份鉴别</h2><h3 id="密码策略-1"><a href="#密码策略-1" class="headerlink" title="密码策略"></a>密码策略</h3><figure class="highlight sql"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#查看密码策略</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">VARIABLES</span> <span class="keyword">like</span> <span class="string">"%password%"</span>; </span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'validate_password%'</span>; </span><br><span class="line"></span><br><span class="line">#查看用户</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>,host,<span class="keyword">password</span> <span class="keyword">from</span> mysql.user;</span><br><span class="line"></span><br><span class="line">#查看插件信息</span><br><span class="line"><span class="keyword">show</span> plugins;</span><br></pre></td></tr></table></figure>
+<h2 id="访问控制-1"><a href="#访问控制-1" class="headerlink" title="访问控制"></a>访问控制</h2><figure class="highlight"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show grants for root@localhost; #查看指定用户的权限</span><br><span class="line">show grants;                    #查看当前用户的权限</span><br></pre></td></tr></table></figure>
+<h2 id="安全审计-1"><a href="#安全审计-1" class="headerlink" title="安全审计"></a>安全审计</h2><figure class="highlight sql"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">show variables like '%log%'; #查看日志</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%audit%'</span>;</span><br><span class="line"># 参数</span><br><span class="line">错误日志：  -log-err  </span><br><span class="line">查询日志：  -log  </span><br><span class="line">慢查询日志：-log-slow-queries  </span><br><span class="line">更新日志：  -log-<span class="keyword">update</span>  </span><br><span class="line">二进制日志：-<span class="keyword">log</span>-<span class="keyword">bin</span></span><br></pre></td></tr></table></figure>
+<h1 id="资源控制"><a href="#资源控制" class="headerlink" title="资源控制"></a>资源控制</h1><h2 id="地址限制"><a href="#地址限制" class="headerlink" title="地址限制"></a>地址限制</h2><figure class="highlight sql"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> host,<span class="keyword">user</span>,<span class="keyword">password</span> <span class="keyword">from</span> mysql.user <span class="keyword">where</span> host=<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%timeout%'</span>;</span><br><span class="line"># 参数</span><br><span class="line">interactive_timeout #服务器关闭交互式连接前等待活动的秒数，默认值为28800。</span><br><span class="line">wait_timeout        #服务器关闭非交互连接之前等待活动的秒数，默认值为28800。</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>mysql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select user();            #查看当前用户</span><br><span class="line">select database();        #查看当前数据库</span><br><span class="line">show database;            #查看所有数据库</span><br><span class="line">show tables;              #显示当前数据库的所有表</span><br><span class="line">select * from mysql.user; #查看所有用户</span><br><span class="line">show plugins;             #查看插件信息</span><br></pre></td></tr></table></figure>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-18T08:19:00.000Z" itemprop="dateUpdated">2019-04-18 16:19:00</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/03/26/SqlDJBH/" target="_blank" rel="external">https://yuanlichenai.cn/2019/03/26/SqlDJBH/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oracle/">oracle</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/03/26/SqlDJBH/&title=《SqlDJBH》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/03/26/SqlDJBH/&title=《SqlDJBH》 — YuanLiChenAi&source=数据库等级保护笔记2.0
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2019/05/08/密码学基础与应用/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">密码学基础与应用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2019/03/03/markdown插入音乐/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">markdown插入音乐</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#oracle"><span class="post-toc-number">1.</span> <span class="post-toc-text">oracle</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看版本"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">查看版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#身份鉴别"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">身份鉴别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码策略"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">密码策略</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#超时锁定"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">超时锁定</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#访问控制"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">访问控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全审计"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">安全审计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#入侵防范"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">入侵防范</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#mysql"><span class="post-toc-number">2.</span> <span class="post-toc-text">mysql</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查看版本-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">查看版本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#身份鉴别-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">身份鉴别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#密码策略-1"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">密码策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#访问控制-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">访问控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安全审计-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">安全审计</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#资源控制"><span class="post-toc-number">3.</span> <span class="post-toc-text">资源控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#地址限制"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">地址限制</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2019/03/26/SqlDJBH/&title=《SqlDJBH》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2019/03/26/SqlDJBH/&title=《SqlDJBH》 — YuanLiChenAi&source=数据库等级保护笔记2.0
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3ay27DIBAF0Pz/T7ubLiq1ce4MuBJwWFWV43BYTObB6xWv63b9fObd8/dv/v2p1xMLAwNjWUa+xfuNvttE/p7kON5SMTAwDmAkoTCJeL0wmgTxD3vGwMDAuH31Faz8gDAwMDBmBdw8pI4UvRgYGBi9Vlq1rJ11QNNqcQwMjAUZedf9//9+ZL6BgYGxFOMqrllzw1n7+X4nBgbG1oxq0z8vL/OSNSpQg/1gYGDszciTwmrjvke9/8YJuS0GBsaCjJHm2qyQ3fvGP343MDAwNmXk7fiRZlzy5t5oAQMD40zGE43+apZavZaBgYGxK6PX+k8uW/SuaPTCPQYGxt6MaoOs154b325+WQ0DA2M/RrWl1StuR4aX0d4wMDAOYPSuSlQDbp6M5q268qMYGBjLMvJCtHctrDdUKCSmGBgYWzPytKwZCoeHmsmQFQMD4zRG0srPkdftqobdocEABgbGdoxk07PabSPHhIGBcRojSdTGE7vxMrh5iwQDA2Nxxn0yl3xBfv0rH5RW34OBgXECoxehexutFsnNdBADA+MARq9J1ytue101DAyMExhXcVUDbrUATv6PgYFxGmM8sFbTu/GjGQrZGBgYyzKSINsbCfQSxGaqioGBcQAjD3zVwWS1bdfsqmFgYGAEG81L2fED+nDZAgMD43jGrCd7Y4BHfjcwMDAWYeTXRquBeLwxFxXAGBgYWzN6Ia8XUquDgWqSioGBsR3jC5XSnTvfPLEEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>

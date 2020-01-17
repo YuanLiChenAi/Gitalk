@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    
+    
+    <title>实验吧-隐写术-writeup | YuanLiChenAi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="实验吧,STEGA">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":true}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"YuanLiChenAi","repo":"blog","oauth":{"client_id":"59f005779b1a5d300083","client_secret":"78d6b45816143073b16a95e1ffb4b0449bd47650"},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">YuanLiChenAi</h5>
+          <a href="mailto:心中有光，忽明忽暗。" title="心中有光，忽明忽暗。" class="mail">
+            
+              <span>心</span>
+            
+              <span>中</span>
+            
+              <span>有</span>
+            
+              <span>光</span>
+            
+              <span>，</span>
+            
+              <span>忽</span>
+            
+              <span>明</span>
+            
+              <span>忽</span>
+            
+              <span>暗</span>
+            
+              <span>。</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="http://shang.qq.com/email/stop/email_stop.html?qq=1518801557" target="_blank">
+                  <i class="icon icon-lg icon-qq"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://github.com/YuanLiChenAi" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/5653458750/" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="http://music.163.com/#/user/home?id=583505936" target="_blank">
+                  <i class="icon icon-lg icon-music"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/test">
+                <i class="icon icon-lg icon-bug"></i>
+                测试
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/study">
+                <i class="icon icon-lg icon-plane"></i>
+                导航
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/links">
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/about">
+                <i class="icon icon-lg icon-user"></i>
+                关于
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>实验吧-隐写术-writeup</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">实验吧-隐写术-writeup</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-15T01:50:09.000Z" itemprop="datePublished" class="page-time">
+  2018-05-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left">
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-实验吧-隐写术-writeup" class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">实验吧-隐写术-writeup</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-15 09:50:09" datetime="2018-05-15T01:50:09.000Z" itemprop="datePublished">2018-05-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CTF/">CTF</a></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <blockquote><p>实验吧隐写题writeup</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Fonts"><a href="#Fonts" class="headerlink" title="Fonts"></a>Fonts</h1><p>这题主要考察word隐藏文字，在文件-&gt;选项-&gt;显示中勾选隐藏文字，即可得到flag<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/01-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/01-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/01-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/01-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--CTF{F_!o!_!n!_t_s}--></p>
+<h1 id="流"><a href="#流" class="headerlink" title="流"></a>流</h1><p>Winhex大法简单粗暴<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/02-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/02-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--CTF{NTFS_ADS}--></p>
+<h1 id="小苹果"><a href="#小苹果" class="headerlink" title="小苹果"></a>小苹果</h1><p>1.先扫码<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>2.unicode转字符串<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>3.<a href="https://baike.baidu.com/item/%E5%BD%93%E9%93%BA%E5%AF%86%E7%A0%81/19848621?fr=aladdin" target="_blank" rel="noopener">当铺密码</a>解密<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">羊由大井夫大人王中工</span><br><span class="line">9158753624</span><br></pre></td></tr></table></figure></p>
+<p>4.mp3解密<br>用winhex打开可以看到rar文件尾，将文件名后缀改成.rar解压出mp3文件<br>接下来用MP3Stego解密<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MP3StegoDecode.exe -X -P 9158753624 .\apple.mp3</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-03.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/03-03.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>5.base64解码得到flag<br><!--CTF{xiao_ping_guo}--></p>
+<h1 id="女神又和大家见面了"><a href="#女神又和大家见面了" class="headerlink" title="女神又和大家见面了"></a>女神又和大家见面了</h1><p>一张小姐姐的照片，用winhex打开发现有rar文件头，解压出来一个MP3文件和提示<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/04-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/04-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>应该是MP3隐写，用MP3Stego解密<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MP3StegoDecode.exe -X -P simctf .\music.mp3</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/04-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/04-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>base64解码得到flag<br><!--SimCTF{MP3_MP3_sdfdsf}--></p>
+<h1 id="复杂的QR-code"><a href="#复杂的QR-code" class="headerlink" title="复杂的QR_code"></a>复杂的QR_code</h1><p>用winhex打开可以看到zip文件头<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/05-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/05-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>binwalk分离<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~/Desktop<span class="comment"># binwalk -e QR_code.png</span></span><br><span class="line"></span><br><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             PNG image, 280 x 280, 1-bit colormap, non-interlaced</span><br><span class="line">471           0x1D7           Zip archive data, encrypted at least v2.0 to extract, compressed size: 29, uncompressed size: 15, name: 4number.txt</span><br><span class="line">650           0x28A           End of Zip archive</span><br></pre></td></tr></table></figure></p>
+<p>提示4位数字，爆破一下,拿到flag<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/05-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/05-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br><!--CTF{vjpw_wnoei}--></p>
+<h1 id="听会歌吧"><a href="#听会歌吧" class="headerlink" title="听会歌吧"></a>听会歌吧</h1><p>右键查看源代码，发现url后门是base64编码的文件名<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/06-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/06-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>将download.php下载下来看看<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/06-02.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/06-02.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>查看源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">﻿&lt;\?php</span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">"hereiskey.php"</span>);</span><br><span class="line">$url=base64_decode($_GET[url]);</span><br><span class="line"><span class="keyword">if</span>( $url==<span class="string">"hereiskey.php"</span> || $url==<span class="string">"buxiangzhangda.mp3"</span> || $url==<span class="string">"xingxingdiandeng.mp3"</span> || $url==<span class="string">"download.php"</span>)&#123;</span><br><span class="line">	$file_size = filesize($url);</span><br><span class="line">	header ( <span class="string">"Pragma: public"</span> );</span><br><span class="line">	header ( <span class="string">"Cache-Control: must-revalidate, post-check=0, pre-check=0"</span> );</span><br><span class="line">	header ( <span class="string">"Cache-Control: private"</span>, <span class="keyword">false</span> );</span><br><span class="line">	header ( <span class="string">"Content-Transfer-Encoding: binary"</span> );</span><br><span class="line">	header ( <span class="string">"Content-Type:audio/mpeg MP3"</span>);</span><br><span class="line">	header ( <span class="string">"Content-Length: "</span> . $file_size);</span><br><span class="line">	header ( <span class="string">"Content-Disposition: attachment; filename="</span>.$url);</span><br><span class="line">	<span class="keyword">echo</span>(file_get_contents($url));</span><br><span class="line">	<span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Access Forbidden!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>同样方法将hereiskey.php下载下来得到flag<br><!--d0wnload_0k--></p>
+<h1 id="SB！SB！SB！"><a href="#SB！SB！SB！" class="headerlink" title="SB！SB！SB！"></a>SB！SB！SB！</h1><p>StegSolve打开找到二维码<br><figure class="image-box">
+                <a rel="实验吧-隐写术-writeup" href="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/07-01.png" title="" data-fancybox="images"><img src="https://bp.yuanlichenai.cn/Shiyanbar/STEGA-1/07-01.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure><br>扫码得到flag<br><!--flag{AppLeU0}--></p>
+<h1 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h1><p>lsb隐写，使用wbStego4.3open解码<br><!--SimCTF{LSB_yinxie}--></p>
+<p><br><br><br></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-09T10:30:00.000Z" itemprop="dateUpdated">2018-02-09 18:30:00</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/05/15/实验吧-隐写术-writeup/" target="_blank" rel="external">https://yuanlichenai.cn/2018/05/15/实验吧-隐写术-writeup/</a>
+        
+    </div>
+    <footer>
+        <a href="https://yuanlichenai.cn">
+            <img src="/img/avatar.jpg" alt="YuanLiChenAi">
+            YuanLiChenAi
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STEGA/">STEGA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实验吧/">实验吧</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/15/实验吧-隐写术-writeup/&title=《实验吧-隐写术-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/15/实验吧-隐写术-writeup/&title=《实验吧-隐写术-writeup》 — YuanLiChenAi&source=实验吧隐写题writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+<!--  -->
+
+
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<div id="gitalk-container"></div>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '59f005779b1a5d300083',
+        clientSecret: '78d6b45816143073b16a95e1ffb4b0449bd47650',
+        repo: 'blog',
+        owner: 'YuanLiChenAi',
+        admin: 'YuanLiChenAi',
+        id: md5(location.pathname),
+        labels: 'Gitalk'.split(',').filter(l => l),
+        perPage: 15,
+        pagerDirection: 'last',
+        createIssueManually: true,
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+</script>
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2018/05/21/Pycharm使用遇到的问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Pycharm使用遇到的问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2018/05/09/实验吧-Misc-writeup/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">实验吧-Misc-writeup</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Fonts"><span class="post-toc-number">1.</span> <span class="post-toc-text">Fonts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#流"><span class="post-toc-number">2.</span> <span class="post-toc-text">流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小苹果"><span class="post-toc-number">3.</span> <span class="post-toc-text">小苹果</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#女神又和大家见面了"><span class="post-toc-number">4.</span> <span class="post-toc-text">女神又和大家见面了</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#复杂的QR-code"><span class="post-toc-number">5.</span> <span class="post-toc-text">复杂的QR_code</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#听会歌吧"><span class="post-toc-number">6.</span> <span class="post-toc-text">听会歌吧</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SB！SB！SB！"><span class="post-toc-number">7.</span> <span class="post-toc-text">SB！SB！SB！</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#LSB"><span class="post-toc-number">8.</span> <span class="post-toc-text">LSB</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </div></div></aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="bottom">
+        <p>
+            <span>
+                YuanLiChenAi &copy; 2017 - 2020
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yuanlichenai.cn/2018/05/15/实验吧-隐写术-writeup/&title=《实验吧-隐写术-writeup》 — YuanLiChenAi&pic=https://yuanlichenai.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yuanlichenai.cn/2018/05/15/实验吧-隐写术-writeup/&title=《实验吧-隐写术-writeup》 — YuanLiChenAi&source=实验吧隐写题writeup
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3aQU7DQAwFUO5/aZBYgUrTb3scQHpZVWqUmTeL2LH99hZf75/X4+/He75ez+6/vufx3+t1D1x4eHh4ra0/u5INVZ+cHMr1sSZ7xsPDw9vmJcGgutj8Hd4LTnh4eHh/h7f30q+m8nh4eHj/l5ckuNVEfF4QwcPDw7uHl28rf8XnIaFa/lipteDh4eHFvMlL+bd+39Tfw8PDwyt21aulhOTVnAee61AR7RYPDw9vgZcv2Su/JuXd3sBBnr7j4eHhneUlH/+nwkOvhda7/1vcw8PDwzvKq3789/7Ng021FJsUf/Hw8PDO8k6NPSVBJQ8bkyLF07iHh4eHt8BLRgeSlHceKvJU/sWu8PDw8BZ4G8hemOnNA0RgPDw8vKO8/AyqZYje4NSBMHD9xYCHh4c35vUa+Qkj31Y+stAMNnh4eHgLvGpgyIsRvQM6FR7w8PDw9nhJElwdeMo3miTlvRQcDw8Pb49XLRP0BgLytXqrvzgaPDw8vFt48zJBfnBJEMoLxHh4eHh7vN4LvZqC9w4xT99fjA7g4eHhHeX1ljn1Ku+FkKS8i4eHh3cPLw8J+WKTJ8xLGHh4eHj38KK6RSt1TsoHydPyNB0PDw9vg3eqBlxtR/WaWMlIwdOZCDw8PLxDvN5Hfq8cMCkN50n5D6vj4eHhHeVV20vV0uokQa+GqEJ/Dw8PD+8or/roXlDplRvKiTgeHh7eAq/aDKu2puaYs10tPDw8vDnvvXidanElQSgPRdEcGR4eHt4h3sac0mQrk5IEHh4e3p28JBjk9/Q2XT2aQhKPh4eHt8brJcdJzElKvaOqSbWmgoeHh3cjrzeGVS0Q57woROHh4eH9Ad68nd8bO2geHx4eHt4ar1cymAwQVJ9cba3h4eHh7fF6X/S9Iu9kXGCls4eHh4dX430A7yhUuYTtFTAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '看这里~看这里~';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '嗨~👋';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":120,"height":240,"position":"right","hOffset":20,"vOffset":-90},"mobile":{"show":true},"log":false});</script></body>
+</html>
